@@ -32,7 +32,7 @@ Está en **español e inglés** y funciona **sin Google Play Services**.
 ### Cómo empezar
 
 1. Descarga el APK de la última versión publicada (las versiones se publican en las *Releases* de este repositorio y en el servidor de actualizaciones de la app) e instálalo.
-2. Ábrelo con tu lector funcionando: un **asistente** te explica cada permiso y lo deja todo preparado (atajo, voz, copias, configuración guardada).
+2. Ábrelo con tu lector funcionando: un **asistente** te explica cada permiso y lo deja todo preparado (atajo, voz, copias, configuración guardada). En Android 13 o posterior, si Android dice que el ajuste de accesibilidad está «restringido», abre la información de la app, menú Más opciones, «Permitir ajustes restringidos».
 3. Practica una vez: mantén pulsadas las dos teclas de volumen y recorre el menú.
 
 El **manual de uso** completo está dentro de la app y en [`app/src/main/assets/manual-es.html`](app/src/main/assets/manual-es.html).
