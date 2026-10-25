@@ -1,3 +1,10 @@
+== 1.0.1
+- Primera versión publicada también en GitHub (github.com/hxebolax/RescateAccesible), con su código fuente.
+- Actualizaciones con respaldo: la app busca primero en el servidor propio y, si no responde o falla, en las versiones publicadas en GitHub. Si la descarga se corta del todo en una fuente, prueba la otra. En las dos se comprueba igual que el archivo es el publicado (tamaño y SHA-256), que es Rescate Accesible, más nueva y con la misma firma.
+- El aviso de actualización dice cuándo viene de GitHub.
+- El asistente y el manual explican qué hacer si Android 13 o posterior dice que el ajuste de accesibilidad está «restringido» (al instalar el APK desde el navegador o un gestor de archivos).
+- Incluye todo lo de la 1.0.0: menú de rescate que habla solo con el atajo de las teclas de volumen, voces propias Pico y eSpeak NG sin Internet, grabaciones de respaldo, modo seguro y modo eco, diagnóstico automático, guía por los Ajustes, copias y reinstalación de TalkBack y de la voz de Google, guardián, permiso avanzado con depuración inalámbrica integrada y consola del sistema.
+
 == 1.0.0
 - Primera versión de Rescate Accesible: recupera tú solo el lector de pantalla, la voz y la accesibilidad del móvil, sin ayuda de nadie y sin Internet.
 - Se abre con el atajo de las dos teclas de volumen, también con el móvil bloqueado y antes de desbloquear tras reiniciar. También desde el icono, su acceso directo, el mosaico «Rescate» de los ajustes rápidos y el aviso del guardián.

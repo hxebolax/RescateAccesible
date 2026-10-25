@@ -107,4 +107,5 @@
 	<string name="tts_abrir_ajustes">Abrir los ajustes de síntesis de voz</string>
 	<string name="tts_como_elegir">Para usarla con TalkBack: en los ajustes de síntesis de voz, elige «Motor preferido» y después «Voz de rescate (Pico)». En algunos móviles, TalkBack tiene su propio ajuste de motor de voz.</string>
 	<string name="tts_nada_que_instalar">Las voces ya vienen dentro de la app: no hay nada que descargar.</string>
+	<string name="act_desde_github">Viene de GitHub, porque el servidor propio no responde.</string>
 </resources>

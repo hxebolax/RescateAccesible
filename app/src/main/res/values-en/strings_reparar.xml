@@ -102,4 +102,5 @@
 	<string name="tts_abrir_ajustes">Open the text-to-speech settings</string>
 	<string name="tts_como_elegir">To use it with TalkBack: in the text-to-speech settings, choose «Preferred engine» and then «Rescue voice (Pico)». On some phones, TalkBack has its own speech engine setting.</string>
 	<string name="tts_nada_que_instalar">The voices already come inside the app: there is nothing to download.</string>
+	<string name="act_desde_github">It comes from GitHub, because the own server is not responding.</string>
 </resources>

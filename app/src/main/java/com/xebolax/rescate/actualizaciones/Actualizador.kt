@@ -12,6 +12,7 @@ import com.xebolax.rescate.R
 import com.xebolax.rescate.nucleo.Idioma
 import com.xebolax.rescate.nucleo.Preferencias
 import com.xebolax.rescate.nucleo.Registro
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.ensureActive
@@ -24,7 +25,10 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.security.MessageDigest
 
-/** Versión publicada en el servidor (version.json). */
+/** De dónde viene una versión publicada. */
+enum class OrigenVersion { SERVIDOR, GITHUB }
+
+/** Versión publicada (version.json del servidor propio o de la release de GitHub). */
 data class VersionPublicada(
 	val version: String,
 	val versionCode: Int,
@@ -34,20 +38,26 @@ data class VersionPublicada(
 	val fecha: String,
 	val notas: String,
 	val base: String,
+	val origen: OrigenVersion = OrigenVersion.SERVIDOR,
+	/** Otras direcciones del mismo APK, por si la principal falla al descargar. */
+	val alternativas: List<String> = emptyList(),
 ) {
 	val url: String get() = "$base/$archivo"
 }
 
 /**
- * Actualizaciones desde el servidor propio (sin tiendas ni Play Services):
+ * Actualizaciones sin tiendas ni Play Services, de dos fuentes:
  *
- * 1. Se lee `version.json` y se compara con la versión instalada.
- * 2. Se descarga `RescateAccesible_v<versión>.apk` a la caché de la app.
- * 3. Se comprueba que el archivo es el publicado (tamaño y SHA-256) y que es
- *    Rescate Accesible, más nueva y firmada con la MISMA clave que la instalada.
- *    Android además rechaza instalar encima una app con otra firma, así que un
- *    servidor manipulado no puede colar otra aplicación.
- * 4. El instalador del sistema pide la confirmación al usuario.
+ * 1. El servidor propio (Ajustes): `version.json` y `RescateAccesible_v<versión>.apk`.
+ * 2. Si el servidor no responde o falla, las releases de GitHub: el mismo
+ *    `version.json` subido a la última release y, si no estuviera, su API.
+ *
+ * Después se descarga el APK (si se corta, se continúa; si la fuente falla del
+ * todo, se prueba la otra) y se comprueba que es el publicado (tamaño y
+ * SHA-256) y que es Rescate Accesible, más nueva y firmada con la MISMA clave
+ * que la instalada. Android además rechaza instalar encima una app con otra
+ * firma, así que una fuente manipulada no puede colar otra aplicación. El
+ * instalador del sistema pide la confirmación al usuario.
  */
 object Actualizador {
 	private const val AGENTE = "RescateAccesible-Actualizador"
@@ -55,6 +65,13 @@ object Actualizador {
 	/** Cortes seguidos SIN avanzar antes de rendirse (si avanza, el contador vuelve a cero). */
 	private const val REINTENTOS = 8
 	private const val ETIQUETA = "Actualizador"
+
+	/** Las releases del repositorio de GitHub (respaldo del servidor propio). */
+	private val GITHUB_WEB = "https://github.com/${BuildConfig.REPO_GITHUB}/releases"
+	private val GITHUB_API = "https://api.github.com/repos/${BuildConfig.REPO_GITHUB}/releases/latest"
+
+	/** Dónde está el APK de [version] en las releases de GitHub (etiqueta v<versión>). */
+	fun baseGitHub(version: String): String = "$GITHUB_WEB/download/v$version"
 
 	/** Dirección del servidor (Ajustes; por defecto la de la compilación). */
 	fun urlBase(contexto: Context): String = Preferencias(contexto).urlActualizaciones
@@ -86,43 +103,125 @@ object Actualizador {
 		return 0
 	}
 
-	/** Lee version.json del servidor (con un reintento si la red falla). Lanza excepción si no se puede. */
+	/**
+	 * La versión publicada: primero el servidor propio (con un reintento corto) y,
+	 * si no responde o lo que da no vale, GitHub. Lanza la excepción del servidor
+	 * propio si tampoco se puede con GitHub.
+	 */
 	suspend fun versionPublicada(contexto: Context): VersionPublicada = withContext(Dispatchers.IO) {
 		val base = urlBase(contexto)
+		var fallo: Exception? = null
 		// Dos intentos cortos: es un archivo diminuto y quien busca a mano está esperando
-		try {
-			return@withContext leerVersion(contexto, base)
-		} catch (e: IOException) {
-			Registro.w(ETIQUETA, "No se pudo leer version.json", e)
-			delay(1500)
+		for (intento in 1..2) {
+			try {
+				val v = leerVersion(contexto, base, OrigenVersion.SERVIDOR)
+				// El mismo APK en GitHub, por si la descarga del servidor falla después
+				return@withContext v.copy(alternativas = listOf("${baseGitHub(v.version)}/${v.archivo}"))
+			} catch (e: CancellationException) {
+				throw e
+			} catch (e: Exception) {
+				Registro.w(ETIQUETA, "El servidor propio no dio la versión (intento $intento)", e)
+				fallo = e
+				if (intento == 1 && e is IOException) delay(1500) else break
+			}
 		}
-		leerVersion(contexto, base)
+		try {
+			val v = versionGitHub(contexto)
+			Registro.i(ETIQUETA, "Versión ${v.version} encontrada en GitHub (el servidor propio falló)")
+			v.copy(alternativas = listOf("$base/${v.archivo}"))
+		} catch (e: CancellationException) {
+			throw e
+		} catch (e: Exception) {
+			Registro.w(ETIQUETA, "Tampoco se pudo leer la versión de GitHub", e)
+			throw fallo ?: e
+		}
 	}
 
-	private fun leerVersion(contexto: Context, base: String): VersionPublicada {
+	/**
+	 * La última release de GitHub: su version.json (el mismo que el del
+	 * servidor) y, si no lo tiene, la API de GitHub.
+	 */
+	private fun versionGitHub(contexto: Context): VersionPublicada {
+		try {
+			val v = leerVersion(contexto, "$GITHUB_WEB/latest/download", OrigenVersion.GITHUB)
+			return v.copy(base = baseGitHub(v.version))
+		} catch (e: CancellationException) {
+			throw e
+		} catch (e: Exception) {
+			Registro.w(ETIQUETA, "La release de GitHub no tiene version.json: se usa su API", e)
+		}
+		val c = conexion(GITHUB_API, conectar = 8_000)
+		try {
+			c.setRequestProperty("Accept", "application/vnd.github+json")
+			if (c.responseCode != 200) throw IllegalStateException(textos(contexto).getString(R.string.act_servidor_respondio, c.responseCode))
+			val json = JSONObject(c.inputStream.bufferedReader(Charsets.UTF_8).use { it.readText() })
+			return desdeApiGitHub(json) ?: throw IllegalArgumentException(textos(contexto).getString(R.string.act_version_invalida))
+		} finally {
+			c.disconnect()
+		}
+	}
+
+	/**
+	 * Convierte la respuesta de la API de GitHub (`releases/latest`) en una
+	 * versión publicada: la etiqueta v<versión>, el APK de la release (su nombre
+	 * debe ser RescateAccesible_v<versión>.apk) con su tamaño y su SHA-256
+	 * («digest» del recurso) y las novedades del cuerpo. Null si no vale.
+	 */
+	fun desdeApiGitHub(json: JSONObject): VersionPublicada? {
+		if (json.optBoolean("draft") || json.optBoolean("prerelease")) return null
+		val version = json.optString("tag_name").trim().removePrefix("v").takeIf { it.isNotEmpty() } ?: return null
+		val recursos = json.optJSONArray("assets") ?: return null
+		for (i in 0 until recursos.length()) {
+			val r = recursos.optJSONObject(i) ?: continue
+			val nombre = r.optString("name")
+			if (!Regex("RescateAccesible_v[0-9.]+\\.apk").matches(nombre)) continue
+			val url = r.optString("browser_download_url")
+			// Solo descargas del propio repositorio
+			if (!url.startsWith("$GITHUB_WEB/download/")) continue
+			return VersionPublicada(
+				version = version,
+				versionCode = 0,
+				archivo = nombre,
+				sha256 = r.optString("digest").removePrefix("sha256:").trim().lowercase().takeIf { it.length == 64 }.orEmpty(),
+				tamano = r.optLong("size", 0L),
+				fecha = json.optString("published_at").take(10),
+				notas = json.optString("body").trim(),
+				base = url.substringBeforeLast('/'),
+				origen = OrigenVersion.GITHUB,
+			)
+		}
+		return null
+	}
+
+	private fun leerVersion(contexto: Context, base: String, origen: OrigenVersion): VersionPublicada {
 		val c = conexion("$base/version.json?t=${System.currentTimeMillis()}", conectar = 8_000)
 		try {
 			if (c.responseCode != 200) throw IllegalStateException(textos(contexto).getString(R.string.act_servidor_respondio, c.responseCode))
 			val o = JSONObject(c.inputStream.bufferedReader(Charsets.UTF_8).use { it.readText() })
-			val version = o.optString("version").trim()
-			val archivo = o.optString("file").trim()
-			val invalido = textos(contexto).getString(R.string.act_version_invalida)
-			require(version.isNotEmpty() && archivo.isNotEmpty()) { invalido }
-			// Solo un nombre de archivo, nunca una ruta ni otra web
-			require(Regex("[A-Za-z0-9._-]+\\.apk").matches(archivo)) { invalido }
-			return VersionPublicada(
-				version = version,
-				versionCode = o.optInt("versionCode", 0),
-				archivo = archivo,
-				sha256 = o.optString("sha256").trim().lowercase(),
-				tamano = o.optLong("size", 0L),
-				fecha = o.optString("date"),
-				notas = o.optString("notas").trim(),
-				base = base,
-			)
+			return desdeVersionJson(o, base, origen) ?: throw IllegalArgumentException(textos(contexto).getString(R.string.act_version_invalida))
 		} finally {
 			c.disconnect()
 		}
+	}
+
+	/** Lee un version.json; null si no es válido. */
+	fun desdeVersionJson(o: JSONObject, base: String, origen: OrigenVersion = OrigenVersion.SERVIDOR): VersionPublicada? {
+		val version = o.optString("version").trim()
+		val archivo = o.optString("file").trim()
+		if (version.isEmpty() || archivo.isEmpty()) return null
+		// Solo un nombre de archivo, nunca una ruta ni otra web
+		if (!Regex("[A-Za-z0-9._-]+\\.apk").matches(archivo)) return null
+		return VersionPublicada(
+			version = version,
+			versionCode = o.optInt("versionCode", 0),
+			archivo = archivo,
+			sha256 = o.optString("sha256").trim().lowercase(),
+			tamano = o.optLong("size", 0L),
+			fecha = o.optString("date"),
+			notas = o.optString("notas").trim(),
+			base = base,
+			origen = origen,
+		)
 	}
 
 	/** ¿La versión publicada es más nueva que la instalada? */
@@ -134,7 +233,23 @@ object Actualizador {
 	 * Descarga y verifica el APK. progreso(bytes, total) se llama desde el hilo
 	 * de fondo. Devuelve el archivo listo para instalar.
 	 */
-	suspend fun descargar(contexto: Context, v: VersionPublicada, progreso: (Long, Long) -> Unit): File =
+	suspend fun descargar(contexto: Context, v: VersionPublicada, progreso: (Long, Long) -> Unit): File {
+		var fallo: Exception? = null
+		for (url in listOf(v.url) + v.alternativas) {
+			try {
+				return descargarDesde(contexto, v, url, progreso)
+			} catch (e: CancellationException) {
+				throw e
+			} catch (e: Exception) {
+				Registro.w(ETIQUETA, "La descarga desde ${if (url.startsWith(GITHUB_WEB)) "GitHub" else "el servidor propio"} falló; se prueba la otra fuente si la hay", e)
+				fallo = fallo ?: e
+			}
+		}
+		throw fallo ?: IllegalStateException(textos(contexto).getString(R.string.act_no_guardada))
+	}
+
+	/** Descarga el APK de [v] desde [url], con reintentos y continuación, y lo verifica. */
+	private suspend fun descargarDesde(contexto: Context, v: VersionPublicada, url: String, progreso: (Long, Long) -> Unit): File =
 		withContext(Dispatchers.IO) {
 			val t = textos(contexto)
 			val carpeta = carpeta(contexto)
@@ -149,7 +264,7 @@ object Actualizador {
 				// y se continúa donde se quedó (petición Range) en lugar de empezar de cero
 				while (true) {
 					ensureActive()
-					val c = conexion(v.url)
+					val c = conexion(url)
 					val alEmpezar = leidos
 					if (leidos > 0) c.setRequestProperty("Range", "bytes=$leidos-")
 					try {

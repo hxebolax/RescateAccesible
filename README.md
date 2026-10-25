@@ -121,7 +121,10 @@ Más detalle en [`docs/arquitectura.md`](docs/arquitectura.md). Las limitaciones
 
 1. Sube `versionCode` y `versionName` en `app/build.gradle.kts`.
 2. Añade la sección `== <versión>` con las novedades en `NOVEDADES.txt`.
-3. `compilar.bat publicar`: deja el APK y `version.json` (versión, tamaño, SHA-256, novedades) en `dist\` y los copia a la carpeta del servidor de actualizaciones. La app comprueba tamaño, SHA-256, paquete, versión y firma antes de instalar.
+3. `compilar.bat publicar`: deja el APK y `version.json` (versión, tamaño, SHA-256, novedades) en `dist\` y los copia a la carpeta del servidor de actualizaciones.
+4. Crea la release `v<versión>` en GitHub con los mismos dos archivos (`RescateAccesible_v<versión>.apk` y `version.json`).
+
+La app busca primero en el servidor propio y, si no responde, en la última release de GitHub; si una descarga falla, prueba la otra fuente. En las dos comprueba tamaño, SHA-256, paquete, versión y firma antes de instalar.
 
 ### Traducir
 
