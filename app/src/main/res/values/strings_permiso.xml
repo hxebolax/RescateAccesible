@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Permiso avanzado (WRITE_SECURE_SETTINGS): pantalla, notificación del código y resultados. -->
+<resources>
+	<string name="perm_titulo">Permiso avanzado</string>
+	<string name="perm_comprobar">Comprobar el permiso otra vez</string>
+	<string name="perm_estado_concedido">Permiso avanzado concedido. El rescate puede activar y desactivar lectores y cambiar el motor de voz al momento.</string>
+	<string name="perm_estado_no_concedido">Permiso avanzado sin conceder. El rescate funciona, pero tiene que guiarte por los Ajustes para activar lectores o cambiar el motor de voz.</string>
+
+	<string name="perm_que_es_titulo">Qué permite y cómo se quita</string>
+	<string name="perm_que_es">Es el permiso de Android para cambiar ajustes seguros. Con él, el rescate puede activar, desactivar o reiniciar TalkBack, apagar los lectores en modo seguro y devolverlos, elegir el motor de voz y restaurar tu configuración, sin pasar por los Ajustes. Android no deja que una app se lo dé a sí misma: se concede una vez desde la depuración de Android o con root, y se conserva al reiniciar y al actualizar la app.</string>
+	<string name="perm_revocar">Para quitarlo, desinstala la app o escribe en un ordenador: %1$s</string>
+
+	<string name="perm_paso">Paso %1$d. %2$s</string>
+	<string name="perm_m1_titulo">Método 1: desde el propio móvil, con la depuración inalámbrica</string>
+	<string name="perm_m1_no_disponible">Necesita Android 11 o posterior. En este móvil usa el método del ordenador o el de root.</string>
+	<string name="perm_m1_intro">No hace falta ordenador, pero sí una red wifi. Conviene hacerlo con tu lector funcionando.</string>
+	<string name="perm_m1_paso1">Activa las opciones de desarrollador: en Información del teléfono, toca siete veces seguidas Número de compilación (en algunos móviles está dentro de Información de software). Android puede pedirte el PIN.</string>
+	<string name="perm_m1_paso2">En Opciones de desarrollador, activa Depuración inalámbrica. Cuando Android pregunte si permitir la depuración en esta red, marca «Permitir siempre en esta red» y acepta: así la app podrá usar la consola del sistema ella sola más adelante. Después entra en Depuración inalámbrica.</string>
+	<string name="perm_m1_paso3">Toca Vincular dispositivo con código de vinculación. Aparece una ventana con un código de seis cifras.</string>
+	<string name="perm_m1_aviso_ventana">Importante: esa ventana se cierra si cambias a otra app, y entonces el código deja de valer. Por eso es mejor escribir el código en la notificación de Rescate Accesible sin salir de los Ajustes, o usar la pantalla dividida.</string>
+	<string name="perm_m1_opcion_notificacion">Recomendado: escribir el código en una notificación</string>
+	<string name="perm_m1_notificacion_explica">Toca el botón de abajo antes del paso 3. Luego, con la ventana del código abierta, baja las notificaciones, busca la de Rescate Accesible, elige Escribir el código, escribe las seis cifras y envía. La app vincula y concede el permiso sola, y la notificación dice el resultado.</string>
+	<string name="perm_m1_recibir_notificacion">Mostrar la notificación para escribir el código</string>
+	<string name="perm_m1_opcion_aqui">O escribir el código en esta pantalla (con pantalla dividida)</string>
+	<string name="perm_m1_aqui_explica">Pon los Ajustes y esta app en pantalla dividida, con la ventana del código abierta. El puerto se busca solo; si no aparece, escríbelo: es el número que va tras los dos puntos en la ventana del código.</string>
+	<string name="perm_campo_codigo">Código de vinculación de seis cifras</string>
+	<string name="perm_campo_puerto">Puerto de vinculación (opcional)</string>
+	<string name="perm_campo_puerto_ayuda">Si lo dejas vacío, se busca automáticamente</string>
+	<string name="perm_campo_puerto_conexion">Puerto de conexión (opcional)</string>
+	<string name="perm_campo_puerto_conexion_ayuda">El de «Dirección IP y puerto» en Depuración inalámbrica. Vacío: se busca automáticamente</string>
+	<string name="perm_buscar_puerto">Buscar el puerto de vinculación</string>
+	<string name="perm_buscando_puerto">Buscando el puerto. La ventana del código tiene que estar abierta.</string>
+	<string name="perm_puerto_encontrado">Puerto de vinculación encontrado: %1$d</string>
+	<string name="perm_vincular_conceder">Vincular y conceder el permiso</string>
+	<string name="perm_vinculando">Vinculando con la depuración inalámbrica y concediendo el permiso…</string>
+	<string name="perm_olvidar_vinculacion">Olvidar la vinculación y empezar de cero</string>
+	<string name="perm_vinculacion_olvidada">Vinculación olvidada. La próxima vez habrá que usar un código nuevo.</string>
+	<string name="perm_abrir_info_telefono">Abrir Información del teléfono</string>
+	<string name="perm_abrir_desarrollador">Abrir Opciones de desarrollador</string>
+	<string name="perm_pantalla_no_existe">Este móvil no tiene esa pantalla. He abierto los Ajustes: búscala con el buscador de los Ajustes.</string>
+
+	<string name="perm_m2_titulo">Método 2: con un ordenador</string>
+	<string name="perm_m2_intro">Activa la depuración USB en las opciones de desarrollador, conecta el móvil al ordenador con el cable, acepta la pregunta del móvil y escribe en el ordenador este comando de adb:</string>
+	<string name="perm_copiar_comando">Copiar el comando de adb</string>
+	<string name="perm_compartir_comando">Compartir el comando de adb</string>
+	<string name="perm_compartir_asunto">Comando para Rescate Accesible</string>
+	<string name="perm_compartir_texto">Para conceder el permiso avanzado a Rescate Accesible, con el móvil conectado por USB y la depuración USB activada, escribe en el ordenador:\n\n%1$s</string>
+
+	<string name="perm_m3_titulo">Método 3: con root</string>
+	<string name="perm_m3_intro">Solo si tu móvil tiene root. Si no lo tiene, este botón solo te lo dirá.</string>
+	<string name="perm_m3_intro_hay">Parece que este móvil tiene root. Tu gestor de root te preguntará si lo permites.</string>
+	<string name="perm_conceder_root">Conceder el permiso con root</string>
+	<string name="perm_root_esperando">Esperando la respuesta del gestor de root…</string>
+	<string name="perm_root_no_hay">Este móvil no tiene root. Usa otro método.</string>
+	<string name="perm_root_denegado">El gestor de root no lo ha permitido.</string>
+
+	<string name="perm_m4_titulo">Método 4: con Shizuku</string>
+	<string name="perm_m4_instalado">Tienes Shizuku instalado. Con Shizuku en marcha, abre su terminal (rish) o una app de terminal que lo use y escribe: %1$s</string>
+	<string name="perm_m4_no_instalado">Shizuku es otra app que da acceso al shell de depuración. Si la usas, con ella en marcha escribe en su terminal (rish): %1$s</string>
+	<string name="perm_copiar_comando_shell">Copiar el comando para el terminal</string>
+
+	<string name="perm_despues_titulo">Después de concederlo</string>
+	<string name="perm_despues_intro">Ya puedes desactivar la depuración inalámbrica y las opciones de desarrollador: el permiso se conserva. Si la red wifi quedó como permitida, cuando haga falta la app las encenderá un momento ella sola para reparar cosas que solo se pueden hacer con la consola del sistema (audio mono, balance, habilitar apps, quitar actualizaciones) y las volverá a apagar.</string>
+	<string name="perm_saltar_pregunta">Marcar como contestada la pregunta del atajo de volumen</string>
+	<string name="perm_pregunta_saltada">Hecho: la primera vez que uses el atajo de las teclas de volumen, Android ya no preguntará y abrirá el rescate enseguida.</string>
+	<string name="perm_pregunta_no_saltada">No se ha podido marcar la pregunta del atajo.</string>
+	<string name="perm_apagar_depuracion">Desactivar la depuración inalámbrica</string>
+	<string name="perm_depuracion_apagada">Depuración inalámbrica desactivada.</string>
+	<string name="perm_depuracion_no_apagada">No se ha podido desactivar desde aquí. Hazlo en Opciones de desarrollador.</string>
+
+	<string name="perm_canal">Permiso avanzado</string>
+	<string name="perm_canal_descripcion">Para escribir el código de vinculación de la depuración inalámbrica sin salir de los Ajustes.</string>
+	<string name="perm_notif_titulo">Rescate Accesible: código de vinculación</string>
+	<string name="perm_notif_texto">Con la ventana del código abierta en los Ajustes, elige Escribir el código y escribe las seis cifras.</string>
+	<string name="perm_notif_campo">Código de seis cifras</string>
+	<string name="perm_notif_accion">Escribir el código</string>
+	<string name="perm_notif_lista">Notificación lista. Ahora ve a Depuración inalámbrica, toca Vincular dispositivo con código de vinculación y contesta a la notificación con el código.</string>
+	<string name="perm_notif_sin_permiso">Las notificaciones de Rescate Accesible están desactivadas. Actívalas o usa la pantalla dividida.</string>
+
+	<string name="perm_codigo_invalido">El código tiene seis cifras. Escríbelo otra vez.</string>
+	<string name="perm_res_concedido">Permiso avanzado concedido. Ya puedes desactivar la depuración inalámbrica: la app la encenderá sola cuando la necesite.</string>
+	<string name="perm_res_no_disponible">Este Android no tiene depuración inalámbrica. Usa el método del ordenador o el de root.</string>
+	<string name="perm_res_sin_wifi">La depuración inalámbrica necesita estar conectado a una red wifi.</string>
+	<string name="perm_res_sin_puerto_vinculacion">No encuentro la ventana del código. Abre Vincular dispositivo con código de vinculación y vuelve a intentarlo sin cerrarla. Si sigue sin aparecer, apaga y enciende la depuración inalámbrica.</string>
+	<string name="perm_res_vinculacion_fallida">La vinculación no ha funcionado: el código no era correcto o la ventana se cerró. Abre la ventana otra vez y usa el código nuevo.</string>
+	<string name="perm_res_sin_puerto_conexion">No encuentro la depuración inalámbrica. Comprueba que está activada, o escribe el puerto de conexión.</string>
+	<string name="perm_res_no_autorizado">La depuración no ha aceptado la app. Vuelve a vincular con un código nuevo.</string>
+	<string name="perm_res_no_concedido">El comando se ejecutó pero el permiso no quedó concedido. Prueba con el método del ordenador.</string>
+	<string name="perm_res_tiempo">No ha respondido a tiempo. Inténtalo otra vez.</string>
+	<string name="perm_res_fallo">Ha fallado: %1$s</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="idiomas_nombres">
+		<item>@string/aj_idioma_sistema</item>
+		<item>Español</item>
+		<item>English</item>
+	</string-array>
+	<string-array name="idiomas_valores" translatable="false">
+		<item></item>
+		<item>es</item>
+		<item>en</item>
+	</string-array>
+	<string-array name="altavoz_nombres">
+		<item>@string/aj_altavoz_auto</item>
+		<item>@string/aj_altavoz_siempre</item>
+		<item>@string/aj_altavoz_nunca</item>
+	</string-array>
+	<string-array name="altavoz_valores" translatable="false">
+		<item>auto</item>
+		<item>siempre</item>
+		<item>nunca</item>
+	</string-array>
+</resources>

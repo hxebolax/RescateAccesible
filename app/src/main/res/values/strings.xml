@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Rescate Accesible</string>
+	<string name="nombre_menu_rescate">Rescate</string>
+	<string name="mosaico_nombre">Rescate</string>
+	<string name="acceso_rescate_corto">Rescate</string>
+	<string name="acceso_rescate_largo">Abrir el menú de rescate</string>
+</resources>

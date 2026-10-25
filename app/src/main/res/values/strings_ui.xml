@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantallas de la app (paquete ui), servicios de accesibilidad y avisos. -->
+<resources>
+	<!-- Servicios de accesibilidad: lo que muestra Ajustes > Accesibilidad -->
+	<string name="servicio_atajo_nombre">Rescate Accesible</string>
+	<string name="servicio_atajo_descripcion">Abre el menú de rescate con el atajo de accesibilidad, por ejemplo manteniendo pulsadas las dos teclas de volumen. Asigna el atajo a Rescate Accesible y que sea lo único en ese atajo. No hace falta activar este servicio: el atajo lo activa cuando lo necesitas y se apaga solo al salir del rescate.\n\nPara qué necesita control total: leer la pantalla con su propia voz cuando tu lector no habla, recibir las teclas de volumen durante el rescate, subir el volumen de accesibilidad y guiarte por los Ajustes. No guarda ni envía nada de lo que lee.</string>
+	<string name="servicio_guardian_nombre">Rescate Accesible: guardián</string>
+	<string name="servicio_guardian_descripcion">Opcional. Queda activado y vigila, sin leer la pantalla, si tu lector y la voz del sistema siguen funcionando. Si tu lector se apaga o la voz del sistema deja de hablar, te avisa con la voz de rescate, te lee la pantalla con ella (modo eco) y deja abrir el rescate con tres pulsaciones rápidas de volumen arriba. No guarda ni envía nada.</string>
+
+	<!-- Avisos -->
+	<string name="aviso_canal">Avisos del rescate</string>
+	<string name="aviso_canal_descripcion">Cuando el guardián detecta que el lector o la voz del sistema han dejado de funcionar.</string>
+	<string name="aviso_abrir_rescate">Abrir el rescate</string>
+
+	<!-- Comunes -->
+	<string name="ui_listo">Listo:</string>
+	<string name="ui_falta">Falta:</string>
+	<string name="ui_opcional">Opcional:</string>
+	<string name="ui_no_se_abre">No se ha podido abrir esa pantalla en este móvil.</string>
+	<string name="ui_abrir_accesibilidad">Abrir los ajustes de accesibilidad</string>
+
+	<!-- Pantalla principal -->
+	<string name="ui_estado">Estado del rescate</string>
+	<string name="ui_estado_listo">El rescate está preparado.</string>
+	<string name="ui_estado_no_listo">Atención: el rescate aún no está preparado. Toca lo que falta para arreglarlo.</string>
+	<string name="ui_rescate">Rescate</string>
+	<string name="ui_ensayar">Practicar el rescate ahora</string>
+	<string name="ui_ensayar_explicacion">Abre el menú de rescate como si hubiera una avería, para conocerlo antes de necesitarlo. Sal con Salir del rescate.</string>
+	<string name="ui_asistente">Asistente de preparación</string>
+	<string name="ui_diagnostico">Diagnóstico</string>
+	<string name="ui_repetir_diagnostico">Repetir el diagnóstico</string>
+	<string name="ui_diag_graves">Problemas graves</string>
+	<string name="ui_diag_avisos">Avisos</string>
+	<string name="ui_diag_info">Para saber</string>
+	<string name="ui_diag_bien">Lo que funciona bien</string>
+	<string name="ui_herramientas">Herramientas</string>
+	<string name="ui_copias">Copias de TalkBack y de la voz</string>
+	<string name="ui_permiso">Permiso avanzado</string>
+	<string name="ui_guardar_config">Guardar mi configuración actual</string>
+	<string name="ui_probar_voz">Probar la voz de rescate</string>
+	<string name="ui_ayudante">Pantalla para quien ve</string>
+	<string name="ui_app">La aplicación</string>
+	<string name="ui_ajustes">Ajustes</string>
+	<string name="ui_manual">Manual de uso</string>
+	<string name="ui_buscar_actualizaciones">Buscar actualizaciones</string>
+	<string name="ui_compartir_registro">Compartir el registro de fallos</string>
+	<string name="ui_registro_vacio">El registro está vacío: no ha habido fallos.</string>
+	<string name="ui_registro_asunto">Registro de Rescate Accesible</string>
+	<string name="ui_creditos">Créditos y licencias</string>
+	<string name="ui_version">Versión %1$s</string>
+
+	<!-- Preparación: cada requisito -->
+	<string name="prep_voz">Voz de rescate</string>
+	<string name="prep_voz_ok">la voz de rescate incluida está disponible</string>
+	<string name="prep_voz_mal">la voz de rescate no funciona en este móvil; quedan los pitidos y las grabaciones</string>
+	<string name="prep_voz_frase_pico">Esta es la voz de rescate Pico. Funciona sin Internet y sin el motor de voz del sistema.</string>
+	<string name="prep_voz_frase_espeak">Esta es la voz de rescate eSpeak. Funciona sin Internet y sin el motor de voz del sistema.</string>
+	<string name="prep_voz_frase_sistema">Esta es la voz del sistema que elegiste para el rescate.</string>
+	<string name="prep_voz_frase_sin">La voz de rescate no funciona; el rescate usará pitidos y grabaciones.</string>
+	<string name="prep_atajo">Atajo de accesibilidad</string>
+	<string name="prep_atajo_ok">el atajo de las teclas de volumen abre el rescate</string>
+	<string name="prep_atajo_mal">el atajo de las teclas de volumen no está asignado a Rescate Accesible</string>
+	<string name="prep_atajo_sin">este Android no tiene atajo de teclas de volumen: usa el icono, el mosaico de ajustes rápidos o el guardián</string>
+	<string name="prep_atajo_pasos_11">1. En Ajustes, Accesibilidad, abre Rescate Accesible (puede estar en Aplicaciones descargadas o Servicios instalados).\n2. Activa «Atajo de Rescate Accesible» y elige «Mantener pulsadas las teclas de volumen». No actives el servicio en sí: el atajo lo hace cuando hace falta.\n3. Que Rescate Accesible sea lo único en ese atajo: si hay más, Android pregunta cuál usar y sin lector esa pregunta no se oye.\n4. En los ajustes del atajo, deja permitido usarlo desde la pantalla de bloqueo.</string>
+	<string name="prep_atajo_pasos_8">1. En Ajustes, Accesibilidad, abre «Atajo de teclas de volumen» (o «Atajo de accesibilidad»).\n2. Actívalo y en «Servicio de atajo» elige Rescate Accesible.\n3. Deja activado «Permitir desde la pantalla de bloqueo».\n4. No actives el servicio de Rescate Accesible a mano: el atajo lo hace cuando hace falta.</string>
+	<string name="prep_unico_ok">Rescate Accesible es lo único en el atajo</string>
+	<string name="prep_unico_mal">el atajo tiene varias funciones: Android preguntará cuál usar y esa pregunta no se oye sin lector</string>
+	<string name="prep_bloqueo_ok">el atajo funciona también con el móvil bloqueado</string>
+	<string name="prep_bloqueo_mal">el atajo no funciona con el móvil bloqueado</string>
+	<string name="prep_ensayo_ok">ya has practicado el rescate</string>
+	<string name="prep_ensayo_mal">aún no has practicado el rescate: hazlo ahora, con tu lector funcionando</string>
+	<string name="prep_guardian">Guardián</string>
+	<string name="prep_guardian_ok">el guardián está activado</string>
+	<string name="prep_guardian_no">el guardián está desactivado (vigila tu lector y la voz, y avisa)</string>
+	<string name="prep_guardian_pasos">El guardián es un segundo servicio de Rescate Accesible que se deja activado. No lee la pantalla: vigila si tu lector o la voz del sistema dejan de funcionar y, si pasa, te avisa con la voz de rescate, te lee la pantalla con ella y te deja abrir el rescate con tres pulsaciones rápidas de volumen arriba.\n\nEn Ajustes, Accesibilidad, abre «Rescate Accesible: guardián» y actívalo. Android pedirá permitir el control total: es lo que necesita para leer en modo eco y recibir las teclas de volumen. Se desactiva en el mismo sitio.</string>
+	<string name="prep_permiso_ok">el permiso avanzado está concedido: el rescate cambia lectores y voces al momento</string>
+	<string name="prep_permiso_no">sin permiso avanzado: el rescate guía por los Ajustes en vez de cambiar las cosas al momento</string>
+	<string name="prep_copias_ok">hay copia de TalkBack y de la voz de Google para reinstalarlas sin Internet</string>
+	<string name="prep_copias_no">falta la copia de TalkBack o de la voz de Google</string>
+	<string name="prep_config">Configuración buena</string>
+	<string name="prep_config_ok">tienes guardada una configuración que funciona</string>
+	<string name="prep_config_no">no has guardado tu configuración actual</string>
+	<string name="prep_config_hecha">Configuración guardada. El rescate podrá volver a ella. También se preparan los mensajes de respaldo grabados.</string>
+	<string name="prep_config_fallo">No se ha podido guardar la configuración.</string>
+	<string name="prep_motor">Voz del sistema que funciona</string>
+	<string name="prep_motor_ok">el rescate sabe qué voz del sistema funciona</string>
+	<string name="prep_motor_no">aún no se ha comprobado qué voz del sistema funciona</string>
+	<string name="prep_motor_hecho">Comprobado: %1$s habla. El rescate lo recordará para volver a él.</string>
+	<string name="prep_motor_fallo">La voz del sistema no ha hablado en la prueba. Revisa el diagnóstico.</string>
+	<string name="prep_avisos_ok">el guardián puede mostrar avisos</string>
+	<string name="prep_avisos_no">el guardián no puede mostrar avisos (opcional: también avisa con la voz)</string>
+	<string name="prep_avisos_denegado">Sin avisos: el guardián avisará solo con la voz.</string>
+	<string name="prep_bateria_ok">Android no cerrará esta app para ahorrar batería</string>
+	<string name="prep_bateria_no">Android podría cerrar esta app para ahorrar batería</string>
+
+	<!-- Asistente de preparación -->
+	<string name="asis_titulo">Asistente de preparación</string>
+	<string name="asis_paso">Paso %1$d de %2$d: %3$s</string>
+	<string name="asis_siguiente">Siguiente</string>
+	<string name="asis_anterior">Anterior</string>
+	<string name="asis_saltar">Terminar el asistente ahora</string>
+	<string name="asis_terminar">Terminar</string>
+	<string name="asis_no_listo">El rescate aún no está preparado del todo. La pantalla principal dice lo que falta.</string>
+	<string name="asis_bienvenida">Bienvenida</string>
+	<string name="asis_bienvenida_texto">Rescate Accesible te ayuda a recuperar tu lector de pantalla, la voz y la accesibilidad sin ayuda de nadie. Tiene su propia voz, sin Internet, que habla aunque falle la del sistema.\n\nAhora, con tu lector funcionando, vas a prepararlo en unos pocos pasos. Cada uno explica qué hace y por qué. Puedes repetir este asistente cuando quieras.\n\nElige el idioma de la app (puede ser distinto del del móvil):</string>
+	<string name="asis_idioma_es">Español</string>
+	<string name="asis_idioma_en">English</string>
+	<string name="asis_voz">La voz de rescate</string>
+	<string name="asis_voz_texto">La app trae su propia voz (Pico y, además, eSpeak NG). No usa el motor de voz del sistema ni Internet, así que habla aunque esos fallen. Pruébala. Si no la oyes, sube el volumen.</string>
+	<string name="asis_voz_probar">Probar la voz de rescate</string>
+	<string name="asis_voz_pico">Usar Pico como voz de rescate (recomendada)</string>
+	<string name="asis_voz_espeak">Usar eSpeak NG como voz de rescate</string>
+	<string name="asis_atajo">El atajo de accesibilidad</string>
+	<string name="asis_permiso_accesibilidad">Qué pide Android y por qué</string>
+	<string name="asis_permiso_accesibilidad_texto">Al usar el atajo la primera vez, Android pregunta si quieres usarlo y avisa de que Rescate Accesible podrá ver y controlar la pantalla («control total»).\n\nPara qué lo necesita: leer la pantalla con su voz cuando tu lector calla, recibir las teclas de volumen durante el rescate, subir el volumen de accesibilidad y guiarte por los Ajustes.\n\nLo que no hace: no guarda, no registra ni envía nada de lo que lee; no funciona en segundo plano salvo el guardián, si lo activas; no cambia nada sin que lo pidas.\n\nCómo se quita: en Ajustes, Accesibilidad, quitando el atajo o desactivando el servicio, o desinstalando la app.</string>
+	<string name="asis_ensayo">Practicar el rescate</string>
+	<string name="asis_ensayo_texto">Mantén pulsadas a la vez las dos teclas de volumen unos tres segundos. La primera vez Android pregunta si quieres usar el atajo: tu lector te la lee; acéptala. Se abre el menú de rescate: escucha la presentación, recórrelo y sal con Salir del rescate. También puedes abrirlo con el botón de abajo.</string>
+	<string name="asis_permiso">El permiso avanzado (opcional, recomendado)</string>
+	<string name="asis_permiso_texto">Android solo deja a una app activar o desactivar lectores y cambiar el motor de voz con un permiso que se concede una vez (WRITE_SECURE_SETTINGS). Con él, el rescate hace esos cambios al momento y tiene modo seguro completo, como Shortcut Menu. Sin él, el rescate te guía por los Ajustes. Se puede conceder desde el propio móvil con la depuración inalámbrica, con un ordenador o con root.</string>
+	<string name="asis_guardian">El guardián (opcional)</string>
+	<string name="asis_avisos">Avisos y batería</string>
+	<string name="asis_avisos_texto">Para que el guardián pueda avisarte con una notificación y Android no cierre la app para ahorrar batería. Las dos cosas son opcionales: el guardián avisa también con la voz. En algunos móviles (Xiaomi, Huawei, OPPO, vivo) hay además un ajuste de «Inicio automático» que conviene permitir para esta app y para TalkBack.</string>
+	<string name="asis_avisos_pedir">Permitir los avisos</string>
+	<string name="asis_bateria_pedir">No optimizar la batería de esta app</string>
+	<string name="asis_copias">Copias de seguridad</string>
+	<string name="asis_copias_texto">Guarda en el móvil una copia de TalkBack y de la voz de Google tal como están ahora, que funcionan. Si un día se estropean o una actualización falla, el rescate las reinstala sin Internet y sin tienda. Ocupan unos cientos de megas.</string>
+	<string name="asis_copias_hacer">Hacer las copias ahora</string>
+	<string name="asis_copias_hechas">Copias hechas: %1$s.</string>
+	<string name="asis_copias_ninguna">No se ha podido hacer ninguna copia.</string>
+	<string name="asis_motor">La voz del sistema que funciona</string>
+	<string name="asis_motor_texto">Comprueba en silencio que tu motor de voz actual habla de verdad y lo recuerda como «el que funciona». Si un día alguien cambia el motor o se rompe, el rescate podrá volver a él. Recuerda también que el rescate puede poner su propia voz como voz del sistema.</string>
+	<string name="asis_motor_probar">Comprobar mi voz del sistema</string>
+	<string name="asis_config">Guardar tu configuración</string>
+	<string name="asis_config_texto">Guarda cómo está ahora tu accesibilidad (lector, motor de voz, velocidad, atajos) para volver a ella con «Restaurar mi configuración». También graba los mensajes de respaldo del rescate.</string>
+	<string name="asis_fin">Listo</string>
+	<string name="asis_fin_texto">Así queda tu rescate. Si algo falta, tócalo para arreglarlo. Cuando lo necesites: mantén pulsadas las dos teclas de volumen. Si tu lector no habla, en el menú pulsa tres veces rápido volumen arriba.</string>
+
+	<!-- Ajustes -->
+	<string name="aj_general">General</string>
+	<string name="aj_idioma">Idioma de la app</string>
+	<string name="aj_idioma_sistema">El del sistema</string>
+	<string name="aj_voz">Voz de rescate</string>
+	<string name="aj_motor">Voz de rescate</string>
+	<string name="aj_motor_pico">Pico, incluida (recomendada)</string>
+	<string name="aj_motor_espeak">eSpeak NG, incluida</string>
+	<string name="aj_motor_sistema">%1$s (del sistema; si falla, Pico)</string>
+	<string name="aj_velocidad">Velocidad de la voz de rescate</string>
+	<string name="aj_tono">Tono de la voz de rescate</string>
+	<string name="aj_probar_voz">Probar la voz de rescate</string>
+	<string name="aj_sonido">Sonido</string>
+	<string name="aj_subir_volumen">Subir el volumen si está muy bajo</string>
+	<string name="aj_subir_volumen_resumen">Al empezar el rescate, si el volumen no llega al mínimo, lo sube</string>
+	<string name="aj_volumen_minimo">Volumen mínimo en el rescate</string>
+	<string name="aj_altavoz">Altavoz del móvil</string>
+	<string name="aj_altavoz_auto">Automático: si hay Bluetooth conectado</string>
+	<string name="aj_altavoz_siempre">Siempre</string>
+	<string name="aj_altavoz_nunca">Nunca</string>
+	<string name="aj_menu">Menú de rescate</string>
+	<string name="aj_teclas">Manejar el menú con las teclas de volumen</string>
+	<string name="aj_teclas_resumen">Volumen abajo siguiente, arriba anterior, mantener pulsada para elegir</string>
+	<string name="aj_posicion">Decir el número de cada opción</string>
+	<string name="aj_vibrar">Vibrar al moverse y al elegir</string>
+	<string name="aj_espera_seguro">Espera del modo seguro</string>
+	<string name="aj_espera_seguro_resumen">Sin tocar nada este tiempo, el modo seguro devuelve tu lector</string>
+	<string name="aj_guardian">Guardián</string>
+	<string name="aj_guardian_avisos">Avisar con la voz de rescate</string>
+	<string name="aj_guardian_avisos_resumen">Si tu lector se apaga o la voz del sistema deja de hablar</string>
+	<string name="aj_guardian_voz">Comprobar la voz del sistema</string>
+	<string name="aj_guardian_voz_resumen">En silencio, al encender la pantalla, como mucho cada media hora</string>
+	<string name="aj_guardian_teclas">Abrir el rescate con tres veces volumen arriba</string>
+	<string name="aj_guardian_teclas_resumen">Solo cuando no hay lector que hable</string>
+	<string name="aj_respaldo">Respaldo y registro</string>
+	<string name="aj_regrabar">Volver a grabar los mensajes de respaldo</string>
+	<string name="aj_regrabar_resumen">Por si cambiaste el idioma, la velocidad o el tono</string>
+	<string name="aj_regrabando">Grabando los mensajes de respaldo</string>
+	<string name="aj_borrar_registro">Borrar el registro de fallos</string>
+	<string name="aj_borrar_registro_resumen">Solo contiene datos técnicos, nunca lo que lees</string>
+	<string name="aj_registro_borrado">Registro borrado</string>
+	<string name="aj_pruebas">Pruebas</string>
+	<string name="aj_informe">Informe de pruebas y simulaciones</string>
+	<string name="aj_informe_resumen">Cada avería simulada en el emulador, lo que hizo el usuario (teclas, toques y gestos) y cómo se recuperó la accesibilidad</string>
+	<string name="aj_actualizaciones">Actualizaciones</string>
+	<string name="aj_buscar_actualizaciones">Buscar actualizaciones al abrir la app</string>
+	<string name="aj_buscar_actualizaciones_resumen">Como mucho cada pocas horas. Nunca durante un rescate.</string>
+	<string name="aj_servidor">Servidor de actualizaciones</string>
+
+	<!-- Pantalla para quien ve -->
+	<string name="ayu_titulo">Ayuda para quien ve</string>
+	<string name="ayu_intro">Hola. La persona que usa este móvil es ciega y su lector de pantalla o su voz han dejado de funcionar. Esta pantalla explica cómo ayudarle. El brillo está al máximo.</string>
+	<string name="ayu_que_pasa">Qué le pasa al móvil</string>
+	<string name="ayu_comprobando">Comprobando…</string>
+	<string name="ayu_como_ayudar">Cómo ayudar</string>
+	<string name="ayu_paso_1">1. Abre los ajustes de accesibilidad (botón de abajo) y comprueba que %1$s está activado. Si no, actívalo y acepta el aviso.</string>
+	<string name="ayu_paso_2">2. Si está activado pero no habla, abre los ajustes de voz (botón de abajo) y elige como motor preferido «Voz de rescate (Pico)» u otro que funcione. Comprueba que el volumen está alto.</string>
+	<string name="ayu_paso_3">3. Si hay unos auriculares Bluetooth conectados, desconéctalos.</string>
+	<string name="ayu_paso_4">4. Con el lector activo, la pantalla se maneja distinto: toca una vez para seleccionar y dos veces seguidas para pulsar; desliza con dos dedos para desplazar.</string>
+	<string name="ayu_abrir_accesibilidad">Abrir los ajustes de accesibilidad</string>
+	<string name="ayu_abrir_voz">Abrir los ajustes de voz</string>
+	<string name="ayu_volver_rescate">Volver al rescate</string>
+
+	<!-- Créditos -->
+	<string name="cred_intro">Rescate Accesible %1$s. Hecho por XeBoLaX con el trabajo de otras personas, a las que da las gracias.</string>
+	<string name="cred_shortcut_titulo">Shortcut Menu, de aaron-gh</string>
+	<string name="cred_shortcut">La idea del menú de atajos que habla solo, el modo seguro con tres pulsaciones de volumen arriba que apaga los lectores y los devuelve, el cambio de lector y de motor de voz con el permiso avanzado y el uso de Pico vienen de Shortcut Menu, de aaron-gh (github.com/aaron-gh/shortcut-menu), con licencia Apache 2.0. Rescate Accesible incluye código suyo modificado; cada archivo derivado lo indica. Todos los derechos de esa solución son de su autor.</string>
+	<string name="cred_pico_titulo">SVOX Pico</string>
+	<string name="cred_pico">Motor de voz de SVOX AG, del Android Open Source Project, con licencia Apache 2.0. Voces en español, inglés de Estados Unidos e inglés británico.</string>
+	<string name="cred_espeak_titulo">eSpeak NG</string>
+	<string name="cred_espeak">Motor de voz eSpeak NG 1.52.0, de Reece H. Dunn y colaboradores, con licencia GPL 3 o posterior. Incluye ucd-tools y speech-player.</string>
+	<string name="cred_bibliotecas_titulo">Bibliotecas</string>
+	<string name="cred_bibliotecas">AndroidX y Material Components (Google, Apache 2.0), Kotlin y kotlinx.coroutines (JetBrains, Apache 2.0), libadb-android (Muntashir Al-Islam, Apache 2.0 o GPL 3), Bouncy Castle (MIT), spake2-android (LGPL 3) y Conscrypt (Apache 2.0). Plantillas de accesibilidad del agente Android accesible.</string>
+	<string name="cred_app_titulo">Licencia de esta app</string>
+	<string name="cred_app_gpl">Como incluye eSpeak NG, esta app se distribuye con licencia GPL 3 o posterior. Su código fuente acompaña a cada versión.</string>
+	<string name="cred_app_apache">Esta compilación no incluye eSpeak NG y se distribuye con licencia Apache 2.0.</string>
+	<string name="cred_ver_licencia">Leer la licencia: %1$s</string>
+	<string name="cred_abrir_web">Abrir la web de %1$s</string>
+	<string name="cred_ver_otras">Otras licencias</string>
+	<string name="cred_no_encontrada">No se encuentra el texto de la licencia.</string>
+	<string name="prep_atajo_automatico">Asignarlo yo</string>
+	<string name="prep_atajo_automatico_hecho">Hecho y comprobado: el atajo de las teclas de volumen abre Rescate Accesible, también con el móvil bloqueado.</string>
+	<string name="prep_atajo_automatico_fallo">No se ha podido asignar el atajo. Hazlo desde Ajustes de accesibilidad.</string>
+	<string name="atajo_menu_nombre">Menú de Rescate Accesible</string>
+	<string name="atajo_menu_resumen">Abre el menú de rescate</string>
+	<string name="atajo_menu_descripcion">Abre el menú de rescate con el botón, el gesto o el atajo de accesibilidad, sin activar ningún servicio. Para el lector de rescate, el modo seguro y la guía por los Ajustes, usa mejor el servicio Rescate Accesible.</string>
+</resources>

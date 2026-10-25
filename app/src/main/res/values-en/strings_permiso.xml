@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English translation of values/strings_permiso.xml. -->
+<resources>
+	<string name="perm_titulo">Advanced permission</string>
+	<string name="perm_comprobar">Check the permission again</string>
+	<string name="perm_estado_concedido">Advanced permission granted. The rescue can turn screen readers on and off and change the speech engine at once.</string>
+	<string name="perm_estado_no_concedido">Advanced permission not granted. The rescue works, but it has to guide you through Settings to turn on screen readers or change the speech engine.</string>
+
+	<string name="perm_que_es_titulo">What it allows and how to remove it</string>
+	<string name="perm_que_es">It is the Android permission to change secure settings. With it, the rescue can turn TalkBack on, off or restart it, turn screen readers off in safe mode and back on, choose the speech engine and restore your settings, without going through Settings. Android does not let an app give it to itself: it is granted once from Android debugging or with root, and it stays after restarting and after updating the app.</string>
+	<string name="perm_revocar">To remove it, uninstall the app or type on a computer: %1$s</string>
+
+	<string name="perm_paso">Step %1$d. %2$s</string>
+	<string name="perm_m1_titulo">Method 1: from the phone itself, with wireless debugging</string>
+	<string name="perm_m1_no_disponible">It needs Android 11 or later. On this phone, use the computer method or the root method.</string>
+	<string name="perm_m1_intro">No computer needed, but you need a Wi-Fi network. It is best done while your screen reader works.</string>
+	<string name="perm_m1_paso1">Turn on developer options: in About phone, tap Build number seven times in a row (on some phones it is inside Software information). Android may ask for your PIN.</string>
+	<string name="perm_m1_paso2">In Developer options, turn on Wireless debugging. When Android asks whether to allow debugging on this network, tick «Always allow on this network» and accept: this way the app can use the system shell by itself later. Then open Wireless debugging.</string>
+	<string name="perm_m1_paso3">Tap Pair device with pairing code. A window appears with a six-digit code.</string>
+	<string name="perm_m1_aviso_ventana">Important: that window closes if you switch to another app, and then the code stops working. So it is best to type the code in the Accessible Rescue notification without leaving Settings, or to use split screen.</string>
+	<string name="perm_m1_opcion_notificacion">Recommended: type the code in a notification</string>
+	<string name="perm_m1_notificacion_explica">Tap the button below before step 3. Then, with the code window open, pull down the notifications, find Accessible Rescue, choose Type the code, type the six digits and send. The app pairs and grants the permission by itself, and the notification tells you the result.</string>
+	<string name="perm_m1_recibir_notificacion">Show the notification to type the code</string>
+	<string name="perm_m1_opcion_aqui">Or type the code on this screen (with split screen)</string>
+	<string name="perm_m1_aqui_explica">Put Settings and this app in split screen, with the code window open. The port is found automatically; if it does not appear, type it: it is the number after the colon in the code window.</string>
+	<string name="perm_campo_codigo">Six-digit pairing code</string>
+	<string name="perm_campo_puerto">Pairing port (optional)</string>
+	<string name="perm_campo_puerto_ayuda">If you leave it empty, it is found automatically</string>
+	<string name="perm_campo_puerto_conexion">Connection port (optional)</string>
+	<string name="perm_campo_puerto_conexion_ayuda">The one in «IP address and port» in Wireless debugging. Empty: it is found automatically</string>
+	<string name="perm_buscar_puerto">Find the pairing port</string>
+	<string name="perm_buscando_puerto">Looking for the port. The code window must be open.</string>
+	<string name="perm_puerto_encontrado">Pairing port found: %1$d</string>
+	<string name="perm_vincular_conceder">Pair and grant the permission</string>
+	<string name="perm_vinculando">Pairing with wireless debugging and granting the permission…</string>
+	<string name="perm_olvidar_vinculacion">Forget the pairing and start again</string>
+	<string name="perm_vinculacion_olvidada">Pairing forgotten. Next time you will need a new code.</string>
+	<string name="perm_abrir_info_telefono">Open About phone</string>
+	<string name="perm_abrir_desarrollador">Open Developer options</string>
+	<string name="perm_pantalla_no_existe">This phone does not have that screen. I opened Settings: find it with the Settings search.</string>
+
+	<string name="perm_m2_titulo">Method 2: with a computer</string>
+	<string name="perm_m2_intro">Turn on USB debugging in developer options, connect the phone to the computer with the cable, accept the question on the phone and type this adb command on the computer:</string>
+	<string name="perm_copiar_comando">Copy the adb command</string>
+	<string name="perm_compartir_comando">Share the adb command</string>
+	<string name="perm_compartir_asunto">Command for Accessible Rescue</string>
+	<string name="perm_compartir_texto">To grant the advanced permission to Accessible Rescue, with the phone connected by USB and USB debugging on, type on the computer:\n\n%1$s</string>
+
+	<string name="perm_m3_titulo">Method 3: with root</string>
+	<string name="perm_m3_intro">Only if your phone is rooted. If not, this button will just tell you.</string>
+	<string name="perm_m3_intro_hay">This phone seems to be rooted. Your root manager will ask whether to allow it.</string>
+	<string name="perm_conceder_root">Grant the permission with root</string>
+	<string name="perm_root_esperando">Waiting for the root manager to answer…</string>
+	<string name="perm_root_no_hay">This phone is not rooted. Use another method.</string>
+	<string name="perm_root_denegado">The root manager did not allow it.</string>
+
+	<string name="perm_m4_titulo">Method 4: with Shizuku</string>
+	<string name="perm_m4_instalado">Shizuku is installed. With Shizuku running, open its terminal (rish) or a terminal app that uses it and type: %1$s</string>
+	<string name="perm_m4_no_instalado">Shizuku is another app that gives access to the debugging shell. If you use it, with it running type in its terminal (rish): %1$s</string>
+	<string name="perm_copiar_comando_shell">Copy the command for the terminal</string>
+
+	<string name="perm_despues_titulo">After granting it</string>
+	<string name="perm_despues_intro">You can now turn off wireless debugging and developer options: the permission stays. If the Wi-Fi network was left as allowed, when needed the app will turn them on for a moment by itself to fix things only the system shell can do (mono audio, balance, enabling apps, removing updates) and turn them off again.</string>
+	<string name="perm_saltar_pregunta">Mark the volume shortcut question as answered</string>
+	<string name="perm_pregunta_saltada">Done: the first time you use the volume key shortcut, Android will not ask and will open the rescue at once.</string>
+	<string name="perm_pregunta_no_saltada">The shortcut question could not be marked.</string>
+	<string name="perm_apagar_depuracion">Turn off wireless debugging</string>
+	<string name="perm_depuracion_apagada">Wireless debugging turned off.</string>
+	<string name="perm_depuracion_no_apagada">It could not be turned off from here. Do it in Developer options.</string>
+
+	<string name="perm_canal">Advanced permission</string>
+	<string name="perm_canal_descripcion">To type the wireless debugging pairing code without leaving Settings.</string>
+	<string name="perm_notif_titulo">Accessible Rescue: pairing code</string>
+	<string name="perm_notif_texto">With the code window open in Settings, choose Type the code and type the six digits.</string>
+	<string name="perm_notif_campo">Six-digit code</string>
+	<string name="perm_notif_accion">Type the code</string>
+	<string name="perm_notif_lista">Notification ready. Now go to Wireless debugging, tap Pair device with pairing code and answer the notification with the code.</string>
+	<string name="perm_notif_sin_permiso">Accessible Rescue notifications are turned off. Turn them on or use split screen.</string>
+
+	<string name="perm_codigo_invalido">The code has six digits. Type it again.</string>
+	<string name="perm_res_concedido">Advanced permission granted. You can now turn off wireless debugging: the app will turn it on by itself when it needs it.</string>
+	<string name="perm_res_no_disponible">This Android has no wireless debugging. Use the computer method or the root method.</string>
+	<string name="perm_res_sin_wifi">Wireless debugging needs a Wi-Fi connection.</string>
+	<string name="perm_res_sin_puerto_vinculacion">I cannot find the code window. Open Pair device with pairing code and try again without closing it. If it still does not appear, turn wireless debugging off and on.</string>
+	<string name="perm_res_vinculacion_fallida">Pairing did not work: the code was wrong or the window closed. Open the window again and use the new code.</string>
+	<string name="perm_res_sin_puerto_conexion">I cannot find wireless debugging. Check that it is on, or type the connection port.</string>
+	<string name="perm_res_no_autorizado">Debugging did not accept the app. Pair again with a new code.</string>
+	<string name="perm_res_no_concedido">The command ran but the permission was not granted. Try the computer method.</string>
+	<string name="perm_res_tiempo">It did not answer in time. Try again.</string>
+	<string name="perm_res_fallo">It failed: %1$s</string>
+</resources>

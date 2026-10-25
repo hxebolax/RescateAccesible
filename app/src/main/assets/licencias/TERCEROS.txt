@@ -1,0 +1,51 @@
+Rescate Accesible — Componentes de terceros
+============================================
+
+Shortcut Menu
+  Autor: aaron-gh — https://github.com/aaron-gh/shortcut-menu
+  Licencia: Apache License 2.0
+  Uso: idea y código (modificado) del menú de atajos que habla solo, la lista de
+  servicios, los nombres de servicios, el modo seguro con tres pulsaciones de
+  volumen arriba, el cambio de lector y de motor de voz con WRITE_SECURE_SETTINGS,
+  el puente JNI de Pico y la reproducción por frases. Cada archivo derivado lo
+  indica en su cabecera. Todos los derechos de esa solución son de su autor.
+
+SVOX Pico
+  Copyright (C) 2008-2009 SVOX AG. Del Android Open Source Project
+  (platform/external/svox). Licencia: Apache License 2.0 (ver pico-NOTICE.txt).
+  Voces incluidas: es-ES (zl0), en-US (lh0), en-GB (kh0).
+
+eSpeak NG 1.52.0 (si la compilación lo incluye)
+  Copyright (C) 2005-2024 Jonathan Duddington, Reece H. Dunn y colaboradores.
+  https://github.com/espeak-ng/espeak-ng — Licencia: GPL-3.0-or-later.
+  Incluye ucd-tools (GPL-3.0-or-later; datos Unicode con licencia Unicode) y
+  speech-player (GPL-2.0-or-later, de NV Access). Datos de español, inglés,
+  francés, alemán, italiano y portugués de la versión oficial 1.52.0.
+
+libadb-android 3.1.1
+  Muntashir Al-Islam — https://github.com/MuntashirAkon/libadb-android
+  Licencia: Apache-2.0 o GPL-3.0-or-later (a elegir). Usada con la Apache-2.0.
+
+spake2-android 2.2.1 (dependencia de libadb-android)
+  Licencia: LGPL-3.0.
+
+Bouncy Castle (bcprov, bcpkix) 1.81
+  The Legion of the Bouncy Castle — Licencia MIT.
+
+Conscrypt 2.5.3
+  Google — Licencia Apache 2.0.
+
+AndroidX (core, appcompat, activity, lifecycle, recyclerview, preference) y
+Material Components for Android 1.12.0
+  Google — Licencia Apache 2.0.
+
+Kotlin y kotlinx.coroutines
+  JetBrains — Licencia Apache 2.0.
+
+Plantillas de accesibilidad (MemoriaFoco, Espera, Utilidades, DeslizadorAjuste)
+  Del agente «Android accesible» del autor de esta app.
+
+Licencia de Rescate Accesible
+  Con eSpeak NG incluido, el conjunto se distribuye con GPL-3.0-or-later (compatible
+  con el código Apache 2.0 que incorpora). Compilado sin eSpeak NG
+  (-PincluirEspeak=false), el código propio y el de terceros es Apache 2.0.

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajustes de Rescate Accesible. Las claves y los valores por defecto son los de nucleo/Preferencias.kt. -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<PreferenceCategory app:title="@string/aj_general" app:iconSpaceReserved="false">
+		<ListPreference
+			app:key="idioma"
+			app:title="@string/aj_idioma"
+			app:entries="@array/idiomas_nombres"
+			app:entryValues="@array/idiomas_valores"
+			app:defaultValue=""
+			app:useSimpleSummaryProvider="true"
+			app:iconSpaceReserved="false" />
+	</PreferenceCategory>
+
+	<PreferenceCategory app:title="@string/aj_voz" app:iconSpaceReserved="false">
+		<ListPreference
+			app:key="motor_rescate"
+			app:title="@string/aj_motor"
+			app:defaultValue="pico"
+			app:useSimpleSummaryProvider="true"
+			app:iconSpaceReserved="false" />
+		<com.xebolax.rescate.accesibilidad.DeslizadorAjuste
+			app:key="velocidad"
+			app:title="@string/aj_velocidad"
+			app:min="50"
+			android:max="300"
+			app:seekBarIncrement="10"
+			app:showSeekBarValue="true"
+			android:defaultValue="100"
+			app:iconSpaceReserved="false" />
+		<com.xebolax.rescate.accesibilidad.DeslizadorAjuste
+			app:key="tono"
+			app:title="@string/aj_tono"
+			app:min="50"
+			android:max="200"
+			app:seekBarIncrement="10"
+			app:showSeekBarValue="true"
+			android:defaultValue="100"
+			app:iconSpaceReserved="false" />
+		<Preference
+			app:key="probar_voz"
+			app:title="@string/aj_probar_voz"
+			app:iconSpaceReserved="false" />
+	</PreferenceCategory>
+
+	<PreferenceCategory app:title="@string/aj_sonido" app:iconSpaceReserved="false">
+		<SwitchPreferenceCompat
+			app:key="subir_volumen"
+			app:title="@string/aj_subir_volumen"
+			app:summary="@string/aj_subir_volumen_resumen"
+			app:defaultValue="true"
+			app:iconSpaceReserved="false" />
+		<com.xebolax.rescate.accesibilidad.DeslizadorAjuste
+			app:key="volumen_minimo"
+			app:title="@string/aj_volumen_minimo"
+			app:min="10"
+			android:max="100"
+			app:seekBarIncrement="10"
+			app:showSeekBarValue="true"
+			android:defaultValue="60"
+			app:iconSpaceReserved="false" />
+		<ListPreference
+			app:key="altavoz"
+			app:title="@string/aj_altavoz"
+			app:entries="@array/altavoz_nombres"
+			app:entryValues="@array/altavoz_valores"
+			app:defaultValue="auto"
+			app:useSimpleSummaryProvider="true"
+			app:iconSpaceReserved="false" />
+	</PreferenceCategory>
+
+	<PreferenceCategory app:title="@string/aj_menu" app:iconSpaceReserved="false">
+		<SwitchPreferenceCompat
+			app:key="teclas_en_menu"
+			app:title="@string/aj_teclas"
+			app:summary="@string/aj_teclas_resumen"
+			app:defaultValue="true"
+			app:iconSpaceReserved="false" />
+		<SwitchPreferenceCompat
+			app:key="decir_posicion"
+			app:title="@string/aj_posicion"
+			app:defaultValue="true"
+			app:iconSpaceReserved="false" />
+		<SwitchPreferenceCompat
+			app:key="vibrar"
+			app:title="@string/aj_vibrar"
+			app:defaultValue="true"
+			app:iconSpaceReserved="false" />
+		<com.xebolax.rescate.accesibilidad.DeslizadorAjuste
+			app:key="espera_modo_seguro"
+			app:title="@string/aj_espera_seguro"
+			app:summary="@string/aj_espera_seguro_resumen"
+			app:min="15"
+			android:max="120"
+			app:seekBarIncrement="5"
+			app:showSeekBarValue="true"
+			android:defaultValue="30"
+			app:iconSpaceReserved="false" />
+	</PreferenceCategory>
+
+	<PreferenceCategory app:title="@string/aj_guardian" app:iconSpaceReserved="false">
+		<SwitchPreferenceCompat
+			app:key="guardian_avisos"
+			app:title="@string/aj_guardian_avisos"
+			app:summary="@string/aj_guardian_avisos_resumen"
+			app:defaultValue="true"
+			app:iconSpaceReserved="false" />
+		<SwitchPreferenceCompat
+			app:key="guardian_comprobar_voz"
+			app:title="@string/aj_guardian_voz"
+			app:summary="@string/aj_guardian_voz_resumen"
+			app:defaultValue="true"
+			app:iconSpaceReserved="false" />
+		<SwitchPreferenceCompat
+			app:key="guardian_teclas"
+			app:title="@string/aj_guardian_teclas"
+			app:summary="@string/aj_guardian_teclas_resumen"
+			app:defaultValue="true"
+			app:iconSpaceReserved="false" />
+	</PreferenceCategory>
+
+	<PreferenceCategory app:title="@string/aj_respaldo" app:iconSpaceReserved="false">
+		<Preference
+			app:key="regrabar"
+			app:title="@string/aj_regrabar"
+			app:summary="@string/aj_regrabar_resumen"
+			app:iconSpaceReserved="false" />
+		<Preference
+			app:key="borrar_registro"
+			app:title="@string/aj_borrar_registro"
+			app:summary="@string/aj_borrar_registro_resumen"
+			app:iconSpaceReserved="false" />
+	</PreferenceCategory>
+
+	<PreferenceCategory app:title="@string/aj_pruebas" app:iconSpaceReserved="false">
+		<Preference
+			app:key="informe_pruebas"
+			app:title="@string/aj_informe"
+			app:summary="@string/aj_informe_resumen"
+			app:iconSpaceReserved="false" />
+	</PreferenceCategory>
+
+	<PreferenceCategory app:title="@string/aj_actualizaciones" app:iconSpaceReserved="false">
+		<SwitchPreferenceCompat
+			app:key="buscar_actualizaciones"
+			app:title="@string/aj_buscar_actualizaciones"
+			app:summary="@string/aj_buscar_actualizaciones_resumen"
+			app:defaultValue="true"
+			app:iconSpaceReserved="false" />
+		<EditTextPreference
+			app:key="url_actualizaciones"
+			app:title="@string/aj_servidor"
+			app:useSimpleSummaryProvider="true"
+			app:iconSpaceReserved="false" />
+	</PreferenceCategory>
+</PreferenceScreen>

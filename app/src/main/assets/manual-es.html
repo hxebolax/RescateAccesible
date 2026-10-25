@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual de Rescate Accesible</title>
+<style>
+	body { font-family: sans-serif; font-size: 1.1em; line-height: 1.5; margin: 1em; color: #201a19; background: #fffbff; }
+	h1, h2, h3 { color: #93000a; }
+	code { background: #f5ddda; padding: 0 .2em; }
+	/* Enlaces del índice con 48 px de alto como mínimo, fáciles de tocar */
+	li a { display: inline-block; min-height: 48px; line-height: 48px; }
+	@media (prefers-color-scheme: dark) {
+		body { color: #ede0de; background: #201a19; }
+		h1, h2, h3 { color: #ffb4ab; }
+		code { background: #534341; }
+	}
+</style>
+</head>
+<body>
+<h1>Manual de Rescate Accesible</h1>
+<p>Rescate Accesible sirve para que una persona ciega recupere sola su lector de pantalla (TalkBack u otro), la voz del sistema y la accesibilidad del móvil cuando algo falla, sin necesitar ojos ajenos. Tiene su propia voz, que funciona sin Internet y sin el motor de voz del sistema.</p>
+
+<h2>Índice</h2>
+<ul>
+	<li><a href="#preparar">1. Prepararlo (una vez, con tu lector funcionando)</a></li>
+	<li><a href="#abrir">2. Cómo se abre el rescate</a></li>
+	<li><a href="#manejar">3. Cómo se maneja el menú de rescate</a></li>
+	<li><a href="#menu">4. Qué hay en el menú</a></li>
+	<li><a href="#problemas">5. Qué hacer en cada avería</a></li>
+	<li><a href="#voces">6. Las voces de rescate</a></li>
+	<li><a href="#permiso">7. El permiso avanzado</a></li>
+	<li><a href="#guardian">8. El guardián</a></li>
+	<li><a href="#copias">9. Copias de TalkBack y de la voz</a></li>
+	<li><a href="#privacidad">10. Privacidad y permisos</a></li>
+	<li><a href="#limites">11. Lo que Android no deja hacer</a></li>
+	<li><a href="#creditos">12. Créditos</a></li>
+</ul>
+
+<h2 id="preparar">1. Prepararlo (una vez, con tu lector funcionando)</h2>
+<p>La primera vez que abres la app se abre el <strong>asistente de preparación</strong>. Cada paso explica qué hace y por qué. Puedes repetirlo cuando quieras desde la pantalla principal. Los pasos son:</p>
+<ol>
+	<li><strong>Idioma</strong> de la app (español o inglés), aunque el móvil esté en otro.</li>
+	<li><strong>Probar la voz de rescate</strong> (Pico, y también eSpeak NG). Elige la que prefieras.</li>
+	<li><strong>Asignar el atajo de accesibilidad</strong>: en Ajustes, Accesibilidad, Rescate Accesible, activa su atajo y elige <em>Mantener pulsadas las teclas de volumen</em>. Que sea lo único en ese atajo y que funcione en la pantalla de bloqueo. No actives el servicio a mano: el atajo lo activa cuando hace falta.</li>
+	<li><strong>Qué pide Android</strong>: el aviso de «control total» y para qué se usa.</li>
+	<li><strong>Practicar</strong>: mantén pulsadas las dos teclas de volumen unos tres segundos. La primera vez Android pregunta si quieres usar el atajo: tu lector te la lee; acéptala.</li>
+	<li><strong>Permiso avanzado</strong> (opcional, recomendado): ver el capítulo 7.</li>
+	<li><strong>Guardián</strong> (opcional): ver el capítulo 8.</li>
+	<li><strong>Avisos y batería</strong>: permitir notificaciones y que Android no cierre la app. En Xiaomi, Huawei, OPPO, vivo y otros, permite también el <em>inicio automático</em> de esta app y de TalkBack.</li>
+	<li><strong>Copias de seguridad</strong> de TalkBack y de la voz de Google tal como están ahora.</li>
+	<li><strong>Comprobar tu voz del sistema</strong> para recordarla como la que funciona.</li>
+	<li><strong>Guardar tu configuración</strong> para poder volver a ella, y grabar los mensajes de respaldo.</li>
+</ol>
+<p>La pantalla principal dice siempre qué está listo y qué falta. Si falta algo imprescindible, lo avisa arriba del todo. Cada línea es un botón que lo arregla.</p>
+
+<h2 id="abrir">2. Cómo se abre el rescate</h2>
+<ul>
+	<li><strong>Atajo de las teclas de volumen</strong>: mantén pulsadas a la vez volumen arriba y volumen abajo unos tres segundos. Funciona con la pantalla bloqueada y aunque tu lector esté apagado o mudo. Pulsarlo otra vez con el menú abierto lo cierra.</li>
+	<li><strong>Tres pulsaciones rápidas de volumen arriba</strong>: con el guardián activado y sin lector que hable, o fuera del menú durante un rescate, abre (o vuelve a) el rescate.</li>
+	<li><strong>El icono</strong> de la app (mantenlo pulsado: acceso directo «Rescate»), el <strong>mosaico Rescate</strong> de los ajustes rápidos o la <strong>notificación</strong> del guardián.</li>
+	<li>En Android 11 o posterior, el <strong>botón o el gesto de accesibilidad</strong>: en Ajustes, Accesibilidad, elige «Menú de Rescate Accesible» como su destino. Abre el menú sin activar ningún servicio.</li>
+	<li>Con un asistente de voz puedes decir «Abre Rescate Accesible» (necesita que el asistente funcione).</li>
+</ul>
+<p>Android 7 no tiene atajo de teclas de volumen: ahí se usa el icono, el mosaico o el guardián.</p>
+
+<h2 id="manejar">3. Cómo se maneja el menú de rescate</h2>
+<h3>Sin lector de pantalla</h3>
+<p>El menú habla solo. Las opciones llenan la pantalla en franjas: <strong>desliza el dedo</strong> para oír cada una y <strong>levántalo</strong> para elegir la que oyes. Si dejas el dedo quieto, oyes su explicación. La última opción es Volver (o Salir del rescate en la principal).</p>
+<p>Empieza a deslizar con el dedo ya dentro de la pantalla, no desde el borde de arriba: desde el borde, Android abre la cortina de notificaciones. Si se abre, pulsa Atrás o usa las teclas de volumen.</p>
+<h3>Con las teclas de volumen (siempre)</h3>
+<ul>
+	<li><strong>Volumen abajo</strong>: siguiente opción.</li>
+	<li><strong>Volumen arriba</strong>: opción anterior.</li>
+	<li><strong>Mantener pulsada</strong> cualquiera de las dos: elegir.</li>
+	<li><strong>Tres veces rápido volumen arriba</strong>: modo seguro.</li>
+</ul>
+<p>Esto funciona aunque TalkBack esté activado pero no hable, que es cuando tocar la pantalla no sirve.</p>
+<h3>Con tu lector funcionando</h3>
+<p>El menú es una lista de botones que tu lector lee como cualquier otra pantalla.</p>
+<h3>Modo seguro</h3>
+<p>Con el permiso avanzado, el modo seguro apaga todos los lectores y el menú habla con su propia voz. Si sales sin activar ninguno, o pasan unos segundos sin tocar nada, tu lector vuelve a activarse solo: nunca te quedas sin lector salvo que lo elijas. Antes de apagar nada comprueba que su voz funciona. Sin el permiso, activa el modo eco.</p>
+<h3>Modo eco y lector de rescate</h3>
+<p>Si TalkBack está activo pero no se oye (por ejemplo, porque se rompió la voz del sistema), el <strong>modo eco</strong> lee con la voz de rescate lo que TalkBack enfoca: sigues usando tus gestos de siempre. Si no hay ningún lector, el <strong>lector de rescate</strong> hace de lector básico:</p>
+<ul>
+	<li>Tocar o arrastrar: dice lo que hay debajo. Doble toque: activa.</li>
+	<li>Deslizar a la derecha o a la izquierda: siguiente o anterior.</li>
+	<li>Deslizar abajo o arriba: desplazar la lista. Dos dedos: desplazar.</li>
+	<li>Abajo y luego izquierda: atrás. Arriba y luego izquierda: inicio. Derecha y luego abajo: notificaciones. Izquierda y luego arriba: recientes. Arriba y luego abajo: leer toda la pantalla.</li>
+	<li>Para volver al menú de rescate: el botón «Volver al rescate», arriba a la derecha; el gesto izquierda y luego derecha; o tres veces rápido volumen arriba.</li>
+</ul>
+
+<h2 id="menu">4. Qué hay en el menú</h2>
+<ul>
+	<li><strong>Diagnosticar y reparar</strong>: comprueba el lector, la voz, el sonido, los atajos, la batería y las copias, y propone cómo arreglar cada problema.</li>
+	<li><strong>Lectores de pantalla</strong>: activar, desactivar, reiniciar o forzar la detención de TalkBack u otro lector; modo seguro; otros servicios que pueden quitarte el tacto (como Accesibilidad con interruptores).</li>
+	<li><strong>Voz del sistema</strong>: probar el motor de voz (de verdad: arranca, tiene tu idioma y habla), ver los motores instalados, hacer uno el predeterminado, instalar voces, poner la velocidad y el tono normales, volver a la última voz que funcionó y <strong>usar la voz de rescate como voz del sistema</strong>.</li>
+	<li><strong>Sonido y volumen</strong>: probar el sonido, subir y bajar el volumen, mandar la voz al altavoz del móvil, abrir Bluetooth y sonido.</li>
+	<li><strong>Reparar o reinstalar TalkBack y la voz</strong>: reinstalar desde la copia guardada (sin Internet), habilitar la app, desinstalar sus actualizaciones, forzar la detención, borrar la caché, abrir la tienda o la información de la app.</li>
+	<li><strong>Leer la pantalla con la voz de rescate</strong>: modo eco o lector de rescate.</li>
+	<li><strong>Restaurar mi configuración</strong>: volver a la configuración guardada (necesita el permiso avanzado).</li>
+	<li><strong>Abrir los ajustes de accesibilidad</strong>.</li>
+	<li><strong>Ayuda para quien ve la pantalla</strong>: brillo al máximo y, en letra grande, qué pasa y qué tocar.</li>
+	<li><strong>Ajustes de la voz de rescate</strong>: velocidad, tono, número de opción, vibración e idioma.</li>
+	<li><strong>Cómo usar el rescate</strong>: esta ayuda, hablada.</li>
+</ul>
+<p>Al abrir el rescate, se hace un diagnóstico rápido y se dice lo más grave que se encuentre. Si el volumen estaba tan bajo que no se oiría, se sube solo (y se dice).</p>
+
+<h2 id="problemas">5. Qué hacer en cada avería</h2>
+<h3>Elegí un motor de voz que no funciona y TalkBack se calló</h3>
+<p>Abre el rescate con el atajo. En Voz del sistema elige <em>Usar la voz de rescate como voz del sistema</em> o <em>Volver a la última voz que funcionó</em>. Con el permiso avanzado se cambia al momento y TalkBack vuelve a hablar enseguida; sin él, el rescate te guía por los ajustes de voz con su propia voz.</p>
+<h3>TalkBack se ha apagado o no responde</h3>
+<p>En Lectores de pantalla elige TalkBack y <em>Activar</em> o <em>Reiniciar</em>. Si está «activado pero no responde», reinícialo. Ojo: forzar la detención de una app de accesibilidad la desactiva; después hay que volver a activarla.</p>
+<h3>No se oye nada</h3>
+<p>Sonido y volumen: <em>Probar el sonido</em>, <em>Subir el volumen</em> y, si hay auriculares Bluetooth, <em>Altavoz del móvil: siempre</em> o desconéctalos desde los ajustes de Bluetooth. El modo No molestar no silencia la accesibilidad. Revisa también si el audio está en mono o desequilibrado a un lado (lo dice el diagnóstico).</p>
+<h3>Falta la voz de mi idioma o no hay Internet</h3>
+<p>La voz de rescate funciona sin Internet. Para el sistema, usa la voz de rescate como motor o instala las voces del motor cuando tengas conexión.</p>
+<h3>TalkBack o la voz de Google se estropearon tras una actualización</h3>
+<p>En Reparar o reinstalar: <em>Desinstalar las actualizaciones</em> (vuelve a la versión de fábrica) o <em>Reinstalar desde la copia</em>. Android pide confirmar la instalación: el botón Instalar suele estar abajo a la derecha, y el rescate puede pulsarlo por ti si lo confirmas con volumen arriba.</p>
+<h3>Alguien cambió el idioma del móvil</h3>
+<p>El rescate sigue en tu idioma. El diagnóstico lo detecta y te lleva a los ajustes de idioma con el lector de rescate.</p>
+<h3>TalkBack se cierra solo (ahorro de batería)</h3>
+<p>El diagnóstico abre la pantalla de optimización de batería o la de inicio automático de tu fabricante.</p>
+<h3>Hay dos lectores a la vez o algo me quita el tacto</h3>
+<p>Lectores de pantalla: desactiva el que sobra u <em>Otros servicios de accesibilidad activados</em>.</p>
+<h3>Nadie me puede ayudar y no oigo nada</h3>
+<p>Si ni la voz de rescate funciona, el rescate usa los mensajes grabados de respaldo, y si tampoco, pitidos y vibraciones: tantas vibraciones como el número de la opción.</p>
+
+<h2 id="voces">6. Las voces de rescate</h2>
+<p>La app incluye dos motores de voz propios, independientes del sistema y de Internet:</p>
+<ul>
+	<li><strong>Pico</strong> (SVOX, de AOSP): voces de español de España, inglés de Estados Unidos e inglés británico. Es la recomendada.</li>
+	<li><strong>eSpeak NG</strong>: otro motor con otro código y otros datos (español, inglés, francés, alemán, italiano y portugués). Si Pico falla, el rescate pasa a eSpeak.</li>
+</ul>
+<p>Si un motor falla, el rescate baja al siguiente: la voz del sistema elegida (si la eliges), Pico, eSpeak, mensajes grabados y pitidos. La voz de rescate suena con el volumen de accesibilidad y, si hay auriculares Bluetooth, puede ir al altavoz del móvil.</p>
+<p>Además, la app se ofrece como <strong>motor de voz del sistema</strong> («Voz de rescate (Pico)»). Así TalkBack puede usar siempre una voz que está instalada y funciona sin Internet.</p>
+
+<h2 id="permiso">7. El permiso avanzado</h2>
+<p>Android solo deja que una app active o desactive lectores, cambie el motor de voz o restaure la configuración con el permiso <code>WRITE_SECURE_SETTINGS</code>, que se concede una vez. Es la solución de Shortcut Menu. Formas de concederlo (Permiso avanzado, en la pantalla principal):</p>
+<ul>
+	<li><strong>Desde el propio móvil</strong> (Android 11 o posterior, con wifi): activa las opciones de desarrollador, la depuración inalámbrica y «Vincular dispositivo con código de vinculación»; la app se vincula a sí misma y se concede el permiso. Después puedes apagar la depuración inalámbrica.</li>
+	<li><strong>Con un ordenador</strong>: <code>adb shell pm grant com.xebolax.rescate android.permission.WRITE_SECURE_SETTINGS</code></li>
+	<li><strong>Con root</strong> o con <strong>Shizuku</strong>.</li>
+</ul>
+<p>Si al emparejar marcas «Permitir siempre en esta red», la app podrá usar más adelante la <strong>consola del sistema</strong> ella sola (encendiendo un momento la depuración inalámbrica y apagándola después) para arreglar lo que una app normal no puede: audio mono, balance, habilitar apps, quitar actualizaciones, borrar cachés. Con root también lo hace.</p>
+<p>Se quita desinstalando la app o con <code>pm revoke</code>. Sin el permiso, todo funciona igual pero guiando por los Ajustes en vez de cambiar las cosas al momento.</p>
+
+<h2 id="guardian">8. El guardián</h2>
+<p>Es un segundo servicio opcional que se deja activado. No lee la pantalla: vigila si tu lector se apaga o se cae y, al encender la pantalla (como mucho cada media hora), comprueba en silencio que la voz del sistema habla. Si algo falla, te avisa con la voz de rescate, te lee la pantalla en modo eco y deja abrir el rescate con tres pulsaciones rápidas de volumen arriba. Solo mira las teclas de volumen cuando no hay lector que hable.</p>
+
+<h2 id="copias">9. Copias de TalkBack y de la voz</h2>
+<p>La app guarda una copia de los archivos instalados de TalkBack y de la voz de Google (y de Samsung, si los hay), con su comprobación SHA-256. Si un día se estropean, el rescate los reinstala sin Internet ni tienda. Android pide confirmar cada instalación. No se puede instalar una versión más antigua que la instalada: en ese caso, primero se desinstalan las actualizaciones.</p>
+
+<h2 id="privacidad">10. Privacidad y permisos</h2>
+<ul>
+	<li>Nada de lo que lee la app se guarda, se registra ni se envía. El registro de fallos solo tiene datos técnicos.</li>
+	<li>La app solo se conecta a Internet cuando buscas actualizaciones (servidor propio, configurable en Ajustes) o vinculas la depuración inalámbrica (solo dentro del móvil).</li>
+	<li>No usa servicios de Google ni Play Services: funciona en móviles sin ellos.</li>
+	<li>Permisos: accesibilidad (control total, para leer con su voz y guiar), instalar aplicaciones (reinstalar copias y actualizarse; siempre confirma el usuario), notificaciones (avisos del guardián), batería (para que Android no la cierre), vibración y el permiso avanzado opcional.</li>
+</ul>
+
+<h2 id="limites">11. Lo que Android no deja hacer</h2>
+<ul>
+	<li>El atajo solo funciona si está asignado a Rescate Accesible; si alguien lo quita, hay que usar el icono, el mosaico o el guardián.</li>
+	<li>Una app no puede activar sola un servicio de accesibilidad apagado, ni cambiar el motor de voz, sin el permiso avanzado o sin que el usuario lo confirme en Ajustes.</li>
+	<li>No se puede cambiar el audio mono ni el balance desde una app: el rescate te lleva al ajuste.</li>
+	<li>Si se fuerza la detención de esta app (por ejemplo, con «limpiar todo» de algunos fabricantes), Android desactiva su guardián.</li>
+	<li>Tras reiniciar, antes de desbloquear, algunas pantallas de Ajustes no se abren.</li>
+</ul>
+
+<h2 id="creditos">12. Créditos</h2>
+<p>La solución del menú de atajos que habla solo, el modo seguro y el cambio de lector y de motor con el permiso avanzado son de <strong>Shortcut Menu</strong>, de <strong>aaron-gh</strong> (Apache 2.0): todos los derechos de esa solución son de su autor. Voz <strong>SVOX Pico</strong> (Apache 2.0) y <strong>eSpeak NG</strong> (GPL 3). La lista completa está en Créditos y licencias.</p>
+</body>
+</html>

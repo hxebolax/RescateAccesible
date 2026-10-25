@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- «Reparar o reinstalar» del menú de rescate (PaginaReparar.kt). Se dice en voz alta. -->
+<resources>
+	<string name="rep_intro">Elige qué reparar</string>
+	<string name="rep_reinstalar_copia">Reinstalar %1$s desde la copia, versión %2$s</string>
+	<string name="rep_reinstalar_copia_ayuda">Instala de nuevo la copia guardada en este móvil. No necesita Internet. Android te pide confirmarlo.</string>
+	<string name="rep_reinstalando">Preparando la reinstalación de %1$s</string>
+	<string name="rep_confirmar_instalacion">Android pregunta si quieres instalar. El botón Instalar o Actualizar suele estar abajo a la derecha.</string>
+	<string name="rep_sin_respuesta">El instalador no ha respondido. Prueba otra vez.</string>
+	<string name="rep_permiso_instalar">Hay que permitir que Rescate Accesible instale aplicaciones. Activa el interruptor de esta pantalla y vuelve al rescate.</string>
+	<string name="rep_habilitar">Habilitar %1$s</string>
+	<string name="rep_habilitar_ayuda">La app está deshabilitada y por eso no funciona. Esto la vuelve a habilitar.</string>
+	<string name="rep_desinstalar_actualizaciones">Desinstalar las actualizaciones de %1$s</string>
+	<string name="rep_desinstalar_actualizaciones_ayuda">Vuelve a la versión de fábrica, que suele funcionar. Útil si falló tras actualizarse.</string>
+	<string name="rep_desinstalar_pregunta">¿Desinstalar las actualizaciones de %1$s? Vuelve a la versión de fábrica.</string>
+	<string name="rep_desinstalar_si">Desinstalar las actualizaciones</string>
+	<string name="rep_borrar_cache">Borrar la caché de %1$s</string>
+	<string name="rep_borrar_cache_ayuda">Borra archivos temporales sin perder sus ajustes.</string>
+	<string name="rep_hacer_copia">Hacer una copia de %1$s ahora</string>
+	<string name="rep_hacer_copia_ayuda">Guarda la versión instalada para reinstalarla sin Internet si un día se estropea.</string>
+	<string name="rep_sin_espacio">No hay espacio suficiente para la copia</string>
+	<string name="rep_tienda">Abrir %1$s en la tienda de aplicaciones</string>
+	<string name="rep_tienda_ayuda">Para reinstalarla o actualizarla. Necesita Internet.</string>
+	<string name="rep_tienda_abierta">Tienda abierta en %1$s.</string>
+	<string name="rep_informacion">Abrir la información de %1$s</string>
+	<string name="rep_informacion_abierta">Información de la app %1$s abierta.</string>
+	<string name="rep_con_copia">con copia de la versión %1$s</string>
+	<string name="rep_sin_copia">sin copia</string>
+	<string name="rep_copiando">Copiando %1$s</string>
+	<string name="rep_copia_hecha">Copia hecha: %1$s, versión %2$s</string>
+</resources>

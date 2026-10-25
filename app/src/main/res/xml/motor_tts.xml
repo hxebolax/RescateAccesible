@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Motor de voz propio (Pico): su pantalla de ajustes en «Síntesis de voz» del sistema. -->
+<tts-engine xmlns:android="http://schemas.android.com/apk/res/android"
+	android:settingsActivity="com.xebolax.rescate.tts.ActividadAjustesTts" />

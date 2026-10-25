@@ -1,0 +1,25 @@
+Rescate Accesible
+Copyright (C) 2026 XeBoLaX
+
+Este producto incluye software desarrollado por terceros:
+
+* Shortcut Menu, de aaron-gh (https://github.com/aaron-gh/shortcut-menu),
+  con licencia Apache License 2.0. Rescate Accesible incluye código modificado de
+  Shortcut Menu: la solución del menú de atajos que habla solo, el modo seguro, el
+  cambio de lector y de motor de voz y el uso de SVOX Pico. Cada archivo derivado lo
+  indica en su cabecera. Todos los derechos sobre esa solución son de su autor.
+
+* SVOX Pico, Copyright (C) 2008-2009 SVOX AG, del Android Open Source Project,
+  con licencia Apache License 2.0 (app/src/main/cpp/pico/NOTICE).
+
+* eSpeak NG 1.52.0, Copyright (C) 2005-2024 Jonathan Duddington, Reece H. Dunn y
+  colaboradores, con licencia GPL-3.0-or-later (app/src/main/cpp/espeak-ng/COPYING).
+
+* libadb-android, de Muntashir Al-Islam, Apache-2.0 o GPL-3.0-or-later.
+
+* Bibliotecas de AndroidX, Material Components, Kotlin, Conscrypt (Apache 2.0),
+  Bouncy Castle (MIT) y spake2-android (LGPL-3.0).
+
+Como incluye eSpeak NG, Rescate Accesible en su conjunto se distribuye con la
+licencia GPL-3.0-or-later (archivo LICENSE). Compilado sin eSpeak NG
+(-PincluirEspeak=false) puede distribuirse con la licencia Apache 2.0.

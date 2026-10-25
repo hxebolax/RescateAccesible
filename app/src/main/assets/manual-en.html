@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessible Rescue user guide</title>
+<style>
+	body { font-family: sans-serif; font-size: 1.1em; line-height: 1.5; margin: 1em; color: #201a19; background: #fffbff; }
+	h1, h2, h3 { color: #93000a; }
+	code { background: #f5ddda; padding: 0 .2em; }
+	/* Enlaces del índice con 48 px de alto como mínimo, fáciles de tocar */
+	li a { display: inline-block; min-height: 48px; line-height: 48px; }
+	@media (prefers-color-scheme: dark) {
+		body { color: #ede0de; background: #201a19; }
+		h1, h2, h3 { color: #ffb4ab; }
+		code { background: #534341; }
+	}
+</style>
+</head>
+<body>
+<h1>Accessible Rescue user guide</h1>
+<p>Accessible Rescue lets a blind person get their screen reader (TalkBack or another), the system voice and the phone's accessibility back on their own when something breaks, with no sighted help. It has its own voice, which works without the Internet and without the system speech engine.</p>
+
+<h2>Contents</h2>
+<ul>
+	<li><a href="#prepare">1. Setting it up (once, with your screen reader working)</a></li>
+	<li><a href="#open">2. How to open the rescue</a></li>
+	<li><a href="#use">3. How to use the rescue menu</a></li>
+	<li><a href="#menu">4. What is in the menu</a></li>
+	<li><a href="#problems">5. What to do for each failure</a></li>
+	<li><a href="#voices">6. The rescue voices</a></li>
+	<li><a href="#permission">7. The advanced permission</a></li>
+	<li><a href="#guardian">8. The guardian</a></li>
+	<li><a href="#backups">9. Backups of TalkBack and the voice</a></li>
+	<li><a href="#privacy">10. Privacy and permissions</a></li>
+	<li><a href="#limits">11. What Android does not allow</a></li>
+	<li><a href="#credits">12. Credits</a></li>
+</ul>
+
+<h2 id="prepare">1. Setting it up (once, with your screen reader working)</h2>
+<p>The first time you open the app, the <strong>setup assistant</strong> opens. Each step explains what it does and why. You can repeat it whenever you want from the main screen. The steps are:</p>
+<ol>
+	<li><strong>Language</strong> of the app (Spanish or English), even if the phone uses another one.</li>
+	<li><strong>Test the rescue voice</strong> (Pico, and also eSpeak NG). Choose the one you prefer.</li>
+	<li><strong>Assign the accessibility shortcut</strong>: in Settings, Accessibility, Accessible Rescue, turn on its shortcut and choose <em>Hold volume keys</em>. Make it the only feature on that shortcut and allow it on the lock screen. Do not turn the service on by hand: the shortcut does it when needed.</li>
+	<li><strong>What Android asks</strong>: the «full control» warning and what it is used for.</li>
+	<li><strong>Practice</strong>: hold both volume keys for about three seconds. The first time, Android asks whether to use the shortcut: your screen reader reads it; accept it.</li>
+	<li><strong>Advanced permission</strong> (optional, recommended): see chapter 7.</li>
+	<li><strong>Guardian</strong> (optional): see chapter 8.</li>
+	<li><strong>Alerts and battery</strong>: allow notifications and stop Android closing the app. On Xiaomi, Huawei, OPPO, vivo and others, also allow <em>autostart</em> for this app and for TalkBack.</li>
+	<li><strong>Backups</strong> of TalkBack and the Google voice as they are now.</li>
+	<li><strong>Check your system voice</strong> to remember it as the one that works.</li>
+	<li><strong>Save your settings</strong> to be able to go back to them, and record the backup messages.</li>
+</ol>
+<p>The main screen always says what is ready and what is missing. If something essential is missing, it warns at the very top. Each line is a button that fixes it.</p>
+
+<h2 id="open">2. How to open the rescue</h2>
+<ul>
+	<li><strong>Volume key shortcut</strong>: hold volume up and volume down together for about three seconds. It works on the lock screen and even if your screen reader is off or silent. Pressing it again with the menu open closes it.</li>
+	<li><strong>Volume up three times quickly</strong>: with the guardian on and no screen reader speaking, or outside the menu during a rescue, opens (or returns to) the rescue.</li>
+	<li>The app <strong>icon</strong> (hold it: «Rescue» shortcut), the <strong>Rescue tile</strong> in quick settings, or the guardian's <strong>notification</strong>.</li>
+	<li>On Android 11 or later, the <strong>accessibility button or gesture</strong>: in Settings, Accessibility, choose «Accessible Rescue menu» as its target. It opens the menu without turning on any service.</li>
+	<li>With a voice assistant you can say «Open Accessible Rescue» (if the assistant works).</li>
+</ul>
+<p>Android 7 has no volume key shortcut: use the icon, the tile or the guardian there.</p>
+
+<h2 id="use">3. How to use the rescue menu</h2>
+<h3>With no screen reader</h3>
+<p>The menu speaks for itself. The choices fill the screen in bands: <strong>drag your finger</strong> to hear each one and <strong>lift it</strong> to choose the one you hear. If you keep your finger still, you hear its explanation. The last choice is Back (or Leave the rescue on the main page).</p>
+<p>Start dragging with your finger already inside the screen, not from the top edge: from the edge, Android opens the notification shade. If it opens, press Back or use the volume keys.</p>
+<h3>With the volume keys (always)</h3>
+<ul>
+	<li><strong>Volume down</strong>: next choice.</li>
+	<li><strong>Volume up</strong>: previous choice.</li>
+	<li><strong>Hold</strong> either key: choose.</li>
+	<li><strong>Volume up three times quickly</strong>: safe mode.</li>
+</ul>
+<p>This works even when TalkBack is on but silent, which is when touching the screen does not help.</p>
+<h3>With your screen reader working</h3>
+<p>The menu is a list of buttons your screen reader reads like any other screen.</p>
+<h3>Safe mode</h3>
+<p>With the advanced permission, safe mode turns every screen reader off and the menu speaks with its own voice. If you leave without turning one on, or a few seconds pass without touching anything, your screen reader turns back on by itself: you are never left without one unless you choose it. Before turning anything off it checks that its own voice works. Without the permission, it starts echo mode.</p>
+<h3>Echo mode and the rescue reader</h3>
+<p>If TalkBack is on but silent (for example, because the system voice broke), <strong>echo mode</strong> reads with the rescue voice whatever TalkBack focuses: you keep your usual gestures. If there is no screen reader at all, the <strong>rescue reader</strong> acts as a basic one:</p>
+<ul>
+	<li>Touch or drag: says what is underneath. Double tap: activates.</li>
+	<li>Swipe right or left: next or previous.</li>
+	<li>Swipe down or up: scroll the list. Two fingers: scroll.</li>
+	<li>Down then left: back. Up then left: home. Right then down: notifications. Left then up: recents. Up then down: read the whole screen.</li>
+	<li>To go back to the rescue menu: the «Back to the rescue» button at the top right; the gesture left then right; or volume up three times quickly.</li>
+</ul>
+
+<h2 id="menu">4. What is in the menu</h2>
+<ul>
+	<li><strong>Diagnose and repair</strong>: checks the screen reader, the voice, the sound, the shortcuts, the battery and the backups, and suggests how to fix each problem.</li>
+	<li><strong>Screen readers</strong>: turn TalkBack or another on, off, restart or force stop it; safe mode; other services that can take touch away (such as Switch Access).</li>
+	<li><strong>System voice</strong>: test the speech engine (really: it starts, has your language and speaks), see the installed engines, make one the default, install voices, set rate and pitch to normal, go back to the last voice that worked, and <strong>use the rescue voice as the system voice</strong>.</li>
+	<li><strong>Sound and volume</strong>: test the sound, volume up and down, send the voice to the phone speaker, open Bluetooth and sound settings.</li>
+	<li><strong>Repair or reinstall TalkBack and the voice</strong>: reinstall from the saved backup (no Internet), enable the app, uninstall its updates, force stop it, clear its cache, open the store or the app info.</li>
+	<li><strong>Read the screen with the rescue voice</strong>: echo mode or rescue reader.</li>
+	<li><strong>Restore my settings</strong>: go back to the saved settings (needs the advanced permission).</li>
+	<li><strong>Open accessibility settings</strong>.</li>
+	<li><strong>Help for someone who can see the screen</strong>: full brightness and, in large print, what is wrong and what to tap.</li>
+	<li><strong>Rescue voice settings</strong>: rate, pitch, choice numbers, vibration and language.</li>
+	<li><strong>How to use the rescue</strong>: this help, spoken.</li>
+</ul>
+<p>When the rescue opens, a quick diagnosis runs and the most serious problem found is spoken. If the volume was too low to be heard, it is raised (and it says so).</p>
+
+<h2 id="problems">5. What to do for each failure</h2>
+<h3>I chose a speech engine that does not work and TalkBack went silent</h3>
+<p>Open the rescue with the shortcut. In System voice choose <em>Use the rescue voice as the system voice</em> or <em>Go back to the last voice that worked</em>. With the advanced permission it changes at once and TalkBack speaks again right away; without it, the rescue guides you through the speech settings with its own voice.</p>
+<h3>TalkBack turned off or does not respond</h3>
+<p>In Screen readers choose TalkBack and <em>Turn on</em> or <em>Restart</em>. If it is «on but not responding», restart it. Note: force stopping an accessibility app turns it off; turn it on again afterwards.</p>
+<h3>I hear nothing</h3>
+<p>Sound and volume: <em>Test the sound</em>, <em>Volume up</em> and, if Bluetooth headphones are connected, <em>Phone speaker: always</em> or disconnect them from Bluetooth settings. Do Not Disturb does not mute accessibility. Also check whether audio is mono or balanced to one side (the diagnosis says so).</p>
+<h3>My language voice is missing or there is no Internet</h3>
+<p>The rescue voice works without the Internet. For the system, use the rescue voice as the engine, or install the engine's voices when you are online.</p>
+<h3>TalkBack or the Google voice broke after an update</h3>
+<p>In Repair or reinstall: <em>Uninstall the updates</em> (back to the factory version) or <em>Reinstall from the backup</em>. Android asks you to confirm the install: the Install button is usually at the bottom right, and the rescue can press it for you if you confirm with volume up.</p>
+<h3>Someone changed the phone language</h3>
+<p>The rescue stays in your language. The diagnosis detects it and takes you to the language settings with the rescue reader.</p>
+<h3>TalkBack closes by itself (battery saving)</h3>
+<p>The diagnosis opens the battery optimization screen or your manufacturer's autostart screen.</p>
+<h3>Two screen readers at once, or something takes touch away</h3>
+<p>Screen readers: turn off the extra one, or <em>Other accessibility services that are on</em>.</p>
+<h3>No one can help and I hear nothing</h3>
+<p>If even the rescue voice fails, the rescue uses the recorded backup messages and, failing that, beeps and vibrations: as many vibrations as the choice number.</p>
+
+<h2 id="voices">6. The rescue voices</h2>
+<p>The app has two speech engines of its own, independent of the system and of the Internet:</p>
+<ul>
+	<li><strong>Pico</strong> (SVOX, from AOSP): Spanish from Spain, US English and British English voices. Recommended.</li>
+	<li><strong>eSpeak NG</strong>: another engine with other code and other data (Spanish, English, French, German, Italian and Portuguese). If Pico fails, the rescue switches to eSpeak.</li>
+</ul>
+<p>If an engine fails, the rescue goes down to the next: the chosen system voice (if you choose one), Pico, eSpeak, recorded messages and beeps. The rescue voice plays at the accessibility volume and, with Bluetooth headphones connected, can go to the phone speaker.</p>
+<p>The app also offers itself as a <strong>system speech engine</strong> («Rescue voice (Pico)»), so TalkBack can always use a voice that is installed and works with no Internet.</p>
+
+<h2 id="permission">7. The advanced permission</h2>
+<p>Android only lets an app turn screen readers on or off, change the speech engine or restore settings with the <code>WRITE_SECURE_SETTINGS</code> permission, granted once. It is the Shortcut Menu solution. Ways to grant it (Advanced permission, on the main screen):</p>
+<ul>
+	<li><strong>From the phone itself</strong> (Android 11 or later, with Wi-Fi): turn on developer options, wireless debugging and «Pair device with pairing code»; the app pairs with itself and grants the permission. You can turn wireless debugging off afterwards.</li>
+	<li><strong>With a computer</strong>: <code>adb shell pm grant com.xebolax.rescate android.permission.WRITE_SECURE_SETTINGS</code></li>
+	<li><strong>With root</strong> or with <strong>Shizuku</strong>.</li>
+</ul>
+<p>If, when pairing, you tick «Always allow on this network», the app can later use the <strong>system shell</strong> by itself (turning wireless debugging on for a moment and off again) to fix what a normal app cannot: mono audio, balance, enabling apps, removing updates, clearing caches. It also does it with root.</p>
+<p>It is removed by uninstalling the app or with <code>pm revoke</code>. Without it, everything works, guiding you through Settings instead of changing things at once.</p>
+
+<h2 id="guardian">8. The guardian</h2>
+<p>An optional second service that stays on. It does not read the screen: it watches whether your screen reader turns off or crashes and, when the screen turns on (at most every half hour), silently checks that the system voice speaks. If something fails, it warns you with the rescue voice, reads the screen in echo mode and lets you open the rescue by pressing volume up three times quickly. It only looks at the volume keys when no screen reader is speaking.</p>
+
+<h2 id="backups">9. Backups of TalkBack and the voice</h2>
+<p>The app keeps a copy of the installed files of TalkBack and the Google voice (and Samsung's, if present), with a SHA-256 check. If they ever break, the rescue reinstalls them without the Internet or a store. Android asks you to confirm each install. A version older than the installed one cannot be installed: in that case, uninstall the updates first.</p>
+
+<h2 id="privacy">10. Privacy and permissions</h2>
+<ul>
+	<li>Nothing the app reads is stored, logged or sent. The error log only has technical data.</li>
+	<li>The app only goes online when you check for updates (own server, configurable in Settings) or pair wireless debugging (only inside the phone).</li>
+	<li>It uses no Google services or Play Services: it works on phones without them.</li>
+	<li>Permissions: accessibility (full control, to read with its voice and to guide you), install apps (reinstall backups and update itself; the user always confirms), notifications (guardian alerts), battery (so Android does not close it), vibration, and the optional advanced permission.</li>
+</ul>
+
+<h2 id="limits">11. What Android does not allow</h2>
+<ul>
+	<li>The shortcut only works if it is assigned to Accessible Rescue; if someone removes it, use the icon, the tile or the guardian.</li>
+	<li>An app cannot turn on an accessibility service that is off, or change the speech engine, without the advanced permission or without the user confirming in Settings.</li>
+	<li>Mono audio and balance cannot be changed by an app: the rescue takes you to the setting.</li>
+	<li>If this app is force stopped (for example by some manufacturers' «clean all»), Android turns its guardian off.</li>
+	<li>After a restart, before unlocking, some Settings screens do not open.</li>
+</ul>
+
+<h2 id="credits">12. Credits</h2>
+<p>The self-speaking shortcut menu, safe mode, and switching screen readers and engines with the advanced permission come from <strong>Shortcut Menu</strong>, by <strong>aaron-gh</strong> (Apache 2.0): all rights to that solution belong to its author. <strong>SVOX Pico</strong> voice (Apache 2.0) and <strong>eSpeak NG</strong> (GPL 3). The full list is in Credits and licenses.</p>
+</body>
+</html>

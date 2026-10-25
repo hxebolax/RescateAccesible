@@ -1,0 +1,29 @@
+# Compilación
+.gradle/
+.kotlin/
+build/
+.cxx/
+*.iml
+.idea/
+local.properties
+
+# Entorno portátil (JDK, SDK, NDK, Gradle, emulador, cachés): lo prepara compilar.bat
+entorno/
+
+# Firma de publicación: nunca en el repositorio
+firma/
+*.jks
+*.keystore
+
+# APKs y paquetes de publicación
+dist/
+*.apk
+*.aab
+
+# Material de trabajo que no forma parte del proyecto
+adjuntos/
+Prompt_Rescate_Accesible_Android.md
+LEEME.md
+
+# Datos sueltos de pruebas
+docs/simulacion_informe.json

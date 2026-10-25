@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Menú de rescate, lector de rescate y guardián. Todo esto se dice en voz alta: frases cortas y claras. -->
+<resources>
+	<!-- Presentación y manejo -->
+	<string name="rescate_presentacion">Rescate Accesible.</string>
+	<string name="rescate_manejo_dedo">Desliza el dedo por la pantalla para oír las opciones y levántalo para elegir.</string>
+	<string name="rescate_manejo_lector">Tu lector de pantalla puede leer las opciones.</string>
+	<string name="rescate_manejo_teclas">Con las teclas de volumen: volumen abajo, siguiente opción; volumen arriba, opción anterior; mantén pulsada una tecla para elegir. Si tu lector no habla, pulsa tres veces rápido volumen arriba.</string>
+	<string name="rescate_posicion">%1$s. %2$d de %3$d</string>
+	<string name="rescate_de_vuelta">De vuelta en el rescate</string>
+	<string name="rescate_volumen_subido">El volumen estaba muy bajo y lo he subido</string>
+	<string name="rescate_cambio_a_pico">La voz del sistema falla. Sigo con la voz de rescate.</string>
+	<string name="rescate_error_general">Algo ha fallado. Prueba otra opción.</string>
+	<string name="rescate_confirmar_titulo">Confirmar</string>
+	<string name="rescate_salir">Salir del rescate</string>
+	<string name="rescate_salir_ayuda">Cierra el rescate. Si el modo seguro apagó tu lector y no has activado ninguno, lo vuelve a activar.</string>
+	<string name="rescate_saliendo">Saliendo del rescate</string>
+	<string name="rescate_volver">Volver</string>
+	<string name="rescate_un_momento">Un momento</string>
+	<string name="rescate_volver_con_teclas">Para volver al rescate, toca el botón Volver al rescate, arriba a la derecha, o pulsa tres veces rápido volumen arriba.</string>
+	<string name="rescate_volver_sin_servicio">Para volver al rescate, usa el atajo de accesibilidad o abre Rescate Accesible.</string>
+	<string name="rescate_no_se_abre">Este móvil no tiene esa pantalla. Prueba con Ajustes de accesibilidad.</string>
+	<string name="rescate_tu_lector">tu lector</string>
+
+	<!-- Modo seguro (de Shortcut Menu) y modo eco -->
+	<string name="rescate_seguro">Modo seguro.</string>
+	<string name="rescate_seguro_apagado">Lectores apagados. El menú habla con su propia voz. Si no tocas nada en %2$d segundos, %1$s vuelve a activarse.</string>
+	<string name="rescate_seguro_apagados_varios">Lectores apagados. El menú habla con su propia voz. Si no tocas nada en %1$d segundos, tus lectores vuelven a activarse.</string>
+	<string name="rescate_seguro_sin_lectores">Modo seguro. No había ningún lector activo. El menú habla con su propia voz.</string>
+	<string name="rescate_seguro_tiempo">No has tocado nada. Vuelvo a activar tu lector.</string>
+	<string name="rescate_seguro_sin_pico">La voz de rescate no funciona, así que no apago tu lector.</string>
+	<string name="rescate_seguro_sin_permiso">Para apagar tu lector hace falta el permiso avanzado. Mientras tanto usa las teclas de volumen.</string>
+	<string name="rescate_eco_activado">Modo eco. Te leo con la voz de rescate lo que enfoca tu lector. Usa tus gestos de siempre.</string>
+
+	<!-- Lector de rescate: papeles y estados de los elementos -->
+	<string name="papel_boton">botón</string>
+	<string name="papel_interruptor">interruptor</string>
+	<string name="papel_casilla">casilla</string>
+	<string name="papel_opcion">botón de opción</string>
+	<string name="papel_campo">campo de texto</string>
+	<string name="papel_contrasena">campo de contraseña</string>
+	<string name="papel_deslizador">control deslizante</string>
+	<string name="papel_desplegable">desplegable</string>
+	<string name="papel_imagen">imagen</string>
+	<string name="papel_progreso">progreso</string>
+	<string name="papel_pestanas">pestañas</string>
+	<string name="papel_encabezado">encabezado</string>
+	<string name="estado_activado">activado</string>
+	<string name="estado_desactivado">desactivado</string>
+	<string name="estado_seleccionado">seleccionado</string>
+	<string name="estado_no_disponible">no disponible</string>
+	<string name="estado_por_ciento">%1$d por ciento</string>
+
+	<!-- Guardián -->
+	<string name="guardian_lector_apagado">Atención: tu lector de pantalla se ha apagado. Para abrir el rescate, pulsa tres veces rápido volumen arriba.</string>
+	<string name="guardian_lector_caido">Atención: tu lector de pantalla está activado pero no responde. Para abrir el rescate, pulsa tres veces rápido volumen arriba.</string>
+	<string name="guardian_voz_rota">Atención: la voz del sistema no funciona. Te leo la pantalla con la voz de rescate. Para abrir el rescate, pulsa tres veces rápido volumen arriba.</string>
+	<string name="guardian_voz_vuelve">La voz del sistema vuelve a funcionar. Dejo de leer con la voz de rescate.</string>
+	<!-- Paneles flotantes del servicio (confirmaciones, volver, avisos) -->
+	<string name="panel_si">Sí. Volumen arriba o toca aquí</string>
+	<string name="panel_no">No, cancelar. Volumen abajo o toca aquí</string>
+	<string name="panel_volver_rescate">Volver al rescate</string>
+	<string name="panel_abrir_rescate">Abrir el rescate. Volumen arriba o toca aquí</string>
+	<string name="panel_cerrar_aviso">Cerrar el aviso. Volumen abajo</string>
+</resources>

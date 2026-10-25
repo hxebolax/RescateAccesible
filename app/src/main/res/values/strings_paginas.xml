@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Páginas del menú de rescate (PaginasRescate.kt). Se dicen en voz alta: cada opción empieza por lo que hace. -->
+<resources>
+	<string name="pag_principal_intro">Menú principal</string>
+	<string name="pag_aviso_detectado">He detectado esto: %1$s. Para arreglarlo, elige Diagnosticar y reparar.</string>
+
+	<string name="pag_diagnostico">Diagnosticar y reparar</string>
+	<string name="pag_diagnostico_ayuda">Comprueba el lector, la voz, el sonido y los atajos, y te propone cómo arreglar cada problema.</string>
+	<string name="pag_diagnosticando">Comprobando el móvil. Tarda unos segundos.</string>
+	<string name="pag_sin_problemas">No he encontrado problemas</string>
+	<plurals name="pag_problemas">
+		<item quantity="one">He encontrado un problema</item>
+		<item quantity="other">He encontrado %1$d problemas</item>
+	</plurals>
+	<string name="pag_hallazgos_intro">Resultados del diagnóstico. Elige uno para oír cómo arreglarlo.</string>
+	<plurals name="pag_lo_que_va_bien">
+		<item quantity="one">Lo que funciona bien: una comprobación</item>
+		<item quantity="many">Lo que funciona bien: %1$d comprobaciones</item>
+		<item quantity="other">Lo que funciona bien: %1$d comprobaciones</item>
+	</plurals>
+	<string name="pag_hallazgo_intro">Formas de arreglarlo</string>
+	<string name="pag_explicacion">Explicación</string>
+	<string name="pag_necesita_permiso">%1$s. Necesita el permiso avanzado</string>
+	<string name="pag_permiso_explicacion">Esto necesita el permiso avanzado, que se concede una vez desde la app Rescate Accesible, en Permiso avanzado. Mientras tanto, hay otras opciones guiadas en este mismo menú.</string>
+	<string name="gravedad_grave">Grave</string>
+	<string name="gravedad_aviso">Aviso</string>
+	<string name="gravedad_info">Información</string>
+
+	<string name="pag_lectores">Lectores de pantalla</string>
+	<string name="pag_lectores_ayuda">Activa, desactiva o reinicia TalkBack u otro lector.</string>
+	<string name="pag_lectores_intro">Lectores de pantalla instalados</string>
+	<string name="pag_sin_lectores">No hay ningún lector de pantalla instalado</string>
+	<string name="pag_sin_lectores_ayuda">Elige esta opción para reinstalar TalkBack desde una copia o desde la tienda.</string>
+	<string name="pag_modo_seguro">Modo seguro</string>
+	<string name="pag_modo_seguro_ayuda">Apaga todos los lectores y el menú habla con su propia voz. Si no activas ninguno, el tuyo vuelve solo. Es lo mismo que pulsar tres veces rápido volumen arriba.</string>
+	<plurals name="pag_otros_servicios">
+		<item quantity="one">Otro servicio de accesibilidad activado</item>
+		<item quantity="other">%1$d servicios de accesibilidad activados más</item>
+	</plurals>
+	<string name="pag_otros_servicios_titulo">Otros servicios activados</string>
+	<string name="pag_otros_servicios_ayuda">Servicios que no son lectores pero pueden quitarte el control del tacto o del teclado, como Accesibilidad con interruptores.</string>
+	<string name="servicio_desactivar_otro">Desactivar %1$s</string>
+	<string name="lector_activo">%1$s, activado</string>
+	<string name="lector_caido">%1$s, activado pero no responde</string>
+	<string name="lector_apagado">%1$s, desactivado</string>
+	<string name="lector_activar">Activar %1$s</string>
+	<string name="lector_desactivar">Desactivar %1$s</string>
+	<string name="lector_reiniciar">Reiniciar %1$s</string>
+	<string name="lector_reiniciar_ayuda">Lo apaga y lo vuelve a encender. Arregla muchas veces un lector mudo o colgado.</string>
+	<string name="lector_habitual">Hacer de %1$s mi lector habitual</string>
+	<string name="lector_habitual_ayuda">El rescate lo recordará para devolvértelo.</string>
+	<string name="lector_habitual_hecho">%1$s es ahora tu lector habitual</string>
+	<string name="lector_forzar_detencion">Forzar la detención de %1$s</string>
+	<string name="lector_forzar_detencion_ayuda">Cierra la app del lector del todo. Después puedes activarlo otra vez.</string>
+	<string name="lector_reparar">Reparar o reinstalar %1$s</string>
+	<string name="lector_activando">Activando %1$s. El rescate se cierra para que hable tu lector.</string>
+	<string name="lector_reiniciando">Reiniciando %1$s. El rescate se cierra para que hable tu lector.</string>
+	<string name="lector_no_activado">No se ha podido activar %1$s</string>
+	<string name="lector_desactivado">%1$s desactivado</string>
+	<string name="lector_no_desactivado">No se ha podido desactivar %1$s</string>
+	<string name="lector_guiando">Voy a los ajustes de %1$s. Te iré diciendo lo que hago.</string>
+
+	<string name="pag_leer_pantalla">Leer la pantalla con la voz de rescate</string>
+	<string name="pag_leer_pantalla_ayuda">Si tu lector está activo pero no se oye, leo lo que él enfoca. Si no hay lector, soy yo el lector: toca para oír, doble toque para activar, desliza a derecha o izquierda para moverte.</string>
+	<string name="pag_dejar_de_leer">Dejar de leer la pantalla con la voz de rescate</string>
+	<string name="pag_lectura_apagada">Ya no leo la pantalla</string>
+	<string name="pag_leer_sin_servicio">Para leer la pantalla, el rescate tiene que estar abierto con el atajo de accesibilidad o con el guardián activado.</string>
+	<string name="pag_lector_propio">Lector de rescate activado. Toca la pantalla para oír lo que hay, doble toque para activar, desliza a la derecha o a la izquierda para pasar de elemento. Desliza abajo y luego a la izquierda para ir atrás. Para volver al menú de rescate, pulsa tres veces rápido volumen arriba.</string>
+
+	<string name="pag_voz">Voz del sistema</string>
+	<string name="pag_voz_ayuda">Prueba los motores de voz, cambia el predeterminado o usa la voz incluida en esta app.</string>
+	<string name="pag_voz_intro">Voz del sistema, la que usa tu lector</string>
+	<string name="voz_desconocido">el motor predeterminado</string>
+	<string name="voz_probar_predeterminado">Probar la voz del sistema: %1$s</string>
+	<string name="voz_motores">Motores de voz instalados</string>
+	<string name="voz_motores_ayuda">Prueba cada motor y elige el predeterminado.</string>
+	<string name="voz_motores_intro">Motores de voz</string>
+	<string name="voz_motor_numero">Motor %1$d</string>
+	<string name="voz_motor_predeterminado">%1$s, predeterminado</string>
+	<string name="voz_motor_intro">Qué hacer con este motor</string>
+	<string name="voz_probar">Probar %1$s</string>
+	<string name="voz_hacer_predeterminado">Hacer de %1$s el motor predeterminado</string>
+	<string name="voz_instalar_datos">Instalar voces de %1$s</string>
+	<string name="voz_instalar_datos_ayuda">Abre la pantalla del motor para descargar la voz de tu idioma. Necesita Internet.</string>
+	<string name="voz_instalar_datos_abierto">Pantalla de voces de %1$s abierta.</string>
+	<string name="voz_reparar">Reparar o reinstalar %1$s</string>
+	<string name="voz_usar_propia">Usar la voz de rescate como voz del sistema</string>
+	<string name="voz_usar_propia_ayuda">Esta app trae su propia voz, sin Internet. Si la eliges como motor predeterminado, tu lector vuelve a hablar aunque los demás motores fallen.</string>
+	<string name="voz_volver_conocido">Volver a %1$s, la última voz que funcionó</string>
+	<string name="voz_volver_conocido_ayuda">El motor que el rescate comprobó que hablaba.</string>
+	<string name="voz_normalizar">Poner la velocidad y el tono normales</string>
+	<string name="voz_normalizar_ayuda">Si la voz suena demasiado rápida, lenta, aguda o grave.</string>
+	<string name="voz_normalizada">Velocidad y tono de la voz del sistema en lo normal. Tu lector puede tener su propia velocidad en sus ajustes.</string>
+	<string name="voz_no_normalizada">No se han podido cambiar la velocidad y el tono</string>
+	<string name="voz_normalizar_guia">Ajustes de voz abiertos. Busca Velocidad de voz y Tono, y usa Restablecer.</string>
+	<string name="voz_abrir_ajustes">Abrir los ajustes de voz del sistema</string>
+	<string name="voz_ajustes_abiertos">Ajustes de síntesis de voz abiertos.</string>
+	<string name="voz_ajustes_alternativa">Este móvil no tiene acceso directo a los ajustes de voz. He abierto Accesibilidad: busca Síntesis de voz o Salida de texto a voz.</string>
+	<string name="voz_probando">Probando %1$s</string>
+	<string name="voz_no_arranca">%1$s no arranca. Prueba otro motor o repáralo.</string>
+	<string name="voz_sin_idioma">%1$s no tiene la voz de tu idioma. Instala sus voces o usa otro motor.</string>
+	<string name="voz_no_habla">%1$s no habla. Prueba otro motor o repáralo.</string>
+	<string name="voz_funciona_oir">%1$s funciona. Escucha:</string>
+	<string name="voz_frase_motor">Esta es la voz de %1$s.</string>
+	<string name="voz_oida">Prueba terminada: %1$s ha hablado. Esto no cambia el motor predeterminado.</string>
+	<string name="voz_predeterminado_hecho">Comprobado: %1$s es ahora el motor predeterminado. Si tu lector sigue sin hablar, reinícialo.</string>
+	<string name="voz_predeterminado_fallo">No se ha podido hacer de %1$s el motor predeterminado</string>
+	<string name="voz_guiando">Voy a los ajustes de voz para elegir %1$s. Te iré diciendo lo que hago.</string>
+
+	<string name="pag_sonido">Sonido y volumen</string>
+	<string name="pag_sonido_ayuda">Prueba el sonido, sube el volumen o manda la voz al altavoz del móvil.</string>
+	<string name="pag_sonido_intro">Sonido y volumen</string>
+	<string name="sonido_probar">Probar el sonido</string>
+	<string name="sonido_prueba_dicha">Si oyes esto, el sonido del rescate funciona.</string>
+	<string name="sonido_estado">Decir el estado del sonido</string>
+	<string name="sonido_subir">Subir el volumen</string>
+	<string name="sonido_bajar">Bajar el volumen</string>
+	<string name="sonido_volumen">Volumen al %1$d por ciento</string>
+	<string name="sonido_altavoz_auto">Altavoz del móvil: automático, si hay Bluetooth</string>
+	<string name="sonido_altavoz_siempre">Altavoz del móvil: siempre</string>
+	<string name="sonido_altavoz_nunca">Altavoz del móvil: nunca</string>
+	<string name="sonido_altavoz_ayuda">Elige por dónde sale la voz de rescate. Unos auriculares Bluetooth apagados o lejos se llevan a menudo el sonido.</string>
+	<string name="sonido_altavoz_cambiado">Cambiado</string>
+	<string name="sonido_bluetooth">Abrir los ajustes de Bluetooth</string>
+	<string name="sonido_bluetooth_ayuda">Para desconectar unos auriculares que se llevan el sonido.</string>
+	<string name="sonido_bluetooth_abierto">Ajustes de Bluetooth abiertos.</string>
+	<string name="sonido_ajustes">Abrir los ajustes de sonido</string>
+	<string name="sonido_ajustes_abiertos">Ajustes de sonido abiertos.</string>
+
+	<string name="pag_reparar">Reparar o reinstalar TalkBack y la voz</string>
+	<string name="pag_reparar_ayuda">Reinstala TalkBack o la voz de Google desde una copia guardada, quita actualizaciones que fallan o abre la tienda.</string>
+
+	<string name="pag_restaurar">Restaurar mi configuración</string>
+	<string name="pag_restaurar_ayuda">Vuelve a la configuración de accesibilidad que guardaste cuando todo funcionaba.</string>
+	<string name="pag_restaurar_intro">Configuración guardada</string>
+	<string name="restaurar_no_hay">No hay ninguna configuración guardada</string>
+	<string name="restaurar_no_hay_ayuda">Guárdala desde la app Rescate Accesible cuando todo funcione, en Preparación.</string>
+	<plurals name="restaurar_diferencias">
+		<item quantity="one">Hay una diferencia con la configuración del %2$s</item>
+		<item quantity="other">Hay %1$d diferencias con la configuración del %2$s</item>
+	</plurals>
+	<string name="restaurar_igual">Todo está como en la configuración guardada</string>
+	<string name="restaurar_hacer">Restaurar la configuración guardada</string>
+	<string name="restaurar_hacer_ayuda">Vuelve a poner los lectores, el motor de voz, los atajos y los ajustes de voz que guardaste.</string>
+	<string name="restaurar_pregunta">¿Restaurar la configuración guardada? Tu lector puede reiniciarse.</string>
+
+	<string name="pag_ajustes_accesibilidad">Abrir los ajustes de accesibilidad</string>
+	<string name="pag_ajustes_accesibilidad_ayuda">La pantalla del sistema donde se activan los lectores y los atajos.</string>
+	<string name="pag_abriendo_accesibilidad">Ajustes de accesibilidad abiertos.</string>
+	<string name="pag_ayudante">Ayuda para quien ve la pantalla</string>
+	<string name="pag_ayudante_ayuda">Pone la pantalla al máximo de brillo y muestra en letra grande qué pasa y qué hay que tocar, para alguien que te ayude.</string>
+	<string name="pag_ayudante_abierto">Pantalla de ayuda para quien ve, con el brillo al máximo.</string>
+
+	<string name="pag_ajustes_rescate">Ajustes de la voz de rescate</string>
+	<string name="pag_ajustes_rescate_ayuda">Velocidad y tono de esta voz, vibración e idioma.</string>
+	<string name="pag_ajustes_rescate_intro">Ajustes de la voz de rescate</string>
+	<string name="ajr_mas_rapido">Hablar más rápido. Ahora al %1$d por ciento</string>
+	<string name="ajr_mas_lento">Hablar más despacio. Ahora al %1$d por ciento</string>
+	<string name="ajr_velocidad">Velocidad al %1$d por ciento</string>
+	<string name="ajr_tono_agudo">Tono más agudo. Ahora al %1$d por ciento</string>
+	<string name="ajr_tono_grave">Tono más grave. Ahora al %1$d por ciento</string>
+	<string name="ajr_tono">Tono al %1$d por ciento</string>
+	<string name="ajr_posicion_si">Decir el número de cada opción: sí</string>
+	<string name="ajr_posicion_no">Decir el número de cada opción: no</string>
+	<string name="ajr_vibrar_si">Vibrar al moverse: sí</string>
+	<string name="ajr_vibrar_no">Vibrar al moverse: no</string>
+	<string name="ajr_cambiado">Cambiado</string>
+	<string name="ajr_idioma">Idioma: español. Cambiar a inglés</string>
+	<string name="ajr_idioma_ayuda">Cambia el idioma del rescate, aunque el del móvil sea otro.</string>
+
+	<string name="pag_ayuda">Cómo usar el rescate</string>
+	<string name="pag_ayuda_ayuda">Explicaciones habladas de cada parte del rescate.</string>
+	<string name="pag_ayuda_intro">Ayuda. Elige un tema para oírlo.</string>
+	<string name="ayuda_moverse_titulo">Cómo moverse por el menú</string>
+	<string name="ayuda_moverse">Sin lector de pantalla, desliza el dedo por la pantalla: cada opción ocupa una franja y se dice al pasar por ella. Levanta el dedo para elegir la que oyes. Si dejas el dedo quieto, oyes su explicación. Con las teclas de volumen: volumen abajo pasa a la siguiente, volumen arriba a la anterior y mantener pulsada una tecla elige. La última opción de cada página es Volver; en la principal, Salir del rescate.</string>
+	<string name="ayuda_volver_titulo">Cómo volver al rescate</string>
+	<string name="ayuda_volver">Mantén pulsadas las dos teclas de volumen unos segundos, si asignaste el atajo a Rescate Accesible. Con el guardián activado o fuera del menú durante un rescate, pulsa tres veces rápido volumen arriba. También puedes abrir la app Rescate Accesible o el mosaico Rescate de los ajustes rápidos.</string>
+	<string name="ayuda_seguro_titulo">Qué es el modo seguro</string>
+	<string name="ayuda_seguro">Se activa con tres pulsaciones rápidas de volumen arriba. Con el permiso avanzado apaga todos los lectores y el menú habla con su propia voz. Si sales sin activar ninguno, o pasan unos segundos sin tocar nada, tu lector vuelve a activarse. Sin el permiso, activa el modo eco.</string>
+	<string name="ayuda_eco_titulo">Qué es el modo eco</string>
+	<string name="ayuda_eco">Cuando TalkBack u otro lector está activo pero no se oye, por ejemplo porque se rompió la voz del sistema, el rescate lee con su propia voz lo que ese lector enfoca. Sigues usando tus gestos de siempre.</string>
+	<string name="ayuda_gestos_titulo">Gestos del lector de rescate</string>
+	<string name="ayuda_gestos">Toca o arrastra para oír lo que hay. Doble toque activa. Desliza a la derecha, siguiente elemento; a la izquierda, anterior. Desliza abajo o arriba para desplazar la lista. Abajo y luego izquierda, atrás. Arriba y luego izquierda, inicio. Derecha y luego abajo, notificaciones. Arriba y luego abajo, leer toda la pantalla. Dos dedos para desplazar.</string>
+	<string name="ayuda_permiso_titulo">Qué es el permiso avanzado</string>
+	<string name="ayuda_permiso">Android solo deja que una app active o desactive lectores y cambie el motor de voz con un permiso que se concede una vez, con un ordenador, con la depuración inalámbrica del propio móvil o con root. Con él, el rescate lo hace al momento. Sin él, el rescate te guía por los Ajustes.</string>
+	<string name="ayuda_menu_titulo">Qué hay en el menú principal</string>
+	<string name="ayuda_menu">Diagnosticar y reparar, lectores de pantalla, voz del sistema, sonido, reparar o reinstalar, leer la pantalla con la voz de rescate, restaurar tu configuración, ajustes de accesibilidad, ayuda para quien ve, ajustes de la voz de rescate, esta ayuda y salir.</string>
+	<string name="ayuda_opciones">Leer todas las opciones con su explicación</string>
+</resources>

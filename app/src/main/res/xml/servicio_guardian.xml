@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Guardián: queda activado y vigila sin leer la pantalla si el lector y la voz del sistema
+	funcionan. Solo lee (modo eco) si la voz del sistema se rompe, y solo mira las teclas de
+	volumen cuando no hay lector que hable.
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+	android:accessibilityEventTypes="typeAnnouncement"
+	android:accessibilityFeedbackType="feedbackSpoken"
+	android:accessibilityFlags="flagEnableAccessibilityVolume|flagReportViewIds|flagRetrieveInteractiveWindows"
+	android:canRetrieveWindowContent="true"
+	android:canRequestTouchExplorationMode="true"
+	android:canRequestFilterKeyEvents="true"
+	android:canPerformGestures="true"
+	android:description="@string/servicio_guardian_descripcion"
+	android:isAccessibilityTool="true"
+	android:notificationTimeout="0"
+	android:settingsActivity="com.xebolax.rescate.ui.ActividadPrincipal" />

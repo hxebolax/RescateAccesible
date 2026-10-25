@@ -1,0 +1,20 @@
+== 1.0.0
+- Primera versión de Rescate Accesible: recupera tú solo el lector de pantalla, la voz y la accesibilidad del móvil, sin ayuda de nadie y sin Internet.
+- Se abre con el atajo de las dos teclas de volumen, también con el móvil bloqueado y antes de desbloquear tras reiniciar. También desde el icono, su acceso directo, el mosaico «Rescate» de los ajustes rápidos y el aviso del guardián.
+- Menú de rescate que habla solo: arrastra el dedo para oír las opciones y levántalo para elegir. Con las teclas de volumen: abajo siguiente, arriba anterior, mantener pulsada para elegir. Funciona aunque TalkBack esté activo pero mudo.
+- Voces propias sin Internet: Pico (español, inglés de EE. UU. y británico) y eSpeak NG. Si falla una, habla la otra; si fallan las dos, mensajes grabados con las dos voces en español e inglés; y si no, pitidos y vibraciones.
+- La voz de rescate se puede usar como motor de voz del sistema: TalkBack vuelve a hablar aunque fallen los demás motores.
+- Modo seguro (de Shortcut Menu): tres pulsaciones rápidas de volumen arriba apagan los lectores, el menú habla con su voz y tu lector vuelve solo si no eliges otro. Sin permiso avanzado, modo eco: la voz de rescate lee lo que enfoca TalkBack.
+- Lector de rescate básico cuando no hay ningún lector: tocar, doble toque, deslizar, atrás, inicio y leer toda la pantalla.
+- Diagnóstico automático de lector, voz, sonido, atajos, batería y copias, con la reparación de cada problema. Al abrir el rescate dice lo más grave que encuentre y sube el volumen si no se oiría.
+- Lectores: activar, desactivar, reiniciar, forzar la detención y desactivar servicios que roban el tacto.
+- Voz del sistema: probarla de verdad, elegir el motor predeterminado, volver a la última voz que funcionó, velocidad y tono normales e instalar voces.
+- Reparar o reinstalar TalkBack y la voz de Google: copias de seguridad para reinstalarlos sin Internet ni tienda, instalar desde un archivo, desinstalar actualizaciones, habilitar la app y borrar la caché.
+- Guía automática por los Ajustes del sistema con la voz de rescate, confirmando cada paso con volumen arriba.
+- Restaurar la configuración buena que guardaste.
+- Guardián opcional: avisa si tu lector se apaga o la voz del sistema deja de hablar, lee la pantalla con la voz de rescate y abre el rescate con tres pulsaciones de volumen arriba.
+- Permiso avanzado opcional, concedido desde el propio móvil con la depuración inalámbrica, con un ordenador, con root o con Shizuku.
+- Pantalla de ayuda para quien ve la pantalla, con el brillo al máximo.
+- Asistente de preparación que explica cada permiso; pantalla principal con lo que está listo y lo que falta.
+- Informe de pruebas y simulaciones de averías en Ajustes.
+- En español e inglés. Sin Google Play Services. Actualizaciones desde el servidor propio.

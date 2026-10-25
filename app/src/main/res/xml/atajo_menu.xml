@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 11+: el menú de rescate como destino del atajo o del botón de accesibilidad, sin servicio. -->
+<accessibility-shortcut-target xmlns:android="http://schemas.android.com/apk/res/android"
+	android:description="@string/atajo_menu_descripcion"
+	android:summary="@string/atajo_menu_resumen"
+	android:settingsActivity="com.xebolax.rescate.ui.ActividadPrincipal" />

@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Informe de pruebas y simulaciones de averías</title>
+<style>body{font-family:sans-serif;font-size:1.05em;line-height:1.5;margin:1em;color:#201a19;background:#fffbff}h1,h2,h3{color:#93000a}.bien{color:#1b5e20;font-weight:bold}.mal{color:#b3261e;font-weight:bold}li{margin:.3em 0}li a{display:inline-block;min-height:48px;line-height:48px}@media(prefers-color-scheme:dark){body{color:#ede0de;background:#201a19}h1,h2,h3{color:#ffb4ab}.bien{color:#a5d6a7}.mal{color:#ffb4ab}}</style></head><body>
+<h1>Informe de pruebas y simulaciones de averías</h1>
+<p>Rescate Accesible 1.0.0-pruebas. Simulación hecha el 2026-10-25 13:08 en un emulador Google sdk_gphone64_x86_64 con Android 15 (API 35) y TalkBack 15.0.0.639625893.</p>
+<p lang="en">English: this report lists every simulated accessibility failure, what the user did (keys, touches, gestures) and how the app recovered. The details are in Spanish.</p>
+<h2>Resumen</h2><ul>
+<li>Escenarios superados: <strong>15 de 15</strong>.</li>
+<li>Comprobaciones correctas: <strong>61 de 61</strong>.</li>
+<li>Cada escenario rompe algo de verdad en el emulador, lo arregla manejando la app como lo haría una persona ciega (teclas de volumen, arrastrar el dedo por el menú que habla y levantarlo, confirmar con volumen arriba) y comprueba el resultado leyendo los ajustes y servicios reales del sistema. Nada se da por bueno sin comprobarlo.</li>
+<li>El atajo de accesibilidad (mantener pulsadas las dos teclas de volumen) no se puede pulsar desde una prueba automática: se simula activando el servicio del atajo, que es exactamente lo que hace Android al detectarlo. Las demás teclas, toques y arrastres son pulsaciones reales enviadas al emulador.</li>
+</ul>
+<h2>Índice</h2><ul>
+<li><a href="#S01">S01. Ning&#250;n motor de voz del sistema funciona (superado)</a></li>
+<li><a href="#S02">S02. Se eligi&#243; un motor de voz que falla y TalkBack se calla (superado)</a></li>
+<li><a href="#S03">S03. TalkBack desactivado (sin ning&#250;n lector) (superado)</a></li>
+<li><a href="#S04">S04. TalkBack desactivado y sin permiso avanzado (superado)</a></li>
+<li><a href="#S05">S05. Volumen a cero (superado)</a></li>
+<li><a href="#S06">S06. Voz demasiado r&#225;pida y aguda (superado)</a></li>
+<li><a href="#S07">S07. Modo seguro: apagar el lector mudo y recuperarlo solo (superado)</a></li>
+<li><a href="#S08">S08. Modo eco: TalkBack activo pero mudo, sin permiso avanzado (superado)</a></li>
+<li><a href="#S09">S09. Otro servicio de accesibilidad roba el control (superado)</a></li>
+<li><a href="#S10">S10. TalkBack cerrado a la fuerza (limpiador o ahorro de bater&#237;a) (superado)</a></li>
+<li><a href="#S11">S11. Restaurar la configuraci&#243;n buena guardada (superado)</a></li>
+<li><a href="#S12">S12. Fallan las voces incluidas: grabaciones y pitidos (superado)</a></li>
+<li><a href="#S13">S13. El guardi&#225;n detecta que la voz del sistema se ha roto (superado)</a></li>
+<li><a href="#S14">S14. El guardi&#225;n avisa de que TalkBack se ha apagado (superado)</a></li>
+<li><a href="#S15">S15. Diagn&#243;stico autom&#225;tico (superado)</a></li>
+</ul>
+<h2 id="S01">S01. Ning&#250;n motor de voz del sistema funciona</h2>
+<p>Resultado: <span class="bien">Superado</span> (31 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Se deshabilita la app Servicios de voz de Google (el motor predeterminado) y se aver&#237;a el motor Pico de la app. TalkBack sigue activo pero no tiene ninguna voz: el usuario no oye nada.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Con un lector activo: el men&#250; es una lista de botones.</li>
+<li>(La aver&#237;a simulada de Pico se retira aqu&#237;: solo quer&#237;a demostrar que el rescate habla aunque fallen todas las dem&#225;s voces.)</li>
+<li>Pulsa volumen abajo 5 veces hasta o&#237;r &#171;Reparar o reinstalar TalkBack y la voz&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 2 veces hasta o&#237;r &#171;Reconocimiento y s&#237;ntesis de voz de Google, versi&#243;n googletts.google-speech-apk_20240319.00_p0.617183227, deshabilitada: no funciona hasta habilitarla en su informaci&#243;n, sin copia&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;Habilitar Reconocimiento y s&#237;ntesis de voz de Google&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>La gu&#237;a abre la informaci&#243;n de la app en Ajustes, dice lo que encuentra y pulsa &#171;Habilitar&#187; (habilitar no es irreversible: no pide confirmaci&#243;n) y vuelve al men&#250; de rescate.</li>
+<li>Pulsa Atr&#225;s 3 veces para volver al men&#250; principal (Atr&#225;s vuelve a la p&#225;gina anterior).</li>
+<li>Pulsa volumen abajo 3 veces hasta o&#237;r &#171;Voz del sistema&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;Probar la voz del sistema: Reconocimiento y s&#237;ntesis de voz de Google&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Oye el resultado de la prueba y una frase dicha con la voz de Google.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> Aver&#237;a real: la voz del sistema no habla</li>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> El rescate habla con su segunda voz incluida (eSpeak NG), sin el motor del sistema ni Pico</li>
+<li><span class="bien">Bien:</span> La app Servicios de voz de Google vuelve a estar habilitada</li>
+<li><span class="bien">Bien:</span> El motor predeterminado sigue siendo la voz de Google (le&#237;do del ajuste del sistema)</li>
+<li><span class="bien">Bien:</span> La voz del sistema vuelve a hablar (prueba real de s&#237;ntesis en ingl&#233;s (Estados Unidos))</li>
+</ul>
+<h2 id="S02">S02. Se eligi&#243; un motor de voz que falla y TalkBack se calla</h2>
+<p>Resultado: <span class="bien">Superado</span> (22 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Se elige como motor predeterminado la voz de Google y despu&#233;s se deshabilita (como un motor estropeado o desinstalado a medias). TalkBack activo.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Con un lector activo: el men&#250; es una lista de botones.</li>
+<li>Pulsa volumen abajo 3 veces hasta o&#237;r &#171;Voz del sistema&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 3 veces hasta o&#237;r &#171;Usar la voz de rescate como voz del sistema&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> El motor predeterminado es ahora la voz de rescate de la app (le&#237;do del ajuste del sistema)</li>
+<li><span class="bien">Bien:</span> TalkBack vuelve a hablar: el sistema pidi&#243; 6 frases al motor de rescate</li>
+</ul>
+<h2 id="S03">S03. TalkBack desactivado (sin ning&#250;n lector)</h2>
+<p>Resultado: <span class="bien">Superado</span> (12 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Se desactiva TalkBack. El m&#243;vil no tiene ning&#250;n lector de pantalla: no habla nada.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Sin lector activo: el men&#250; habla solo con la voz de rescate.</li>
+<li>Pone un dedo en la primera opci&#243;n, lo desliza hacia abajo oyendo cada opci&#243;n al pasar y lo levanta al o&#237;r &#171;Lectores de pantalla&#187;.</li>
+<li>Pone un dedo en la primera opci&#243;n, lo desliza hacia abajo oyendo cada opci&#243;n al pasar y lo levanta al o&#237;r &#171;TalkBack, desactivado&#187;.</li>
+<li>Pone un dedo en la primera opci&#243;n, lo desliza hacia abajo oyendo cada opci&#243;n al pasar y lo levanta al o&#237;r &#171;Activar TalkBack&#187;.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> Sin lector, el men&#250; habla solo y se maneja con el dedo</li>
+<li><span class="bien">Bien:</span> TalkBack activado y en marcha</li>
+<li><span class="bien">Bien:</span> El rescate se cierra solo para que hable TalkBack</li>
+</ul>
+<h2 id="S04">S04. TalkBack desactivado y sin permiso avanzado</h2>
+<p>Resultado: <span class="bien">Superado</span> (27 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Como S03, pero la app no tiene el permiso avanzado: no puede activar TalkBack directamente y tiene que guiar por los Ajustes del sistema.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Sin lector activo: el men&#250; habla solo con la voz de rescate.</li>
+<li>Pulsa volumen abajo 2 veces hasta o&#237;r &#171;Lectores de pantalla&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;TalkBack, desactivado&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;Activar TalkBack&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>La gu&#237;a abre Ajustes de accesibilidad, lee lo que encuentra con la voz de rescate, entra en TalkBack y busca su interruptor.</li>
+<li>Oye la pregunta de la gu&#237;a (volumen arriba s&#237;, volumen abajo no) y pulsa volumen arriba.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> TalkBack activado desde los Ajustes del sistema (la gu&#237;a puls&#243; el interruptor y &#171;Permitir&#187;)</li>
+<li><span class="bien">Bien:</span> TalkBack en marcha</li>
+</ul>
+<h2 id="S05">S05. Volumen a cero</h2>
+<p>Resultado: <span class="bien">Superado</span> (16 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Se bajan a cero el volumen multimedia y el de accesibilidad: aunque todo funcione, no se oye nada.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Con un lector activo: el men&#250; es una lista de botones.</li>
+<li>Al abrirse, el rescate comprueba el volumen y lo sube solo hasta el m&#237;nimo elegido (60 %), y lo dice.</li>
+<li>Pulsa volumen abajo 4 veces hasta o&#237;r &#171;Sonido y volumen&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 3 veces hasta o&#237;r &#171;Subir el volumen&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Oye &#171;Volumen al … por ciento&#187;.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> Aver&#237;a real: volumen multimedia al 0 %</li>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> Volumen multimedia subido (60 %)</li>
+<li><span class="bien">Bien:</span> Volumen de accesibilidad subido (66 %)</li>
+</ul>
+<h2 id="S06">S06. Voz demasiado r&#225;pida y aguda</h2>
+<p>Resultado: <span class="bien">Superado</span> (14 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Se pone la velocidad de la voz del sistema al 600 % y el tono al 50 %: TalkBack habla de forma ininteligible.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Con un lector activo: el men&#250; es una lista de botones.</li>
+<li>Pulsa volumen abajo 3 veces hasta o&#237;r &#171;Voz del sistema&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 4 veces hasta o&#237;r &#171;Poner la velocidad y el tono normales&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> Velocidad de la voz del sistema al 100 %</li>
+<li><span class="bien">Bien:</span> Tono de la voz del sistema al 100 %</li>
+</ul>
+<h2 id="S07">S07. Modo seguro: apagar el lector mudo y recuperarlo solo</h2>
+<p>Resultado: <span class="bien">Superado</span> (27 segundos).</p>
+<h3>La avería simulada</h3>
+<p>TalkBack est&#225; activo pero se supone mudo. El usuario necesita que el men&#250; hable con su propia voz sin TalkBack, y que TalkBack vuelva solo si no hace nada.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Con un lector activo: el men&#250; es una lista de botones.</li>
+<li>Pulsa tres veces r&#225;pido volumen arriba (modo seguro de Shortcut Menu).</li>
+<li>No toca nada durante 15 segundos (la espera del modo seguro).</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> Modo seguro: TalkBack apagado</li>
+<li><span class="bien">Bien:</span> El men&#250; pasa a hablar solo con la voz de rescate</li>
+<li><span class="bien">Bien:</span> Pasada la espera, TalkBack vuelve a activarse solo</li>
+<li><span class="bien">Bien:</span> TalkBack en marcha y el rescate cerrado</li>
+</ul>
+<h2 id="S08">S08. Modo eco: TalkBack activo pero mudo, sin permiso avanzado</h2>
+<p>Resultado: <span class="bien">Superado</span> (6 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Sin el permiso avanzado no se puede apagar TalkBack. El usuario quiere o&#237;r lo que TalkBack enfoca con la voz de rescate.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Con un lector activo: el men&#250; es una lista de botones.</li>
+<li>Pulsa tres veces r&#225;pido volumen arriba.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> Modo eco: la voz de rescate lee lo que enfoca TalkBack, sin tocar TalkBack</li>
+<li><span class="bien">Bien:</span> TalkBack sigue activado</li>
+<li><span class="bien">Bien:</span> Al salir del rescate se apaga el modo eco</li>
+</ul>
+<h2 id="S09">S09. Otro servicio de accesibilidad roba el control</h2>
+<p>Resultado: <span class="bien">Superado</span> (17 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Se activa &#171;Seleccionar para pronunciar&#187; junto a TalkBack, un servicio que el usuario no quiere y que interfiere.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Con un lector activo: el men&#250; es una lista de botones.</li>
+<li>Pulsa volumen abajo 2 veces hasta o&#237;r &#171;Lectores de pantalla&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 3 veces hasta o&#237;r &#171;Otro servicio de accesibilidad activado&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;Desactivar Enunciar selecci&#243;n&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> El servicio que molestaba queda desactivado</li>
+<li><span class="bien">Bien:</span> TalkBack sigue activado</li>
+</ul>
+<h2 id="S10">S10. TalkBack cerrado a la fuerza (limpiador o ahorro de bater&#237;a)</h2>
+<p>Resultado: <span class="bien">Superado</span> (21 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Se fuerza la detenci&#243;n de TalkBack, como hacen algunos limpiadores y el ahorro de bater&#237;a de muchos fabricantes.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Sin lector activo: el men&#250; habla solo con la voz de rescate.</li>
+<li>Pulsa volumen abajo 2 veces hasta o&#237;r &#171;Lectores de pantalla&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;TalkBack, desactivado&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;Activar TalkBack&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> Aver&#237;a real: TalkBack no est&#225; en marcha (Android adem&#225;s lo quita de los servicios activados)</li>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> TalkBack activado y en marcha otra vez</li>
+</ul>
+<h2 id="S11">S11. Restaurar la configuraci&#243;n buena guardada</h2>
+<p>Resultado: <span class="bien">Superado</span> (18 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Con todo funcionando se guarda la configuraci&#243;n. Despu&#233;s se rompen varias cosas a la vez: TalkBack apagado, motor de voz cambiado y velocidad al 300 %.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Sin lector activo: el men&#250; habla solo con la voz de rescate.</li>
+<li>Pulsa volumen abajo 7 veces hasta o&#237;r &#171;Restaurar mi configuraci&#243;n&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 2 veces hasta o&#237;r &#171;Restaurar la configuraci&#243;n guardada&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;Restaurar la configuraci&#243;n guardada&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Confirma &#171;Restaurar la configuraci&#243;n guardada&#187; en la p&#225;gina de confirmaci&#243;n.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> Configuraci&#243;n buena guardada</li>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> TalkBack activado de nuevo</li>
+<li><span class="bien">Bien:</span> Motor de voz de Google de nuevo</li>
+<li><span class="bien">Bien:</span> Velocidad al 100 % de nuevo</li>
+</ul>
+<h2 id="S12">S12. Fallan las voces incluidas: grabaciones y pitidos</h2>
+<p>Resultado: <span class="bien">Superado</span> (11 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Se aver&#237;an a la vez Pico y eSpeak NG dentro de la app (bibliotecas da&#241;adas o sin memoria).</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Con un lector activo: el men&#250; es una lista de botones.</li>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Con un lector activo: el men&#250; es una lista de botones.</li>
+<li>Pulsa volumen abajo 2 veces hasta o&#237;r &#171;Lectores de pantalla&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Cada opci&#243;n suena con su grabaci&#243;n y, adem&#225;s, vibra tantas veces como su n&#250;mero.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> Con Pico averiado el rescate pasa a eSpeak NG</li>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> Con las dos voces averiadas el rescate usa las grabaciones de respaldo</li>
+<li><span class="bien">Bien:</span> Hay grabaci&#243;n de &#171;Lectores de pantalla&#187; en espa&#241;ol (Pico o eSpeak) para decirla sin s&#237;ntesis</li>
+<li><span class="bien">Bien:</span> Hay grabaci&#243;n de &#171;Con las teclas de volumen: vol…&#187;</li>
+<li><span class="bien">Bien:</span> El men&#250; sigue funcionando sin ninguna s&#237;ntesis</li>
+</ul>
+<h2 id="S13">S13. El guardi&#225;n detecta que la voz del sistema se ha roto</h2>
+<p>Resultado: <span class="bien">Superado</span> (16 segundos).</p>
+<h3>La avería simulada</h3>
+<p>El guardi&#225;n est&#225; activado. Se deshabilita la voz de Google y se aver&#237;a el motor Pico: TalkBack queda mudo sin que el usuario haya hecho nada.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>El usuario enciende la pantalla. El guardi&#225;n comprueba en silencio la voz del sistema.</li>
+<li>Oye el aviso del guardi&#225;n y pulsa volumen arriba (o toca &#171;Abrir el rescate&#187; en la mitad de abajo de la pantalla).</li>
+<li>Pantalla de bloqueo no activa al abrirse el rescate.</li>
+<li>Pulsa volumen abajo 3 veces hasta o&#237;r &#171;Voz del sistema&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 3 veces hasta o&#237;r &#171;Usar la voz de rescate como voz del sistema&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> El guardi&#225;n detecta la voz rota y activa el modo eco (la voz de rescate lee lo que enfoca TalkBack)</li>
+<li><span class="bien">Bien:</span> El guardi&#225;n muestra su aviso con &#171;Abrir el rescate&#187;</li>
+<li><span class="bien">Bien:</span> Se abre el rescate (incluso sobre la pantalla de bloqueo)</li>
+<li><span class="bien">Bien:</span> La voz de rescate es el motor del sistema</li>
+</ul>
+<h2 id="S14">S14. El guardi&#225;n avisa de que TalkBack se ha apagado</h2>
+<p>Resultado: <span class="bien">Superado</span> (25 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Con el guardi&#225;n activado, TalkBack se apaga (por error, por un fallo o por otra app).</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>TalkBack se apaga. El guardi&#225;n lo dice con la voz de rescate: &#171;Atenci&#243;n: tu lector de pantalla se ha apagado…&#187;.</li>
+<li>Oye el aviso del guardi&#225;n y pulsa volumen arriba (o toca &#171;Abrir el rescate&#187; en la mitad de abajo de la pantalla).</li>
+<li>Pulsa volumen abajo 2 veces hasta o&#237;r &#171;Lectores de pantalla&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;TalkBack, desactivado&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;Activar TalkBack&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> Se abre el rescate desde el guardi&#225;n</li>
+<li><span class="bien">Bien:</span> TalkBack activado y en marcha</li>
+<li><span class="bien">Bien:</span> El guardi&#225;n sigue activado vigilando</li>
+</ul>
+<h2 id="S15">S15. Diagn&#243;stico autom&#225;tico</h2>
+<p>Resultado: <span class="bien">Superado</span> (9 segundos).</p>
+<h3>La avería simulada</h3>
+<p>Se rompen varias cosas a la vez (velocidad extrema, volumen a cero, servicio extra activado) y se pide el diagn&#243;stico.</p>
+<h3>Lo que hizo el usuario y la app</h3><ol>
+<li>Mantiene pulsadas a la vez las dos teclas de volumen unos 3 segundos (atajo de accesibilidad). [Simulado: se activa el servicio del atajo, que es lo que hace Android al detectarlo.]</li>
+<li>Se abre el men&#250; de rescate (&#171;Rescate Accesible&#187;, 12 opciones). Con un lector activo: el men&#250; es una lista de botones.</li>
+<li>Pulsa volumen abajo 1 vez hasta o&#237;r &#171;Diagnosticar y reparar&#187; y mantiene pulsado volumen abajo para elegirla.</li>
+<li>Oye los hallazgos: Grave: Reconocimiento y s&#237;ntesis de voz de Google no habla | Aviso: La velocidad o el tono de la voz est&#225;n en valores extremos | Aviso: El atajo de volumen no abre Rescate Accesible | Aviso: Hay 2 cambios desde la configuraci&#243;n guardada | Informaci&#243;n: Otros servicios activos: Enunciar selecci&#243;n | Informaci&#243;n: El guardi&#225;n est&#225; desactivado | Informaci&#243;n: Optimizaci&#243;n de bater&#237;a activada | Informaci&#243;n: No hay copia de Suite de Accesibilidad Android | Informaci&#243;n: No hay copia de Reconocimiento y s&#237;ntesis de voz de Google | Lo que funciona bien: una comprobaci&#243;n | Volver</li>
+</ol><h3>Comprobaciones del estado real</h3><ul>
+<li><span class="bien">Bien:</span> El men&#250; de rescate se abre con el atajo</li>
+<li><span class="bien">Bien:</span> El diagn&#243;stico termina y presenta sus hallazgos</li>
+<li><span class="bien">Bien:</span> Detecta la velocidad de voz extrema</li>
+<li><span class="bien">Bien:</span> Detecta el servicio que interfiere</li>
+</ul>
+<h2>Lo que no se puede simular en el emulador</h2><ul>
+<li>Auriculares Bluetooth que se llevan el sonido: el emulador no tiene Bluetooth. La app lo detecta con la lista de salidas de audio y puede mandar la voz al altavoz.</li>
+<li>Pulsar de verdad las dos teclas de volumen a la vez (se simula, ver arriba) y la pregunta de Android la primera vez que se usa el atajo.</li>
+<li>Los ajustes y textos de cada fabricante (Samsung, Xiaomi, OnePlus…): la guía por los Ajustes se ha probado con los Ajustes de Android puro; en otros móviles hay que comprobarla a mano.</li>
+<li>Oír la voz: el emulador se ejecuta sin audio. Se comprueba que la voz produce sonido (muestras sintetizadas, motor que entrega frases) y que TalkBack pide frases al motor de rescate.</li>
+</ul></body></html>

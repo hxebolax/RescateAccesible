@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+	<style name="Tema.Rescate" parent="Theme.Material3.DayNight.NoActionBar">
+		<!-- Texto de ayuda de los campos con más contraste (4,5:1 como mínimo) -->
+		<item name="android:textColorHint">?attr/colorOnSurfaceVariant</item>
+		<item name="colorPrimary">@color/primario</item>
+		<item name="colorOnPrimary">@color/sobre_primario</item>
+		<item name="colorPrimaryContainer">@color/primario_contenedor</item>
+		<item name="colorOnPrimaryContainer">@color/sobre_primario_contenedor</item>
+		<item name="colorSecondary">@color/secundario</item>
+		<item name="android:colorBackground">@color/fondo</item>
+		<item name="colorOnBackground">@color/sobre_fondo</item>
+		<item name="colorSurfaceVariant">@color/superficie_variante</item>
+		<item name="colorOnSurfaceVariant">@color/sobre_superficie_variante</item>
+		<item name="android:windowLightStatusBar" tools:targetApi="m">?attr/isLightTheme</item>
+		<item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+	</style>
+
+	<!-- El menú de rescate: negro, sin barra de acción, encima de la pantalla de bloqueo -->
+	<style name="Tema.Rescate.Menu" parent="Tema.Rescate">
+		<item name="android:windowBackground">@color/menu_fondo</item>
+		<item name="android:windowAnimationStyle">@null</item>
+	</style>
+
+	<!-- Botones con área táctil cómoda (mínimo 48 dp) -->
+	<style name="Boton.Accion" parent="Widget.Material3.Button.TonalButton">
+		<item name="android:minHeight">56dp</item>
+		<item name="android:layout_marginTop">8dp</item>
+	</style>
+</resources>

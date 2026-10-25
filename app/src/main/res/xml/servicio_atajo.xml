@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Servicio del atajo (basado en shortcut_menu_service.xml de Shortcut Menu, aaron-gh, Apache 2.0).
+	Sin flagRequestAccessibilityButton: Android quita del atajo un servicio que pide el botón
+	cada vez que el servicio se apaga, y este se apaga cada vez que termina el rescate.
+	flagEnableAccessibilityVolume: la voz de rescate suena con el volumen de accesibilidad y
+	puede subirlo. flagRequestShortcutWarningDialogSpokenFeedback: Android lee en voz alta su
+	pregunta la primera vez que se usa el atajo de volumen.
+	Las capacidades (leer la pantalla, exploración táctil, teclas) solo se usan durante un
+	rescate y se piden en tiempo de ejecución: el lector de rescate y la guía por los Ajustes.
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+	android:accessibilityEventTypes="typeAnnouncement"
+	android:accessibilityFeedbackType="feedbackSpoken"
+	android:accessibilityFlags="flagEnableAccessibilityVolume|flagRequestShortcutWarningDialogSpokenFeedback|flagReportViewIds|flagRetrieveInteractiveWindows"
+	android:canRetrieveWindowContent="true"
+	android:canRequestTouchExplorationMode="true"
+	android:canRequestFilterKeyEvents="true"
+	android:canPerformGestures="true"
+	android:description="@string/servicio_atajo_descripcion"
+	android:isAccessibilityTool="true"
+	android:notificationTimeout="0"
+	android:settingsActivity="com.xebolax.rescate.ui.ActividadPrincipal" />

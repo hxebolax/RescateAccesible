@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English translation of values/strings_paginas.xml. -->
+<resources>
+	<string name="pag_principal_intro">Main menu</string>
+	<string name="pag_aviso_detectado">I found this: %1$s. To fix it, choose Diagnose and repair.</string>
+
+	<string name="pag_diagnostico">Diagnose and repair</string>
+	<string name="pag_diagnostico_ayuda">Checks the screen reader, the voice, the sound and the shortcuts, and suggests how to fix each problem.</string>
+	<string name="pag_diagnosticando">Checking the phone. It takes a few seconds.</string>
+	<string name="pag_sin_problemas">I found no problems</string>
+	<plurals name="pag_problemas">
+		<item quantity="one">I found one problem</item>
+		<item quantity="other">I found %1$d problems</item>
+	</plurals>
+	<string name="pag_hallazgos_intro">Diagnosis results. Choose one to hear how to fix it.</string>
+	<plurals name="pag_lo_que_va_bien">
+		<item quantity="one">What works well: one check</item>
+		<item quantity="other">What works well: %1$d checks</item>
+	</plurals>
+	<string name="pag_hallazgo_intro">Ways to fix it</string>
+	<string name="pag_explicacion">Explanation</string>
+	<string name="pag_necesita_permiso">%1$s. Needs the advanced permission</string>
+	<string name="pag_permiso_explicacion">This needs the advanced permission, granted once from the Accessible Rescue app, in Advanced permission. Meanwhile, there are other guided choices in this same menu.</string>
+	<string name="gravedad_grave">Serious</string>
+	<string name="gravedad_aviso">Warning</string>
+	<string name="gravedad_info">Information</string>
+
+	<string name="pag_lectores">Screen readers</string>
+	<string name="pag_lectores_ayuda">Turn TalkBack or another screen reader on, off, or restart it.</string>
+	<string name="pag_lectores_intro">Installed screen readers</string>
+	<string name="pag_sin_lectores">No screen reader is installed</string>
+	<string name="pag_sin_lectores_ayuda">Choose this to reinstall TalkBack from a backup or from the store.</string>
+	<string name="pag_modo_seguro">Safe mode</string>
+	<string name="pag_modo_seguro_ayuda">Turns every screen reader off and the menu speaks with its own voice. If you turn none on, yours comes back by itself. The same as pressing volume up three times quickly.</string>
+	<plurals name="pag_otros_servicios">
+		<item quantity="one">One other accessibility service is on</item>
+		<item quantity="other">%1$d more accessibility services are on</item>
+	</plurals>
+	<string name="pag_otros_servicios_titulo">Other services that are on</string>
+	<string name="pag_otros_servicios_ayuda">Services that are not screen readers but can take over touch or the keys, such as Switch Access.</string>
+	<string name="servicio_desactivar_otro">Turn off %1$s</string>
+	<string name="lector_activo">%1$s, on</string>
+	<string name="lector_caido">%1$s, on but not responding</string>
+	<string name="lector_apagado">%1$s, off</string>
+	<string name="lector_activar">Turn on %1$s</string>
+	<string name="lector_desactivar">Turn off %1$s</string>
+	<string name="lector_reiniciar">Restart %1$s</string>
+	<string name="lector_reiniciar_ayuda">Turns it off and on again. It often fixes a silent or stuck screen reader.</string>
+	<string name="lector_habitual">Make %1$s my usual screen reader</string>
+	<string name="lector_habitual_ayuda">The rescue will remember it to give it back to you.</string>
+	<string name="lector_habitual_hecho">%1$s is now your usual screen reader</string>
+	<string name="lector_forzar_detencion">Force stop %1$s</string>
+	<string name="lector_forzar_detencion_ayuda">Closes the screen reader app completely. Then you can turn it on again.</string>
+	<string name="lector_reparar">Repair or reinstall %1$s</string>
+	<string name="lector_activando">Turning on %1$s. The rescue closes so that your screen reader speaks.</string>
+	<string name="lector_reiniciando">Restarting %1$s. The rescue closes so that your screen reader speaks.</string>
+	<string name="lector_no_activado">%1$s could not be turned on</string>
+	<string name="lector_desactivado">%1$s off</string>
+	<string name="lector_no_desactivado">%1$s could not be turned off</string>
+	<string name="lector_guiando">Going to the settings of %1$s. I will tell you what I do.</string>
+
+	<string name="pag_leer_pantalla">Read the screen with the rescue voice</string>
+	<string name="pag_leer_pantalla_ayuda">If your screen reader is on but silent, I read what it focuses. If there is none, I am the screen reader: touch to hear, double tap to activate, swipe right or left to move.</string>
+	<string name="pag_dejar_de_leer">Stop reading the screen with the rescue voice</string>
+	<string name="pag_lectura_apagada">I no longer read the screen</string>
+	<string name="pag_leer_sin_servicio">To read the screen, the rescue must be opened with the accessibility shortcut, or the guardian must be on.</string>
+	<string name="pag_lector_propio">Rescue reader on. Touch the screen to hear what is there, double tap to activate, swipe right or left to move between items. Swipe down then left to go back. To return to the rescue menu, press volume up three times quickly.</string>
+
+	<string name="pag_voz">System voice</string>
+	<string name="pag_voz_ayuda">Test the speech engines, change the default, or use the voice built into this app.</string>
+	<string name="pag_voz_intro">System voice, the one your screen reader uses</string>
+	<string name="voz_desconocido">the default engine</string>
+	<string name="voz_probar_predeterminado">Test the system voice: %1$s</string>
+	<string name="voz_motores">Installed speech engines</string>
+	<string name="voz_motores_ayuda">Test each engine and choose the default.</string>
+	<string name="voz_motores_intro">Speech engines</string>
+	<string name="voz_motor_numero">Engine %1$d</string>
+	<string name="voz_motor_predeterminado">%1$s, default</string>
+	<string name="voz_motor_intro">What to do with this engine</string>
+	<string name="voz_probar">Test %1$s</string>
+	<string name="voz_hacer_predeterminado">Make %1$s the default engine</string>
+	<string name="voz_instalar_datos">Install voices for %1$s</string>
+	<string name="voz_instalar_datos_ayuda">Opens the engine\'s screen to download the voice for your language. Needs the Internet.</string>
+	<string name="voz_instalar_datos_abierto">Voices screen of %1$s open.</string>
+	<string name="voz_reparar">Repair or reinstall %1$s</string>
+	<string name="voz_usar_propia">Use the rescue voice as the system voice</string>
+	<string name="voz_usar_propia_ayuda">This app has its own voice, with no Internet. If you choose it as the default engine, your screen reader speaks again even if the other engines fail.</string>
+	<string name="voz_volver_conocido">Go back to %1$s, the last voice that worked</string>
+	<string name="voz_volver_conocido_ayuda">The engine that the rescue checked was speaking.</string>
+	<string name="voz_normalizar">Set the speech rate and pitch to normal</string>
+	<string name="voz_normalizar_ayuda">If the voice sounds too fast, slow, high or low.</string>
+	<string name="voz_normalizada">System voice rate and pitch set to normal. Your screen reader may have its own rate in its settings.</string>
+	<string name="voz_no_normalizada">The rate and pitch could not be changed</string>
+	<string name="voz_normalizar_guia">Speech settings open. Look for Speech rate and Pitch, and use Reset.</string>
+	<string name="voz_abrir_ajustes">Open the system speech settings</string>
+	<string name="voz_ajustes_abiertos">Text-to-speech settings open.</string>
+	<string name="voz_ajustes_alternativa">This phone has no direct way to the speech settings. I opened Accessibility: look for Text-to-speech output.</string>
+	<string name="voz_probando">Testing %1$s</string>
+	<string name="voz_no_arranca">%1$s does not start. Try another engine or repair it.</string>
+	<string name="voz_sin_idioma">%1$s does not have the voice for your language. Install its voices or use another engine.</string>
+	<string name="voz_no_habla">%1$s does not speak. Try another engine or repair it.</string>
+	<string name="voz_funciona_oir">%1$s works. Listen:</string>
+	<string name="voz_frase_motor">This is the voice of %1$s.</string>
+	<string name="voz_oida">Test finished: %1$s spoke. This does not change the default engine.</string>
+	<string name="voz_predeterminado_hecho">Checked: %1$s is now the default engine. If your screen reader is still silent, restart it.</string>
+	<string name="voz_predeterminado_fallo">%1$s could not be made the default engine</string>
+	<string name="voz_guiando">Going to the speech settings to choose %1$s. I will tell you what I do.</string>
+
+	<string name="pag_sonido">Sound and volume</string>
+	<string name="pag_sonido_ayuda">Test the sound, turn the volume up, or send the voice to the phone speaker.</string>
+	<string name="pag_sonido_intro">Sound and volume</string>
+	<string name="sonido_probar">Test the sound</string>
+	<string name="sonido_prueba_dicha">If you hear this, the rescue sound works.</string>
+	<string name="sonido_estado">Say the sound status</string>
+	<string name="sonido_subir">Volume up</string>
+	<string name="sonido_bajar">Volume down</string>
+	<string name="sonido_volumen">Volume at %1$d percent</string>
+	<string name="sonido_altavoz_auto">Phone speaker: automatic, when Bluetooth is connected</string>
+	<string name="sonido_altavoz_siempre">Phone speaker: always</string>
+	<string name="sonido_altavoz_nunca">Phone speaker: never</string>
+	<string name="sonido_altavoz_ayuda">Choose where the rescue voice plays. Bluetooth headphones that are off or far away often take the sound.</string>
+	<string name="sonido_altavoz_cambiado">Changed</string>
+	<string name="sonido_bluetooth">Open Bluetooth settings</string>
+	<string name="sonido_bluetooth_ayuda">To disconnect headphones that take the sound.</string>
+	<string name="sonido_bluetooth_abierto">Bluetooth settings open.</string>
+	<string name="sonido_ajustes">Open sound settings</string>
+	<string name="sonido_ajustes_abiertos">Sound settings open.</string>
+
+	<string name="pag_reparar">Repair or reinstall TalkBack and the voice</string>
+	<string name="pag_reparar_ayuda">Reinstall TalkBack or the Google voice from a saved backup, remove failing updates, or open the store.</string>
+
+	<string name="pag_restaurar">Restore my settings</string>
+	<string name="pag_restaurar_ayuda">Goes back to the accessibility settings you saved when everything worked.</string>
+	<string name="pag_restaurar_intro">Saved settings</string>
+	<string name="restaurar_no_hay">There are no saved settings</string>
+	<string name="restaurar_no_hay_ayuda">Save them from the Accessible Rescue app when everything works, in Setup.</string>
+	<plurals name="restaurar_diferencias">
+		<item quantity="one">There is one difference from the settings of %2$s</item>
+		<item quantity="other">There are %1$d differences from the settings of %2$s</item>
+	</plurals>
+	<string name="restaurar_igual">Everything is as in the saved settings</string>
+	<string name="restaurar_hacer">Restore the saved settings</string>
+	<string name="restaurar_hacer_ayuda">Puts back the screen readers, speech engine, shortcuts and speech settings you saved.</string>
+	<string name="restaurar_pregunta">Restore the saved settings? Your screen reader may restart.</string>
+
+	<string name="pag_ajustes_accesibilidad">Open accessibility settings</string>
+	<string name="pag_ajustes_accesibilidad_ayuda">The system screen where screen readers and shortcuts are turned on.</string>
+	<string name="pag_abriendo_accesibilidad">Accessibility settings open.</string>
+	<string name="pag_ayudante">Help for someone who can see the screen</string>
+	<string name="pag_ayudante_ayuda">Turns the screen to full brightness and shows in large print what is wrong and what to tap, for someone helping you.</string>
+	<string name="pag_ayudante_abierto">Help screen for a sighted helper, at full brightness.</string>
+
+	<string name="pag_ajustes_rescate">Rescue voice settings</string>
+	<string name="pag_ajustes_rescate_ayuda">Rate and pitch of this voice, vibration and language.</string>
+	<string name="pag_ajustes_rescate_intro">Rescue voice settings</string>
+	<string name="ajr_mas_rapido">Speak faster. Now at %1$d percent</string>
+	<string name="ajr_mas_lento">Speak slower. Now at %1$d percent</string>
+	<string name="ajr_velocidad">Rate at %1$d percent</string>
+	<string name="ajr_tono_agudo">Higher pitch. Now at %1$d percent</string>
+	<string name="ajr_tono_grave">Lower pitch. Now at %1$d percent</string>
+	<string name="ajr_tono">Pitch at %1$d percent</string>
+	<string name="ajr_posicion_si">Say the number of each choice: yes</string>
+	<string name="ajr_posicion_no">Say the number of each choice: no</string>
+	<string name="ajr_vibrar_si">Vibrate when moving: yes</string>
+	<string name="ajr_vibrar_no">Vibrate when moving: no</string>
+	<string name="ajr_cambiado">Changed</string>
+	<string name="ajr_idioma">Language: English. Change to Spanish</string>
+	<string name="ajr_idioma_ayuda">Changes the rescue language, even if the phone uses another one.</string>
+
+	<string name="pag_ayuda">How to use the rescue</string>
+	<string name="pag_ayuda_ayuda">Spoken explanations of each part of the rescue.</string>
+	<string name="pag_ayuda_intro">Help. Choose a topic to hear it.</string>
+	<string name="ayuda_moverse_titulo">How to move through the menu</string>
+	<string name="ayuda_moverse">With no screen reader, drag your finger over the screen: each choice takes a band and is said as you pass it. Lift your finger to choose the one you hear. If you keep your finger still, you hear its explanation. With the volume keys: volume down goes to the next choice, volume up to the previous one, and holding a key chooses. The last choice of each page is Back; on the main page, Leave the rescue.</string>
+	<string name="ayuda_volver_titulo">How to come back to the rescue</string>
+	<string name="ayuda_volver">Hold both volume keys for a few seconds, if you assigned the shortcut to Accessible Rescue. With the guardian on, or outside the menu during a rescue, press volume up three times quickly. You can also open the Accessible Rescue app or the Rescue tile in quick settings.</string>
+	<string name="ayuda_seguro_titulo">What safe mode is</string>
+	<string name="ayuda_seguro">It starts with three quick presses of volume up. With the advanced permission it turns every screen reader off and the menu speaks with its own voice. If you leave without turning one on, or a few seconds pass without touching anything, your screen reader turns back on. Without the permission, it starts echo mode.</string>
+	<string name="ayuda_eco_titulo">What echo mode is</string>
+	<string name="ayuda_eco">When TalkBack or another screen reader is on but silent, for example because the system voice broke, the rescue reads with its own voice whatever that screen reader focuses. You keep using your usual gestures.</string>
+	<string name="ayuda_gestos_titulo">Rescue reader gestures</string>
+	<string name="ayuda_gestos">Touch or drag to hear what is there. Double tap activates. Swipe right, next item; left, previous. Swipe down or up to scroll the list. Down then left, back. Up then left, home. Right then down, notifications. Up then down, read the whole screen. Two fingers to scroll.</string>
+	<string name="ayuda_permiso_titulo">What the advanced permission is</string>
+	<string name="ayuda_permiso">Android only lets an app turn screen readers on or off and change the speech engine with a permission granted once, with a computer, with the phone\'s own wireless debugging, or with root. With it, the rescue does it at once. Without it, the rescue guides you through Settings.</string>
+	<string name="ayuda_menu_titulo">What is in the main menu</string>
+	<string name="ayuda_menu">Diagnose and repair, screen readers, system voice, sound, repair or reinstall, read the screen with the rescue voice, restore your settings, accessibility settings, help for a sighted helper, rescue voice settings, this help, and leave.</string>
+	<string name="ayuda_opciones">Read all the choices with their explanation</string>
+</resources>

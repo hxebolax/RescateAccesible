@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English translation of values/strings_reparar_menu.xml. -->
+<resources>
+	<string name="rep_intro">Choose what to repair</string>
+	<string name="rep_reinstalar_copia">Reinstall %1$s from the backup, version %2$s</string>
+	<string name="rep_reinstalar_copia_ayuda">Installs again the backup saved on this phone. No Internet needed. Android asks you to confirm.</string>
+	<string name="rep_reinstalando">Preparing to reinstall %1$s</string>
+	<string name="rep_confirmar_instalacion">Android asks whether to install. The Install or Update button is usually at the bottom right.</string>
+	<string name="rep_sin_respuesta">The installer did not answer. Try again.</string>
+	<string name="rep_permiso_instalar">Accessible Rescue must be allowed to install apps. Turn on the switch on this screen and go back to the rescue.</string>
+	<string name="rep_habilitar">Enable %1$s</string>
+	<string name="rep_habilitar_ayuda">The app is disabled, so it does not work. This enables it again.</string>
+	<string name="rep_desinstalar_actualizaciones">Uninstall the updates of %1$s</string>
+	<string name="rep_desinstalar_actualizaciones_ayuda">Goes back to the factory version, which usually works. Useful if it broke after an update.</string>
+	<string name="rep_desinstalar_pregunta">Uninstall the updates of %1$s? It goes back to the factory version.</string>
+	<string name="rep_desinstalar_si">Uninstall the updates</string>
+	<string name="rep_borrar_cache">Clear the cache of %1$s</string>
+	<string name="rep_borrar_cache_ayuda">Deletes temporary files without losing its settings.</string>
+	<string name="rep_hacer_copia">Back up %1$s now</string>
+	<string name="rep_hacer_copia_ayuda">Saves the installed version to reinstall it without the Internet if it ever breaks.</string>
+	<string name="rep_sin_espacio">There is not enough space for the backup</string>
+	<string name="rep_tienda">Open %1$s in the app store</string>
+	<string name="rep_tienda_ayuda">To reinstall or update it. Needs the Internet.</string>
+	<string name="rep_tienda_abierta">Store open at %1$s.</string>
+	<string name="rep_informacion">Open the app info of %1$s</string>
+	<string name="rep_informacion_abierta">App info of %1$s open.</string>
+	<string name="rep_con_copia">with a backup of version %1$s</string>
+	<string name="rep_sin_copia">no backup</string>
+	<string name="rep_copiando">Backing up %1$s</string>
+	<string name="rep_copia_hecha">Backup done: %1$s, version %2$s</string>
+</resources>

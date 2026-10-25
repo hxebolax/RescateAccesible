@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Colores de alto contraste (4,5:1 como mínimo en texto) en claro; los oscuros en values-night. -->
+<resources>
+	<color name="primario">#B3261E</color>
+	<color name="sobre_primario">#FFFFFF</color>
+	<color name="primario_contenedor">#FFDAD6</color>
+	<color name="sobre_primario_contenedor">#410002</color>
+	<color name="secundario">#775652</color>
+	<color name="fondo">#FFFBFF</color>
+	<color name="sobre_fondo">#201A19</color>
+	<color name="superficie_variante">#F5DDDA</color>
+	<color name="sobre_superficie_variante">#534341</color>
+	<color name="estado_bien">#1B5E20</color>
+	<color name="estado_aviso">#8A4B00</color>
+	<color name="estado_mal">#B3261E</color>
+	<!-- Menú de rescate que habla solo: amarillo sobre negro, el de más contraste para baja visión -->
+	<color name="menu_fondo">#000000</color>
+	<color name="menu_texto">#FFFFFF</color>
+	<color name="menu_linea">#888888</color>
+	<color name="menu_resaltado">#5C4B00</color>
+	<color name="menu_texto_resaltado">#FFEB3B</color>
+	<color name="icono_fondo">#B3261E</color>
+</resources>

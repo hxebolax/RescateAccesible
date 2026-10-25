@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English translation of values/strings_rescate.xml. Everything here is spoken aloud. -->
+<resources>
+	<string name="rescate_presentacion">Accessible Rescue.</string>
+	<string name="rescate_manejo_dedo">Drag your finger over the screen to hear the choices, and lift it to choose.</string>
+	<string name="rescate_manejo_lector">Your screen reader can read the choices.</string>
+	<string name="rescate_manejo_teclas">With the volume keys: volume down, next choice; volume up, previous choice; hold either key to choose. If your screen reader is silent, press volume up three times quickly.</string>
+	<string name="rescate_posicion">%1$s. %2$d of %3$d</string>
+	<string name="rescate_de_vuelta">Back in the rescue</string>
+	<string name="rescate_volumen_subido">The volume was very low, so I turned it up</string>
+	<string name="rescate_cambio_a_pico">The system voice is failing. I will go on with the rescue voice.</string>
+	<string name="rescate_error_general">Something went wrong. Try another choice.</string>
+	<string name="rescate_confirmar_titulo">Confirm</string>
+	<string name="rescate_salir">Leave the rescue</string>
+	<string name="rescate_salir_ayuda">Closes the rescue. If safe mode turned your screen reader off and you have not turned one on, it turns it back on.</string>
+	<string name="rescate_saliendo">Leaving the rescue</string>
+	<string name="rescate_volver">Back</string>
+	<string name="rescate_un_momento">One moment</string>
+	<string name="rescate_volver_con_teclas">To go back to the rescue, tap the Back to the rescue button at the top right, or press volume up three times quickly.</string>
+	<string name="rescate_volver_sin_servicio">To go back to the rescue, use the accessibility shortcut or open Accessible Rescue.</string>
+	<string name="rescate_no_se_abre">This phone does not have that screen. Try Accessibility settings.</string>
+	<string name="rescate_tu_lector">your screen reader</string>
+
+	<string name="rescate_seguro">Safe mode.</string>
+	<string name="rescate_seguro_apagado">Screen readers are off. The menu speaks with its own voice. If you touch nothing for %2$d seconds, %1$s comes back on.</string>
+	<string name="rescate_seguro_apagados_varios">Screen readers are off. The menu speaks with its own voice. If you touch nothing for %1$d seconds, your screen readers come back on.</string>
+	<string name="rescate_seguro_sin_lectores">Safe mode. No screen reader was on. The menu speaks with its own voice.</string>
+	<string name="rescate_seguro_tiempo">You have not touched anything. Turning your screen reader back on.</string>
+	<string name="rescate_seguro_sin_pico">The rescue voice does not work, so I will not turn your screen reader off.</string>
+	<string name="rescate_seguro_sin_permiso">Turning your screen reader off needs the advanced permission. Meanwhile, use the volume keys.</string>
+	<string name="rescate_eco_activado">Echo mode. I read with the rescue voice whatever your screen reader focuses. Use your usual gestures.</string>
+
+	<string name="papel_boton">button</string>
+	<string name="papel_interruptor">switch</string>
+	<string name="papel_casilla">checkbox</string>
+	<string name="papel_opcion">radio button</string>
+	<string name="papel_campo">edit box</string>
+	<string name="papel_contrasena">password box</string>
+	<string name="papel_deslizador">slider</string>
+	<string name="papel_desplegable">drop-down list</string>
+	<string name="papel_imagen">image</string>
+	<string name="papel_progreso">progress</string>
+	<string name="papel_pestanas">tabs</string>
+	<string name="papel_encabezado">heading</string>
+	<string name="estado_activado">on</string>
+	<string name="estado_desactivado">off</string>
+	<string name="estado_seleccionado">selected</string>
+	<string name="estado_no_disponible">unavailable</string>
+	<string name="estado_por_ciento">%1$d percent</string>
+
+	<string name="guardian_lector_apagado">Attention: your screen reader has turned off. To open the rescue, press volume up three times quickly.</string>
+	<string name="guardian_lector_caido">Attention: your screen reader is on but not responding. To open the rescue, press volume up three times quickly.</string>
+	<string name="guardian_voz_rota">Attention: the system voice is not working. I will read the screen with the rescue voice. To open the rescue, press volume up three times quickly.</string>
+	<string name="guardian_voz_vuelve">The system voice works again. I will stop reading with the rescue voice.</string>
+	<string name="panel_si">Yes. Volume up or tap here</string>
+	<string name="panel_no">No, cancel. Volume down or tap here</string>
+	<string name="panel_volver_rescate">Back to the rescue</string>
+	<string name="panel_abrir_rescate">Open the rescue. Volume up or tap here</string>
+	<string name="panel_cerrar_aviso">Close the alert. Volume down</string>
+</resources>

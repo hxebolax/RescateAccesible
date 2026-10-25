@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<!--
+		Permiso avanzado (opcional): lo concede el usuario una vez con adb, la depuración
+		inalámbrica del propio móvil o root. Con él, el rescate activa y desactiva lectores
+		y cambia el motor de voz al momento, como Shortcut Menu. Sin él, todo funciona
+		guiando por los Ajustes.
+	-->
+	<uses-permission
+		android:name="android.permission.WRITE_SECURE_SETTINGS"
+		tools:ignore="ProtectedPermissions" />
+	<!-- Actualizaciones desde el servidor propio y emparejamiento ADB por wifi (solo cuando se pide) -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+	<!-- Reinstalar TalkBack o la voz desde una copia, y las actualizaciones de la app (siempre lo confirma el usuario) -->
+	<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+	<!-- Avisos del guardián (Android 13+, se piden en el asistente; opcionales) -->
+	<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+	<!-- Pedir que Android no cierre la app para ahorrar batería (lo confirma el usuario) -->
+	<uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+
+	<!-- Visibilidad de paquetes (Android 11+): solo lo que el rescate necesita ver -->
+	<queries>
+		<intent>
+			<action android:name="android.intent.action.TTS_SERVICE" />
+		</intent>
+		<intent>
+			<action android:name="android.accessibilityservice.AccessibilityService" />
+		</intent>
+		<intent>
+			<action android:name="android.speech.tts.engine.INSTALL_TTS_DATA" />
+		</intent>
+		<intent>
+			<action android:name="android.intent.action.VIEW" />
+			<data android:scheme="market" />
+		</intent>
+		<intent>
+			<action android:name="android.intent.action.VIEW" />
+			<data android:scheme="https" />
+		</intent>
+		<package android:name="com.android.vending" />
+		<package android:name="org.fdroid.fdroid" />
+		<package android:name="com.google.android.gms" />
+		<package android:name="com.google.android.marvin.talkback" />
+		<package android:name="com.google.android.tts" />
+		<package android:name="com.samsung.android.accessibility.talkback" />
+		<package android:name="com.samsung.android.app.talkback" />
+		<package android:name="com.samsung.SMT" />
+		<package android:name="com.reecedunn.espeak" />
+		<package android:name="com.github.olga_yakovleva.rhvoice.android" />
+		<package android:name="moe.shizuku.privileged.api" />
+		<package android:name="com.android.settings" />
+		<package android:name="com.google.android.packageinstaller" />
+		<package android:name="com.android.packageinstaller" />
+		<!-- Pantallas de inicio automático de los fabricantes (diagnóstico de batería) -->
+		<package android:name="com.miui.securitycenter" />
+		<package android:name="com.huawei.systemmanager" />
+		<package android:name="com.coloros.safecenter" />
+		<package android:name="com.oplus.safecenter" />
+		<package android:name="com.vivo.permissionmanager" />
+		<package android:name="com.iqoo.secure" />
+		<package android:name="com.oneplus.security" />
+		<package android:name="com.samsung.android.lool" />
+		<package android:name="com.asus.mobilemanager" />
+		<package android:name="com.letv.android.letvsafe" />
+		<package android:name="com.oppo.safe" />
+		<package android:name="com.evenwell.powersaving.g3" />
+		<intent>
+			<action android:name="com.android.settings.action.BACKGROUND_OPTIMIZE" />
+		</intent>
+	</queries>
+
+	<application
+		android:name=".App"
+		android:allowBackup="false"
+		android:enableOnBackInvokedCallback="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:supportsRtl="true"
+		android:theme="@style/Tema.Rescate"
+		tools:targetApi="33">
+
+		<activity
+			android:name=".ui.ActividadPrincipal"
+			android:exported="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<!--
+			El menú de rescate: encima de la pantalla de bloqueo (el atajo funciona ahí) y antes
+			de desbloquear tras reiniciar (arranque directo). Se abre desde los servicios, el
+			mosaico, la notificación y el acceso directo del icono.
+		-->
+		<activity
+			android:name=".rescate.ActividadRescate"
+			android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|smallestScreenSize|keyboard|navigation"
+			android:directBootAware="true"
+			android:excludeFromRecents="true"
+			android:exported="false"
+			android:label="@string/nombre_menu_rescate"
+			android:launchMode="singleTask"
+			android:showWhenLocked="true"
+			android:taskAffinity="com.xebolax.rescate.menu"
+			android:theme="@style/Tema.Rescate.Menu"
+			android:turnScreenOn="true"
+			tools:targetApi="27" />
+
+		<!--
+			Android 11+: el menú de rescate como destino del atajo o del botón de accesibilidad,
+			sin activar ningún servicio (útil para el botón o el gesto de accesibilidad).
+		-->
+		<activity-alias
+			android:name=".rescate.AtajoMenuRescate"
+			android:exported="true"
+			android:label="@string/atajo_menu_nombre"
+			android:targetActivity=".rescate.ActividadRescate">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.ACCESSIBILITY_SHORTCUT_TARGET" />
+			</intent-filter>
+			<meta-data
+				android:name="android.accessibilityshortcut.target"
+				android:resource="@xml/atajo_menu" />
+		</activity-alias>
+
+		<activity android:name=".ui.ActividadAsistente" android:exported="false" android:label="@string/asis_titulo" />
+		<activity android:name=".ui.ActividadDiagnostico" android:exported="false" android:label="@string/ui_diagnostico" />
+		<activity android:name=".ui.ActividadAjustes" android:exported="false" android:label="@string/ui_ajustes" />
+		<activity android:name=".ui.ActividadManual" android:exported="false" android:label="@string/ui_manual" />
+		<activity android:name=".ui.ActividadCreditos" android:exported="false" android:label="@string/ui_creditos" />
+		<activity
+			android:name=".ui.ActividadAyudante"
+			android:exported="false"
+			android:label="@string/ayu_titulo"
+			android:showWhenLocked="true"
+			tools:targetApi="27" />
+		<activity android:name=".reparar.ActividadCopias" android:exported="false" android:label="@string/copias_titulo" />
+		<activity android:name=".permiso.ActividadPermiso" android:exported="false" android:label="@string/perm_titulo" />
+
+		<receiver android:name=".reparar.ResultadoInstalacionReceiver" android:exported="false" />
+		<receiver android:name=".permiso.ReceptorCodigoVinculacion" android:exported="false" />
+
+		<!-- Servicio del atajo de accesibilidad: lo enciende el atajo y se apaga solo al terminar -->
+		<service
+			android:name=".servicio.ServicioAtajo"
+			android:directBootAware="true"
+			android:exported="true"
+			android:label="@string/servicio_atajo_nombre"
+			android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+			<intent-filter>
+				<action android:name="android.accessibilityservice.AccessibilityService" />
+			</intent-filter>
+			<meta-data
+				android:name="android.accessibilityservice"
+				android:resource="@xml/servicio_atajo" />
+		</service>
+
+		<!-- Guardián (opcional): queda activado y vigila el lector y la voz -->
+		<service
+			android:name=".servicio.ServicioGuardian"
+			android:directBootAware="true"
+			android:exported="true"
+			android:label="@string/servicio_guardian_nombre"
+			android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+			<intent-filter>
+				<action android:name="android.accessibilityservice.AccessibilityService" />
+			</intent-filter>
+			<meta-data
+				android:name="android.accessibilityservice"
+				android:resource="@xml/servicio_guardian" />
+		</service>
+
+		<!-- Mosaico «Rescate» de los ajustes rápidos -->
+		<service
+			android:name=".rescate.MosaicoRescate"
+			android:exported="true"
+			android:icon="@drawable/ic_aviso"
+			android:label="@string/mosaico_nombre"
+			android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+			<intent-filter>
+				<action android:name="android.service.quicksettings.action.QS_TILE" />
+			</intent-filter>
+		</service>
+
+		<!-- La voz de rescate como motor de voz del sistema (Pico), también antes de desbloquear -->
+		<service
+			android:name=".tts.ServicioTtsPropio"
+			android:directBootAware="true"
+			android:exported="true"
+			android:label="@string/tts_nombre">
+			<intent-filter>
+				<action android:name="android.intent.action.TTS_SERVICE" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+			<meta-data
+				android:name="android.speech.tts"
+				android:resource="@xml/motor_tts" />
+		</service>
+		<activity
+			android:name=".tts.ActividadDatosVoz"
+			android:exported="true"
+			android:theme="@android:style/Theme.NoDisplay">
+			<intent-filter>
+				<action android:name="android.speech.tts.engine.CHECK_TTS_DATA" />
+				<action android:name="android.speech.tts.engine.INSTALL_TTS_DATA" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".tts.ActividadAjustesTts"
+			android:exported="true"
+			android:label="@string/tts_titulo" />
+
+		<provider
+			android:name="androidx.core.content.FileProvider"
+			android:authorities="${applicationId}.archivos"
+			android:exported="false"
+			android:grantUriPermissions="true">
+			<meta-data
+				android:name="android.support.FILE_PROVIDER_PATHS"
+				android:resource="@xml/rutas_archivos" />
+		</provider>
+	</application>
+</manifest>
