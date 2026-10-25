@@ -1,3 +1,9 @@
+== 1.0.2
+- Todas las pantallas se recorren enteras con TalkBack deslizando a derecha e izquierda: la pantalla se desplaza sola al pasar del último elemento visible. Antes, en la pantalla principal, el permiso avanzado y otras, había que desplazar con dos dedos para llegar al final.
+- Nueva pantalla principal con menú lateral, como en Lector Universal: Inicio dice qué está listo y qué falta, y en Abrir menú (arriba a la izquierda) están Diagnóstico, Copias de TalkBack y de la voz, Permiso avanzado, Asistente de preparación, Pantalla para quien ve, Ajustes, Manual de uso y Acerca de y actualizaciones. Al abrirlo, el foco va a la opción en la que estás; Atrás lo cierra.
+- Buscar actualizaciones, compartir el registro de fallos y los créditos están juntos en Acerca de y actualizaciones.
+- En Ajustes, Actualizaciones, se elige de dónde se actualiza: automático (el servidor de Rescate Accesible y, si falla, GitHub; recomendado), solo el servidor, solo GitHub o un servidor personalizado. La dirección personalizada solo se pide al elegir esa opción.
+
 == 1.0.1
 - Primera versión publicada también en GitHub (github.com/hxebolax/RescateAccesible), con su código fuente.
 - Actualizaciones con respaldo: la app busca primero en el servidor propio y, si no responde o falla, en las versiones publicadas en GitHub. Si la descarga se corta del todo en una fuente, prueba la otra. En las dos se comprueba igual que el archivo es el publicado (tamaño y SHA-256), que es Rescate Accesible, más nueva y con la misma firma.

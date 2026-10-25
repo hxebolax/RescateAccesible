@@ -9,6 +9,7 @@
  */
 package com.xebolax.rescate.rescate
 
+import com.xebolax.rescate.accesibilidad.recorribleConLector
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -316,8 +317,7 @@ class ActividadRescate : AppCompatActivity(), Guia {
 				lista.addView(this, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(8) })
 			}
 		}
-		return ScrollView(this).apply {
-			isFocusable = false
+		return ScrollView(this).recorribleConLector().apply {
 			setBackgroundColor(getColor(R.color.menu_fondo))
 			addView(lista)
 			aplicarMargenes(this)

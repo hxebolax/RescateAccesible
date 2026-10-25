@@ -46,11 +46,14 @@ data class VersionPublicada(
 }
 
 /**
- * Actualizaciones sin tiendas ni Play Services, de dos fuentes:
+ * Actualizaciones sin tiendas ni Play Services, del origen elegido en Ajustes:
  *
- * 1. El servidor propio (Ajustes): `version.json` y `RescateAccesible_v<versión>.apk`.
- * 2. Si el servidor no responde o falla, las releases de GitHub: el mismo
- *    `version.json` subido a la última release y, si no estuviera, su API.
+ * - Automático (lo normal): el servidor propio (`version.json` y
+ *   `RescateAccesible_v<versión>.apk`) y, si no responde o falla, las releases
+ *   de GitHub: el mismo `version.json` subido a la última release y, si no
+ *   estuviera, su API.
+ * - Solo el servidor propio, solo GitHub o un servidor personalizado con la
+ *   misma estructura que el propio.
  *
  * Después se descarga el APK (si se corta, se continúa; si la fuente falla del
  * todo, se prueba la otra) y se comprueba que es el publicado (tamaño y
@@ -73,8 +76,15 @@ object Actualizador {
 	/** Dónde está el APK de [version] en las releases de GitHub (etiqueta v<versión>). */
 	fun baseGitHub(version: String): String = "$GITHUB_WEB/download/v$version"
 
-	/** Dirección del servidor (Ajustes; por defecto la de la compilación). */
-	fun urlBase(contexto: Context): String = Preferencias(contexto).urlActualizaciones
+	/** Dirección del servidor que toca según el origen elegido (null: solo GitHub). */
+	fun urlBase(contexto: Context): String? {
+		val p = Preferencias(contexto)
+		return when (p.origenActualizaciones) {
+			Preferencias.ORIGEN_GITHUB -> null
+			Preferencias.ORIGEN_PERSONALIZADO -> p.urlActualizaciones
+			else -> BuildConfig.URL_ACTUALIZACIONES
+		}
+	}
 
 	/** Carpeta de la caché donde se descarga el APK. */
 	fun carpeta(contexto: Context) = File(contexto.cacheDir, "actualizaciones").apply { mkdirs() }
@@ -104,19 +114,22 @@ object Actualizador {
 	}
 
 	/**
-	 * La versión publicada: primero el servidor propio (con un reintento corto) y,
-	 * si no responde o lo que da no vale, GitHub. Lanza la excepción del servidor
-	 * propio si tampoco se puede con GitHub.
+	 * La versión publicada, según el origen elegido en Ajustes. En automático,
+	 * primero el servidor propio (con un reintento corto) y, si no responde o lo
+	 * que da no vale, GitHub; lanza la excepción del servidor propio si tampoco
+	 * se puede con GitHub. Con un origen fijo, solo ese.
 	 */
 	suspend fun versionPublicada(contexto: Context): VersionPublicada = withContext(Dispatchers.IO) {
-		val base = urlBase(contexto)
+		val origen = Preferencias(contexto).origenActualizaciones
+		val base = urlBase(contexto) ?: return@withContext versionGitHub(contexto)
+		val conGitHub = origen == Preferencias.ORIGEN_AUTOMATICO
 		var fallo: Exception? = null
 		// Dos intentos cortos: es un archivo diminuto y quien busca a mano está esperando
 		for (intento in 1..2) {
 			try {
 				val v = leerVersion(contexto, base, OrigenVersion.SERVIDOR)
 				// El mismo APK en GitHub, por si la descarga del servidor falla después
-				return@withContext v.copy(alternativas = listOf("${baseGitHub(v.version)}/${v.archivo}"))
+				return@withContext if (conGitHub) v.copy(alternativas = listOf("${baseGitHub(v.version)}/${v.archivo}")) else v
 			} catch (e: CancellationException) {
 				throw e
 			} catch (e: Exception) {
@@ -125,6 +138,7 @@ object Actualizador {
 				if (intento == 1 && e is IOException) delay(1500) else break
 			}
 		}
+		if (!conGitHub) throw fallo ?: IOException("Sin respuesta de $base")
 		try {
 			val v = versionGitHub(contexto)
 			Registro.i(ETIQUETA, "Versión ${v.version} encontrada en GitHub (el servidor propio falló)")

@@ -20,6 +20,8 @@
 	<string name="ui_abrir_accesibilidad">Abrir los ajustes de accesibilidad</string>
 
 	<!-- Pantalla principal -->
+	<string name="ui_inicio">Inicio</string>
+	<string name="ui_acerca">Acerca de y actualizaciones</string>
 	<string name="ui_estado">Estado del rescate</string>
 	<string name="ui_estado_listo">El rescate está preparado.</string>
 	<string name="ui_estado_no_listo">Atención: el rescate aún no está preparado. Toca lo que falta para arreglarlo.</string>
@@ -33,13 +35,13 @@
 	<string name="ui_diag_avisos">Avisos</string>
 	<string name="ui_diag_info">Para saber</string>
 	<string name="ui_diag_bien">Lo que funciona bien</string>
-	<string name="ui_herramientas">Herramientas</string>
+	<string name="ui_mas_en_menu">Diagnóstico, copias de TalkBack y de la voz, permiso avanzado, asistente, Ajustes, manual y actualizaciones: en Abrir menú, arriba a la izquierda.</string>
+	<string name="ui_origen_en_ajustes">De dónde se actualiza (el servidor de Rescate Accesible, GitHub o uno personalizado) se elige en Ajustes, Actualizaciones.</string>
 	<string name="ui_copias">Copias de TalkBack y de la voz</string>
 	<string name="ui_permiso">Permiso avanzado</string>
 	<string name="ui_guardar_config">Guardar mi configuración actual</string>
 	<string name="ui_probar_voz">Probar la voz de rescate</string>
 	<string name="ui_ayudante">Pantalla para quien ve</string>
-	<string name="ui_app">La aplicación</string>
 	<string name="ui_ajustes">Ajustes</string>
 	<string name="ui_manual">Manual de uso</string>
 	<string name="ui_buscar_actualizaciones">Buscar actualizaciones</string>
@@ -47,7 +49,6 @@
 	<string name="ui_registro_vacio">El registro está vacío: no ha habido fallos.</string>
 	<string name="ui_registro_asunto">Registro de Rescate Accesible</string>
 	<string name="ui_creditos">Créditos y licencias</string>
-	<string name="ui_version">Versión %1$s</string>
 
 	<!-- Preparación: cada requisito -->
 	<string name="prep_voz">Voz de rescate</string>
@@ -182,7 +183,14 @@
 	<string name="aj_actualizaciones">Actualizaciones</string>
 	<string name="aj_buscar_actualizaciones">Buscar actualizaciones al abrir la app</string>
 	<string name="aj_buscar_actualizaciones_resumen">Como mucho cada pocas horas. Nunca durante un rescate.</string>
-	<string name="aj_servidor">Servidor de actualizaciones</string>
+	<string name="aj_origen">De dónde se actualiza</string>
+	<string name="aj_origen_automatico">Automático: el servidor de Rescate Accesible y, si falla, GitHub (recomendado)</string>
+	<string name="aj_origen_servidor">Solo el servidor de Rescate Accesible</string>
+	<string name="aj_origen_github">Solo GitHub</string>
+	<string name="aj_origen_personalizado">Un servidor personalizado</string>
+	<string name="aj_servidor">Dirección del servidor personalizado</string>
+	<string name="aj_servidor_no_valido">La dirección tiene que empezar por https:// o http://. No se ha cambiado.</string>
+	<string name="aj_servidor_explicacion">La dirección de la carpeta que tiene el version.json y el APK, como la del servidor de Rescate Accesible. Las actualizaciones se comprueban igual: tienen que estar firmadas con la misma clave.</string>
 
 	<!-- Pantalla para quien ve -->
 	<string name="ayu_titulo">Ayuda para quien ve</string>

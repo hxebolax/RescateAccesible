@@ -35,6 +35,8 @@ Está en **español e inglés** y funciona **sin Google Play Services**.
 2. Ábrelo con tu lector funcionando: un **asistente** te explica cada permiso y lo deja todo preparado (atajo, voz, copias, configuración guardada). En Android 13 o posterior, si Android dice que el ajuste de accesibilidad está «restringido», abre la información de la app, menú Más opciones, «Permitir ajustes restringidos».
 3. Practica una vez: mantén pulsadas las dos teclas de volumen y recorre el menú.
 
+La pantalla principal dice qué está listo y qué falta. Todo lo demás (diagnóstico, copias, permiso avanzado, asistente, Ajustes, manual y **Acerca de y actualizaciones**) está en el menú lateral: **Abrir menú**, arriba a la izquierda.
+
 El **manual de uso** completo está dentro de la app y en [`app/src/main/assets/manual-es.html`](app/src/main/assets/manual-es.html).
 
 ### El permiso avanzado (opcional)
@@ -103,7 +105,7 @@ app/src/main/java/com/xebolax/rescate/
   sistema/          servicios y ajustes de accesibilidad, configuración guardada
   permiso/          permiso avanzado (adb, depuración inalámbrica integrada, root, Shizuku)
   tts/              la voz de rescate como motor TTS del sistema
-  actualizaciones/  actualizador desde el servidor propio
+  actualizaciones/  actualizador (servidor propio, GitHub o personalizado)
   ui/, nucleo/, accesibilidad/
 app/src/main/cpp/   SVOX Pico y eSpeak NG con sus puentes JNI (CMake propio, sin descargas)
 docs/               investigación, arquitectura, plan de pruebas, informe de simulaciones, limitaciones, privacidad
@@ -124,7 +126,7 @@ Más detalle en [`docs/arquitectura.md`](docs/arquitectura.md). Las limitaciones
 3. `compilar.bat publicar`: deja el APK y `version.json` (versión, tamaño, SHA-256, novedades) en `dist\` y los copia a la carpeta del servidor de actualizaciones.
 4. Crea la release `v<versión>` en GitHub con los mismos dos archivos (`RescateAccesible_v<versión>.apk` y `version.json`).
 
-La app busca primero en el servidor propio y, si no responde, en la última release de GitHub; si una descarga falla, prueba la otra fuente. En las dos comprueba tamaño, SHA-256, paquete, versión y firma antes de instalar.
+La app busca primero en el servidor propio y, si no responde, en la última release de GitHub; si una descarga falla, prueba la otra fuente. En Ajustes, Actualizaciones, se puede elegir solo el servidor, solo GitHub o un servidor personalizado con la misma estructura (`version.json` y el APK). En todos los casos comprueba tamaño, SHA-256, paquete, versión y firma antes de instalar.
 
 ### Traducir
 

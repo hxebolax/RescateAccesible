@@ -1,5 +1,6 @@
 package com.xebolax.rescate.tts
 
+import com.xebolax.rescate.accesibilidad.recorribleConLector
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -47,8 +48,7 @@ class ActividadAjustesTts : AppCompatActivity() {
 		val raiz = LinearLayout(this).apply {
 			orientation = LinearLayout.VERTICAL
 			addView(barra, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-			addView(ScrollView(this@ActividadAjustesTts).apply {
-				isFocusable = false
+			addView(ScrollView(this@ActividadAjustesTts).recorribleConLector().apply {
 				addView(contenido)
 			}, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
 		}

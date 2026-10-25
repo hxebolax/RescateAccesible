@@ -149,9 +149,17 @@
 			app:summary="@string/aj_buscar_actualizaciones_resumen"
 			app:defaultValue="true"
 			app:iconSpaceReserved="false" />
+		<ListPreference
+			app:key="origen_actualizaciones"
+			app:title="@string/aj_origen"
+			app:entries="@array/origen_nombres"
+			app:entryValues="@array/origen_valores"
+			app:useSimpleSummaryProvider="true"
+			app:iconSpaceReserved="false" />
 		<EditTextPreference
 			app:key="url_actualizaciones"
 			app:title="@string/aj_servidor"
+			app:dialogMessage="@string/aj_servidor_explicacion"
 			app:useSimpleSummaryProvider="true"
 			app:iconSpaceReserved="false" />
 	</PreferenceCategory>

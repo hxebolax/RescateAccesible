@@ -60,7 +60,7 @@ class AccesibilidadTest {
 		"Copias" to { c -> Intent(c, com.xebolax.rescate.reparar.ActividadCopias::class.java) },
 		"Permiso avanzado" to { c -> Intent(c, com.xebolax.rescate.permiso.ActividadPermiso::class.java) },
 		"Pantalla para quien ve" to { c -> Intent(c, com.xebolax.rescate.ui.ActividadAyudante::class.java) },
-		"Créditos" to { c -> Intent(c, com.xebolax.rescate.ui.ActividadCreditos::class.java) },
+		"Acerca de y actualizaciones" to { c -> Intent(c, com.xebolax.rescate.ui.ActividadCreditos::class.java) },
 		"Manual" to { c -> Intent(c, com.xebolax.rescate.ui.ActividadManual::class.java) },
 		"Motor de voz propio" to { c -> Intent(c, com.xebolax.rescate.tts.ActividadAjustesTts::class.java) },
 		"Menú de rescate" to { c -> Intent(c, com.xebolax.rescate.rescate.ActividadRescate::class.java) },
@@ -216,8 +216,19 @@ class AccesibilidadTest {
 	fun recorrerTodo() {
 		abrir(inicio())
 		revisar("Inicio")
-		atras()
-		revisar("Principal")
+		// La primera vez se abre encima el asistente: Atrás lleva a la pantalla principal
+		val menu = app.getString(R.string.abrir_menu)
+		if (raiz()?.findAccessibilityNodeInfosByText(menu).isNullOrEmpty()) {
+			atras()
+			revisar("Principal")
+		}
+		// El menú lateral abierto: el foco entra en él y todas sus opciones tienen nombre
+		raiz()?.findAccessibilityNodeInfosByText(menu)?.firstOrNull { it.isClickable }?.let {
+			it.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+			esperar(1500)
+			revisar("Menú lateral")
+			atras()
+		}
 		for ((titulo, abrirla) in pantallas) {
 			abrir(abrirla(app))
 			revisar(titulo)

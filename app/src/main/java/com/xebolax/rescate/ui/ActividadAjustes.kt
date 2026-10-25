@@ -81,8 +81,24 @@ class ActividadAjustes : ActividadBase() {
 				lista.entryValues = valores.toTypedArray()
 			}
 
-			findPreference<EditTextPreference>(Preferencias.URL_ACTUALIZACIONES)?.let {
+			// La dirección solo se pide (y solo se ve) con un servidor personalizado
+			val prefs = Preferencias(c)
+			val url = findPreference<EditTextPreference>(Preferencias.URL_ACTUALIZACIONES)?.also {
 				if (it.text.isNullOrBlank()) it.text = BuildConfig.URL_ACTUALIZACIONES
+				it.isVisible = prefs.origenActualizaciones == Preferencias.ORIGEN_PERSONALIZADO
+				it.setOnPreferenceChangeListener { _, valor ->
+					val texto = (valor as String).trim()
+					val valida = texto.startsWith("https://") || texto.startsWith("http://")
+					if (!valida) activity?.avisar(getString(R.string.aj_servidor_no_valido))
+					valida
+				}
+			}
+			findPreference<ListPreference>(Preferencias.ORIGEN_ACTUALIZACIONES)?.let { lista ->
+				lista.value = prefs.origenActualizaciones
+				lista.setOnPreferenceChangeListener { _, valor ->
+					url?.isVisible = valor == Preferencias.ORIGEN_PERSONALIZADO
+					true
+				}
 			}
 
 			findPreference<Preference>("probar_voz")?.setOnPreferenceClickListener {

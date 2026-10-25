@@ -1,5 +1,6 @@
 package com.xebolax.rescate.accesibilidad
 
+import android.widget.ScrollView
 import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -132,6 +133,19 @@ fun View.comoBoton() {
 			info.className = Button::class.java.name
 		}
 	})
+}
+
+/**
+ * Deja el contenedor desplazable como lo necesita TalkBack para recorrer la
+ * pantalla entera deslizando a derecha e izquierda: enfocable (como viene de
+ * serie). Si no lo es, TalkBack no lo desplaza al pasar del último elemento
+ * visible y vuelve al principio, y solo se llega al resto desplazando con dos
+ * dedos. No es una parada propia: TalkBack se para en lo de dentro. Sin el
+ * resaltado gris del foco de teclado, que taparía la pantalla entera.
+ */
+fun ScrollView.recorribleConLector(): ScrollView = apply {
+	isFocusable = true
+	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) defaultFocusHighlightEnabled = false
 }
 
 /**

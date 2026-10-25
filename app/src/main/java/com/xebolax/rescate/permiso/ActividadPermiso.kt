@@ -1,5 +1,6 @@
 package com.xebolax.rescate.permiso
 
+import com.xebolax.rescate.accesibilidad.recorribleConLector
 import android.Manifest
 import android.content.Context
 import android.content.Intent
@@ -167,8 +168,7 @@ class ActividadPermiso : AppCompatActivity() {
 		despues.addView(botonApagarDepuracion)
 		contenido.addView(despues)
 
-		val desplazable = ScrollView(this).apply {
-			isFocusable = false
+		val desplazable = ScrollView(this).recorribleConLector().apply {
 			addView(contenido)
 		}
 		val raiz = LinearLayout(this).apply {

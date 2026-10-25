@@ -29,8 +29,8 @@ android {
 		// volumen y el botón de accesibilidad existen desde Android 8.0 (se comprueba en tiempo de ejecución).
 		minSdk = 24
 		targetSdk = 35
-		versionCode = 2
-		versionName = "1.0.1"
+		versionCode = 3
+		versionName = "1.0.2"
 
 		buildConfigField("String", "URL_ACTUALIZACIONES", "\"$urlActualizaciones\"")
 		buildConfigField("boolean", "INCLUIR_ESPEAK", incluirEspeak.toString())

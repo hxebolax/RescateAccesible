@@ -110,9 +110,19 @@ class Preferencias(contexto: Context) {
 		get() = p.getBoolean(BUSCAR_ACTUALIZACIONES, true)
 		set(v) = p.edit().putBoolean(BUSCAR_ACTUALIZACIONES, v).apply()
 
-	/** Dirección del servidor de actualizaciones (version.json y el APK). */
+	/**
+	 * De dónde se actualiza: [ORIGEN_AUTOMATICO] (el servidor de la app y, si
+	 * falla, GitHub), [ORIGEN_SERVIDOR], [ORIGEN_GITHUB] o [ORIGEN_PERSONALIZADO].
+	 * Quien antes de la 1.0.2 había puesto otra dirección sigue con ella.
+	 */
+	var origenActualizaciones: String
+		get() = p.getString(ORIGEN_ACTUALIZACIONES, null)
+			?: if (urlActualizaciones != BuildConfig.URL_ACTUALIZACIONES) ORIGEN_PERSONALIZADO else ORIGEN_AUTOMATICO
+		set(v) = p.edit().putString(ORIGEN_ACTUALIZACIONES, v).apply()
+
+	/** Dirección del servidor personalizado de actualizaciones (version.json y el APK). */
 	var urlActualizaciones: String
-		get() = p.getString(URL_ACTUALIZACIONES, null)?.takeIf { it.isNotBlank() }?.trimEnd('/') ?: BuildConfig.URL_ACTUALIZACIONES
+		get() = p.getString(URL_ACTUALIZACIONES, null)?.takeIf { it.isNotBlank() }?.trim()?.trimEnd('/') ?: BuildConfig.URL_ACTUALIZACIONES
 		set(v) = p.edit().putString(URL_ACTUALIZACIONES, v.trim().trimEnd('/')).apply()
 
 	var ultimaBusquedaActualizacion: Long
@@ -172,6 +182,11 @@ class Preferencias(contexto: Context) {
 		const val GRABACIONES = "grabaciones_hechas"
 		const val BUSCAR_ACTUALIZACIONES = "buscar_actualizaciones"
 		const val URL_ACTUALIZACIONES = "url_actualizaciones"
+		const val ORIGEN_ACTUALIZACIONES = "origen_actualizaciones"
+		const val ORIGEN_AUTOMATICO = "automatico"
+		const val ORIGEN_SERVIDOR = "servidor"
+		const val ORIGEN_GITHUB = "github"
+		const val ORIGEN_PERSONALIZADO = "personalizado"
 		const val ULTIMA_ACTUALIZACION = "ultima_busqueda_actualizacion"
 		const val VERSION_OMITIDA = "version_omitida"
 		const val VERSION_ANTERIOR = "version_anterior"

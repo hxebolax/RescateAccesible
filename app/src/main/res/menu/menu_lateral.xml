@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Menú lateral (cajón de navegación de Material 3, como en Lector Universal).
+	Arriba, los destinos del rescate; tras el divisor, lo general. Ajustes se
+	abre solo desde aquí.
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<group android:id="@+id/grupo_destinos">
+		<item android:id="@+id/lateral_inicio" android:icon="@drawable/ic_inicio" android:title="@string/ui_inicio" />
+		<item android:id="@+id/lateral_diagnostico" android:icon="@drawable/ic_diagnostico" android:title="@string/ui_diagnostico" />
+		<item android:id="@+id/lateral_copias" android:icon="@drawable/ic_copias" android:title="@string/ui_copias" />
+		<item android:id="@+id/lateral_permiso" android:icon="@drawable/ic_permiso" android:title="@string/ui_permiso" />
+		<item android:id="@+id/lateral_asistente" android:icon="@drawable/ic_asistente" android:title="@string/ui_asistente" />
+		<item android:id="@+id/lateral_ayudante" android:icon="@drawable/ic_ayudante" android:title="@string/ui_ayudante" />
+	</group>
+	<group android:id="@+id/grupo_general">
+		<item android:id="@+id/lateral_ajustes" android:icon="@drawable/ic_ajustes" android:title="@string/ui_ajustes" />
+		<item android:id="@+id/lateral_manual" android:icon="@drawable/ic_manual" android:title="@string/ui_manual" />
+		<item android:id="@+id/lateral_acerca" android:icon="@drawable/ic_info" android:title="@string/ui_acerca" />
+	</group>
+</menu>

@@ -38,7 +38,7 @@
 </ul>
 
 <h2 id="preparar">1. Prepararlo (una vez, con tu lector funcionando)</h2>
-<p>La primera vez que abres la app se abre el <strong>asistente de preparación</strong>. Cada paso explica qué hace y por qué. Puedes repetirlo cuando quieras desde la pantalla principal. Los pasos son:</p>
+<p>La primera vez que abres la app se abre el <strong>asistente de preparación</strong>. Cada paso explica qué hace y por qué. Puedes repetirlo cuando quieras desde el menú lateral. Los pasos son:</p>
 <ol>
 	<li><strong>Idioma</strong> de la app (español o inglés), aunque el móvil esté en otro.</li>
 	<li><strong>Probar la voz de rescate</strong> (Pico, y también eSpeak NG). Elige la que prefieras.</li>
@@ -52,7 +52,8 @@
 	<li><strong>Comprobar tu voz del sistema</strong> para recordarla como la que funciona.</li>
 	<li><strong>Guardar tu configuración</strong> para poder volver a ella, y grabar los mensajes de respaldo.</li>
 </ol>
-<p>La pantalla principal dice siempre qué está listo y qué falta. Si falta algo imprescindible, lo avisa arriba del todo. Cada línea es un botón que lo arregla.</p>
+<p>La pantalla principal (Inicio) dice siempre qué está listo y qué falta. Si falta algo imprescindible, lo avisa arriba del todo. Cada línea es un botón que lo arregla. Debajo están Practicar el rescate, Probar la voz de rescate y Guardar mi configuración actual. Se recorre entera deslizando a derecha e izquierda.</p>
+<p>Todo lo demás está en el <strong>menú lateral</strong>: el botón <strong>Abrir menú</strong>, arriba a la izquierda (o deslizar desde el borde izquierdo). Al abrirlo, el foco va a la opción en la que estás. Arriba: Inicio, Diagnóstico, Copias de TalkBack y de la voz, Permiso avanzado, Asistente de preparación y Pantalla para quien ve. Después: Ajustes, Manual de uso y <strong>Acerca de y actualizaciones</strong> (la versión, Buscar actualizaciones, Compartir el registro de fallos y los créditos y licencias). Atrás cierra el menú.</p>
 
 <h2 id="abrir">2. Cómo se abre el rescate</h2>
 <ul>
@@ -136,7 +137,7 @@
 <p>Además, la app se ofrece como <strong>motor de voz del sistema</strong> («Voz de rescate (Pico)»). Así TalkBack puede usar siempre una voz que está instalada y funciona sin Internet.</p>
 
 <h2 id="permiso">7. El permiso avanzado</h2>
-<p>Android solo deja que una app active o desactive lectores, cambie el motor de voz o restaure la configuración con el permiso <code>WRITE_SECURE_SETTINGS</code>, que se concede una vez. Es la solución de Shortcut Menu. Formas de concederlo (Permiso avanzado, en la pantalla principal):</p>
+<p>Android solo deja que una app active o desactive lectores, cambie el motor de voz o restaure la configuración con el permiso <code>WRITE_SECURE_SETTINGS</code>, que se concede una vez. Es la solución de Shortcut Menu. Formas de concederlo (Permiso avanzado, en el menú lateral):</p>
 <ul>
 	<li><strong>Desde el propio móvil</strong> (Android 11 o posterior, con wifi): activa las opciones de desarrollador, la depuración inalámbrica y «Vincular dispositivo con código de vinculación»; la app se vincula a sí misma y se concede el permiso. Después puedes apagar la depuración inalámbrica.</li>
 	<li><strong>Con un ordenador</strong>: <code>adb shell pm grant com.xebolax.rescate android.permission.WRITE_SECURE_SETTINGS</code></li>
@@ -154,7 +155,7 @@
 <h2 id="privacidad">10. Privacidad y permisos</h2>
 <ul>
 	<li>Nada de lo que lee la app se guarda, se registra ni se envía. El registro de fallos solo tiene datos técnicos.</li>
-	<li>La app solo se conecta a Internet cuando buscas actualizaciones (servidor propio, configurable en Ajustes) o vinculas la depuración inalámbrica (solo dentro del móvil).</li>
+	<li>La app solo se conecta a Internet cuando buscas actualizaciones (el servidor de Rescate Accesible y, si falla, GitHub; o el origen que elijas en Ajustes, Actualizaciones: solo el servidor, solo GitHub o un servidor personalizado) o vinculas la depuración inalámbrica (solo dentro del móvil).</li>
 	<li>No usa servicios de Google ni Play Services: funciona en móviles sin ellos.</li>
 	<li>Permisos: accesibilidad (control total, para leer con su voz y guiar), instalar aplicaciones (reinstalar copias y actualizarse; siempre confirma el usuario), notificaciones (avisos del guardián), batería (para que Android no la cierre), vibración y el permiso avanzado opcional.</li>
 </ul>

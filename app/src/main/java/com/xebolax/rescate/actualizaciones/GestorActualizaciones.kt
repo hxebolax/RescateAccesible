@@ -121,7 +121,7 @@ class GestorActualizaciones(private val actividad: AppCompatActivity) {
 		val texto = buildString {
 			append(actividad.getString(R.string.act_texto, BuildConfig.VERSION_NAME, v.version))
 			if (v.tamano > 0) append(" ").append(actividad.getString(R.string.act_tamano, tamano(v.tamano)))
-			if (v.origen == OrigenVersion.GITHUB) append(" ").append(actividad.getString(R.string.act_desde_github))
+			if (v.origen == OrigenVersion.GITHUB && prefs.origenActualizaciones == Preferencias.ORIGEN_AUTOMATICO) append(" ").append(actividad.getString(R.string.act_desde_github))
 			if (v.notas.isNotBlank()) append("\n\n").append(actividad.getString(R.string.act_novedades)).append("\n").append(v.notas)
 		}
 		val dialogo = MaterialAlertDialogBuilder(actividad)

@@ -64,6 +64,7 @@ Reglas:
 
 - El orden en que TalkBack recorre la pantalla es el del árbol de vistas. **Reestructura el diseño** para que coincida con el orden visual antes de recurrir a `accessibilityTraversalBefore` o `accessibilityTraversalAfter`; si los usas, sin ciclos.
 - `start` y `end` en lugar de `left` y `right`, para que el orden también sea correcto en idiomas de derecha a izquierda.
+- **Nunca `isFocusable = false` en un `ScrollView` o `NestedScrollView`** (ni `android:focusable="false"`). TalkBack solo desplaza solo un contenedor enfocable: si no lo es, al deslizar a la derecha desde el último elemento visible vuelve al principio y el resto de la pantalla solo se alcanza desplazando con dos dedos. Déjalo enfocable, como viene de serie (no es una parada propia: TalkBack se para en lo de dentro), y quita el resaltado de foco de teclado con `defaultFocusHighlightEnabled = false` (API 26 y posteriores). Comprobado con TalkBack 15 en el emulador.
 
 ## Nada oculto que se lea, nada visible que no se lea (P0 12)
 

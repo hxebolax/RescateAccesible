@@ -7,6 +7,7 @@
 | Unitarias (JVM) | PC | Lista de servicios y modo seguro (de Shortcut Menu), nombres, pulsaciones rápidas, voz Pico por idioma, marcado y frases, µ-law, remuestreo, pitidos, filas del menú, versiones, fuentes de actualización (servidor propio y GitHub), reglas de diagnóstico, comparación de instantáneas, textos de pantalla | `compilar.bat` opción 7 (`testDebugUnitTest`) |
 | Voces | Emulador | Pico con es-ES, en-US y en-GB; eSpeak NG en es, en-US y en-GB; el motor propio usado por el sistema (es y en); grabaciones | `herramientas\emulador_pruebas.ps1 -Que voz` |
 | Accesibilidad | Emulador | Recorrido de todas las pantallas y del menú de rescate con el Accessibility Test Framework (nombres, objetivos de 48 dp, contraste, duplicados) | `-Que accesibilidad` |
+| Recorrido con TalkBack de verdad | Emulador | Cada pantalla de principio a fin moviendo el foco de TalkBack con el teclado físico o deslizando (eventos del kernel, no `adb input`): que se desplaza sola y no se queda a medias | `python herramientasecorrido_talkback.py 40` con la pantalla abierta |
 | Simulación de averías | Emulador | 15 escenarios: se rompe algo de verdad, se arregla con la app como una persona ciega y se comprueba el estado real | `compilar.bat` opción 8; informe en la app (Ajustes) y en `docs/informe_simulaciones.md` |
 
 La simulación **nunca** se pasa en un móvil real: cambia servicios y ajustes de accesibilidad.
@@ -54,6 +55,7 @@ Fabricantes: Google Pixel (Android puro), Samsung (One UI, TalkBack y TTS propio
 | Prueba | Resultado |
 |---|---|
 | Unitarias (6 clases) | 42 de 42 superadas |
+| Recorrido con TalkBack de verdad (1.0.2) | Inicio, menú lateral, Diagnóstico, Copias, Permiso avanzado, Asistente, Pantalla para quien ve, Ajustes, voz de rescate, Acerca de y menú de rescate: todas de principio a fin |
 | Voces nativas, motor propio del sistema y grabaciones | 5 de 5 superadas |
 | Recorrido de accesibilidad de todas las pantallas (ATF) | sin errores ni avisos |
 | Simulación de averías | 15 de 15 escenarios, 61 de 61 comprobaciones |

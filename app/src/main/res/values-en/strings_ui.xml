@@ -16,6 +16,8 @@
 	<string name="ui_no_se_abre">That screen could not be opened on this phone.</string>
 	<string name="ui_abrir_accesibilidad">Open accessibility settings</string>
 
+	<string name="ui_inicio">Home</string>
+	<string name="ui_acerca">About and updates</string>
 	<string name="ui_estado">Rescue status</string>
 	<string name="ui_estado_listo">The rescue is ready.</string>
 	<string name="ui_estado_no_listo">Attention: the rescue is not ready yet. Tap what is missing to fix it.</string>
@@ -29,13 +31,13 @@
 	<string name="ui_diag_avisos">Warnings</string>
 	<string name="ui_diag_info">Good to know</string>
 	<string name="ui_diag_bien">What works well</string>
-	<string name="ui_herramientas">Tools</string>
+	<string name="ui_mas_en_menu">Diagnosis, TalkBack and voice backups, advanced permission, assistant, Settings, manual and updates: in Open menu, at the top left.</string>
+	<string name="ui_origen_en_ajustes">Where updates come from (the Accessible Rescue server, GitHub or a custom one) is chosen in Settings, Updates.</string>
 	<string name="ui_copias">Backups of TalkBack and the voice</string>
 	<string name="ui_permiso">Advanced permission</string>
 	<string name="ui_guardar_config">Save my current settings</string>
 	<string name="ui_probar_voz">Test the rescue voice</string>
 	<string name="ui_ayudante">Screen for a sighted helper</string>
-	<string name="ui_app">The app</string>
 	<string name="ui_ajustes">Settings</string>
 	<string name="ui_manual">User guide</string>
 	<string name="ui_buscar_actualizaciones">Check for updates</string>
@@ -43,7 +45,6 @@
 	<string name="ui_registro_vacio">The log is empty: there have been no errors.</string>
 	<string name="ui_registro_asunto">Accessible Rescue log</string>
 	<string name="ui_creditos">Credits and licenses</string>
-	<string name="ui_version">Version %1$s</string>
 
 	<string name="prep_voz">Rescue voice</string>
 	<string name="prep_voz_ok">the built-in rescue voice is available</string>
@@ -175,7 +176,14 @@
 	<string name="aj_actualizaciones">Updates</string>
 	<string name="aj_buscar_actualizaciones">Check for updates when the app opens</string>
 	<string name="aj_buscar_actualizaciones_resumen">At most every few hours. Never during a rescue.</string>
-	<string name="aj_servidor">Update server</string>
+	<string name="aj_origen">Where updates come from</string>
+	<string name="aj_origen_automatico">Automatic: the Accessible Rescue server and, if it fails, GitHub (recommended)</string>
+	<string name="aj_origen_servidor">Only the Accessible Rescue server</string>
+	<string name="aj_origen_github">Only GitHub</string>
+	<string name="aj_origen_personalizado">A custom server</string>
+	<string name="aj_servidor">Custom server address</string>
+	<string name="aj_servidor_no_valido">The address must start with https:// or http://. It has not been changed.</string>
+	<string name="aj_servidor_explicacion">The address of the folder with version.json and the APK, like the Accessible Rescue server. Updates are checked the same way: they must be signed with the same key.</string>
 
 	<string name="ayu_titulo">Help for a sighted helper</string>
 	<string name="ayu_intro">Hello. The person who uses this phone is blind, and their screen reader or voice has stopped working. This screen explains how to help. Brightness is at maximum.</string>

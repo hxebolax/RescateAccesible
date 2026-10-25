@@ -2,21 +2,17 @@ package com.xebolax.rescate.ui
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.core.content.FileProvider
-import com.xebolax.rescate.BuildConfig
 import com.xebolax.rescate.R
-import com.xebolax.rescate.accesibilidad.mensaje
 import com.xebolax.rescate.actualizaciones.GestorActualizaciones
 import com.xebolax.rescate.nucleo.Preferencias
-import com.xebolax.rescate.nucleo.Registro
 import com.xebolax.rescate.permiso.ActividadPermiso
 import com.xebolax.rescate.reparar.ActividadCopias
-import java.io.File
 
 /**
  * Pantalla principal (modo Preparación): qué falta para que el rescate esté
- * listo, con cada cosa como un botón que la arregla, y el acceso a todo lo demás.
- * La primera vez lleva al asistente de preparación.
+ * listo, con cada cosa como un botón que la arregla, y lo que se usa a menudo.
+ * Todo lo demás está en el menú lateral («Abrir menú», arriba a la izquierda),
+ * como en Lector Universal. La primera vez lleva al asistente de preparación.
  */
 class ActividadPrincipal : ActividadBase() {
 	private lateinit var p: Pantalla
@@ -27,7 +23,7 @@ class ActividadPrincipal : ActividadBase() {
 		super.onCreate(estado)
 		actualizaciones = GestorActualizaciones(this)
 		acciones = AccionesPreparacion(this) { construir() }
-		p = pantalla(getString(R.string.app_name), conArriba = false)
+		p = pantalla(getString(R.string.app_name), destinoActual = R.id.lateral_inicio) { abrir(it) }
 		if (!Preferencias(this).asistenteCompletado && estado == null) {
 			startActivity(Intent(this, ActividadAsistente::class.java))
 		}
@@ -52,45 +48,24 @@ class ActividadPrincipal : ActividadBase() {
 		p.encabezado(getString(R.string.ui_rescate))
 		p.boton(getString(R.string.ui_ensayar)) { acciones.ensayar() }
 		p.parrafo(getString(R.string.ui_ensayar_explicacion))
-		p.boton(getString(R.string.ui_asistente)) { startActivity(Intent(this, ActividadAsistente::class.java)) }
-		p.boton(getString(R.string.ui_diagnostico)) { startActivity(Intent(this, ActividadDiagnostico::class.java)) }
-
-		p.encabezado(getString(R.string.ui_herramientas))
-		p.boton(getString(R.string.ui_copias)) { startActivity(Intent(this, ActividadCopias::class.java)) }
-		p.boton(getString(R.string.ui_permiso)) { startActivity(Intent(this, ActividadPermiso::class.java)) }
-		p.boton(getString(R.string.ui_guardar_config)) { acciones.guardarConfiguracion() }
 		p.boton(getString(R.string.ui_probar_voz)) { acciones.probarVozRescate() }
-		p.boton(getString(R.string.ui_ayudante)) { startActivity(Intent(this, ActividadAyudante::class.java)) }
-
-		p.encabezado(getString(R.string.ui_app))
-		p.boton(getString(R.string.ui_ajustes)) { startActivity(Intent(this, ActividadAjustes::class.java)) }
-		p.boton(getString(R.string.ui_manual)) { startActivity(Intent(this, ActividadManual::class.java)) }
-		p.boton(getString(R.string.ui_buscar_actualizaciones)) { actualizaciones.comprobarAMano() }
-		p.boton(getString(R.string.ui_compartir_registro)) { compartirRegistro() }
-		p.boton(getString(R.string.ui_creditos)) { startActivity(Intent(this, ActividadCreditos::class.java)) }
-		p.parrafo(getString(R.string.ui_version, BuildConfig.VERSION_NAME))
+		p.boton(getString(R.string.ui_guardar_config)) { acciones.guardarConfiguracion() }
+		p.parrafo(getString(R.string.ui_mas_en_menu))
 	}
 
-	/** Comparte el registro técnico (sin datos privados) para enviar un informe. */
-	private fun compartirRegistro() {
-		val texto = Registro.cabecera(BuildConfig.VERSION_NAME) + Registro.texto()
-		if (texto.isBlank()) {
-			mensaje(getString(R.string.ui_compartir_registro), getString(R.string.ui_registro_vacio))
-			return
+	/** Las opciones del menú lateral. Inicio es esta pantalla: no hace falta abrir nada. */
+	private fun abrir(opcion: Int) {
+		val destino = when (opcion) {
+			R.id.lateral_diagnostico -> ActividadDiagnostico::class.java
+			R.id.lateral_copias -> ActividadCopias::class.java
+			R.id.lateral_permiso -> ActividadPermiso::class.java
+			R.id.lateral_asistente -> ActividadAsistente::class.java
+			R.id.lateral_ayudante -> ActividadAyudante::class.java
+			R.id.lateral_ajustes -> ActividadAjustes::class.java
+			R.id.lateral_manual -> ActividadManual::class.java
+			R.id.lateral_acerca -> ActividadCreditos::class.java
+			else -> return
 		}
-		try {
-			val archivo = File(File(cacheDir, "compartir").apply { mkdirs() }, "registro-rescate.txt")
-			archivo.writeText(texto)
-			val uri = FileProvider.getUriForFile(this, "$packageName.archivos", archivo)
-			val intent = Intent(Intent.ACTION_SEND)
-				.setType("text/plain")
-				.putExtra(Intent.EXTRA_STREAM, uri)
-				.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.ui_registro_asunto))
-				.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-			startActivity(Intent.createChooser(intent, getString(R.string.ui_compartir_registro)))
-		} catch (e: Exception) {
-			Registro.e("Principal", "No se pudo compartir el registro", e)
-			mensaje(getString(R.string.ui_compartir_registro), getString(R.string.ui_no_se_abre))
-		}
+		startActivity(Intent(this, destino))
 	}
 }

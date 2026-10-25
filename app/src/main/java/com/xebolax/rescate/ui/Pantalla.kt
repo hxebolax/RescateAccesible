@@ -18,6 +18,8 @@ import com.google.android.material.card.MaterialCardView
 import com.xebolax.rescate.R
 import com.xebolax.rescate.accesibilidad.configurarBarra
 import com.xebolax.rescate.accesibilidad.dp
+import com.xebolax.rescate.accesibilidad.ponerMenuLateral
+import com.xebolax.rescate.accesibilidad.recorribleConLector
 import com.xebolax.rescate.nucleo.Idioma
 
 /**
@@ -30,8 +32,12 @@ abstract class ActividadBase : AppCompatActivity() {
 		super.attachBaseContext(Idioma.envolver(base))
 	}
 
-	/** Crea la pantalla con barra y contenido desplazable; devuelve el contenedor donde se añaden las cosas. */
-	protected fun pantalla(titulo: String, conArriba: Boolean = true): Pantalla {
+	/**
+	 * Crea la pantalla con barra y contenido desplazable; devuelve el contenedor
+	 * donde se añaden las cosas. Con [alElegirEnMenu], la barra lleva «Abrir
+	 * menú» con el menú lateral, en el que [destinoActual] es la opción actual.
+	 */
+	protected fun pantalla(titulo: String, conArriba: Boolean = true, destinoActual: Int = 0, alElegirEnMenu: ((Int) -> Unit)? = null): Pantalla {
 		enableEdgeToEdge()
 		val raiz = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
 		val barra = MaterialToolbar(this)
@@ -41,15 +47,19 @@ abstract class ActividadBase : AppCompatActivity() {
 			val m = dp(this@ActividadBase, 16)
 			setPadding(m, m / 2, m, m)
 		}
-		val desplazable = ScrollView(this).apply {
+		val desplazable = ScrollView(this).recorribleConLector().apply {
 			isFillViewport = true
-			// El contenedor no se enfoca: así cada texto de dentro es una parada propia para el lector
-			isFocusable = false
 			addView(contenido)
 		}
 		raiz.addView(desplazable, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
-		setContentView(raiz)
-		configurarBarra(barra, titulo, conArriba)
+		if (alElegirEnMenu != null) {
+			// La barra se configura antes del menú lateral: si no, «Abrir menú» no abriría el cajón
+			configurarBarra(barra, titulo, conArriba = false)
+			setContentView(ponerMenuLateral(raiz, barra, R.menu.menu_lateral, destinoActual, R.drawable.ic_menu, alElegirEnMenu))
+		} else {
+			setContentView(raiz)
+			configurarBarra(barra, titulo, conArriba)
+		}
 		ViewCompat.setOnApplyWindowInsetsListener(raiz) { v, insets ->
 			val barras = insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout() or WindowInsetsCompat.Type.ime())
 			v.updatePadding(left = barras.left, top = barras.top, right = barras.right, bottom = barras.bottom)
